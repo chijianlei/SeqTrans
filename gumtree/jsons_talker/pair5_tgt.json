@@ -1,0 +1,73 @@
+{
+	"root": {
+		"type": "113101617",
+		"typeLabel": "while",
+		"pos": "327",
+		"length": "259",
+		"children": [
+			{
+				"type": "-861311717",
+				"typeLabel": "condition",
+				"pos": "327",
+				"length": "15",
+				"children": [
+					{
+						"type": "3127797",
+						"typeLabel": "expr",
+						"pos": "328",
+						"length": "13",
+						"children": [
+							{
+								"type": "3045982",
+								"typeLabel": "call",
+								"pos": "328",
+								"length": "13",
+								"children": [
+									{
+										"type": "3373707",
+										"typeLabel": "name",
+										"pos": "328",
+										"length": "11",
+										"children": [
+											{
+												"type": "3373707",
+												"label": "rclcpp",
+												"typeLabel": "name",
+												"pos": "328",
+												"length": "7",
+												"children": []
+											},
+											{
+												"type": "-500553564",
+												"label": "::",
+												"typeLabel": "operator",
+												"pos": "334",
+												"length": "3",
+												"children": []
+											},
+											{
+												"type": "3373707",
+												"label": "ok",
+												"typeLabel": "name",
+												"pos": "336",
+												"length": "3",
+												"children": []
+											}
+										]
+									},
+									{
+										"type": "-40060704",
+										"typeLabel": "argument_list",
+										"pos": "338",
+										"length": "3",
+										"children": []
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

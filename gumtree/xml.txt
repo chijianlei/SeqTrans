@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="1.0.0" language="C++" filename="D:\workspace\eclipse2018\gumtree\talker.cpp"><cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;sstream&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>"ros/ros.h"</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>"std_msgs/String.h"</cpp:file></cpp:include>
+<function><type><name>int</name></type> <name>main</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>argc</name></decl></parameter>, <parameter><decl><type><name>char</name> <modifier>*</modifier><modifier>*</modifier></type><name>argv</name></decl></parameter>)</parameter_list>
+<block>{<block_content>
+  <expr_stmt><expr><call><name><name>ros</name><operator>::</operator><name>init</name></name><argument_list>(<argument><expr><name>argc</name></expr></argument>, <argument><expr><name>argv</name></expr></argument>, <argument><expr><literal type="string">"talker"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  <expr_stmt><expr><call><name><name>ros</name><operator>::</operator><name>init</name></name><argument_list>(<argument><expr><name>argc</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  <decl_stmt><decl><type><name><name>ros</name><operator>::</operator><name>NodeHandle</name></name></type> <name>n</name></decl>;</decl_stmt>
+  <decl_stmt><decl><type><name><name>ros</name><operator>::</operator><name>Publisher</name></name></type> <name>chatter_pub</name> <init>= <expr><call><name><name>n</name><operator>.</operator><name>advertise</name><argument_list type="generic">&lt;<argument><expr><name><name>std_msgs</name><operator>::</operator><name>String</name></name></expr></argument>&gt;</argument_list></name><argument_list>(<argument><expr><literal type="string">"chatter"</literal></expr></argument>, <argument><expr><literal type="number">1000</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+  <decl_stmt><decl><type><name><name>ros</name><operator>::</operator><name>Rate</name></name></type> <name>loop_rate</name><argument_list>(<argument><expr><literal type="number">10</literal></expr></argument>)</argument_list></decl>;</decl_stmt>
+  <decl_stmt><decl><type><name>int</name></type> <name>count</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+  <decl_stmt><decl><type><name><name>std_msgs</name><operator>::</operator><name>String</name></name></type> <name>msg</name></decl>;</decl_stmt>
+  <while>while <condition>(<expr><call><name><name>ros</name><operator>::</operator><name>ok</name></name><argument_list>()</argument_list></call></expr>)</condition>
+  <block>{<block_content>
+    <decl_stmt><decl><type><name><name>std</name><operator>::</operator><name>stringstream</name></name></type> <name>ss</name></decl>;</decl_stmt>
+    <expr_stmt><expr><name>ss</name> <operator>&lt;&lt;</operator> <literal type="string">"hello world "</literal> <operator>&lt;&lt;</operator> <name>count</name><operator>++</operator></expr>;</expr_stmt>
+    <expr_stmt><expr><name><name>msg</name><operator>.</operator><name>data</name></name> <operator>=</operator> <call><name><name>ss</name><operator>.</operator><name>str</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>ROS_INFO</name><argument_list>(<argument><expr><literal type="string">"%s"</literal></expr></argument>, <argument><expr><call><name><name>msg</name><operator>.</operator><name>data</name><operator>.</operator><name>c_str</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name><name>chatter_pub</name><operator>.</operator><name>publish</name></name><argument_list>(<argument><expr><name>msg</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name><name>ros</name><operator>::</operator><name>spinOnce</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name><name>loop_rate</name><operator>.</operator><name>sleep</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+  </block_content>}</block></while>
+  <return>return <expr><literal type="number">0</literal></expr>;</return>
+</block_content>}</block></function>
+</unit>

@@ -1,0 +1,114 @@
+{
+	"root": {
+		"type": "490731474",
+		"typeLabel": "expr_stmt",
+		"pos": "35",
+		"length": "25",
+		"children": [
+			{
+				"type": "3127797",
+				"typeLabel": "expr",
+				"pos": "35",
+				"length": "25",
+				"children": [
+					{
+						"type": "3045982",
+						"typeLabel": "call",
+						"pos": "35",
+						"length": "25",
+						"children": [
+							{
+								"type": "3373707",
+								"typeLabel": "name",
+								"pos": "35",
+								"length": "13",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "rclcpp",
+										"typeLabel": "name",
+										"pos": "35",
+										"length": "7",
+										"children": []
+									},
+									{
+										"type": "-500553564",
+										"label": "::",
+										"typeLabel": "operator",
+										"pos": "41",
+										"length": "3",
+										"children": []
+									},
+									{
+										"type": "3373707",
+										"label": "init",
+										"typeLabel": "name",
+										"pos": "43",
+										"length": "5",
+										"children": []
+									}
+								]
+							},
+							{
+								"type": "-40060704",
+								"typeLabel": "argument_list",
+								"pos": "47",
+								"length": "13",
+								"children": [
+									{
+										"type": "-1589682499",
+										"typeLabel": "argument",
+										"pos": "48",
+										"length": "5",
+										"children": [
+											{
+												"type": "3127797",
+												"typeLabel": "expr",
+												"pos": "48",
+												"length": "5",
+												"children": [
+													{
+														"type": "3373707",
+														"label": "argc",
+														"typeLabel": "name",
+														"pos": "48",
+														"length": "5",
+														"children": []
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "-1589682499",
+										"typeLabel": "argument",
+										"pos": "54",
+										"length": "5",
+										"children": [
+											{
+												"type": "3127797",
+												"typeLabel": "expr",
+												"pos": "54",
+												"length": "5",
+												"children": [
+													{
+														"type": "3373707",
+														"label": "argv",
+														"typeLabel": "name",
+														"pos": "54",
+														"length": "5",
+														"children": []
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

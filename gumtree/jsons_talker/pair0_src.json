@@ -1,0 +1,312 @@
+{
+	"root": {
+		"type": "0",
+		"typeLabel": "Block",
+		"children": [
+			{
+				"type": "425139773",
+				"typeLabel": "decl_stmt",
+				"pos": "60",
+				"length": "18",
+				"children": [
+					{
+						"type": "3079338",
+						"typeLabel": "decl",
+						"pos": "60",
+						"length": "18",
+						"children": [
+							{
+								"type": "3575610",
+								"typeLabel": "type",
+								"pos": "60",
+								"length": "16",
+								"children": [
+									{
+										"type": "3373707",
+										"typeLabel": "name",
+										"pos": "60",
+										"length": "16",
+										"children": [
+											{
+												"type": "3373707",
+												"label": "ros",
+												"typeLabel": "name",
+												"pos": "60",
+												"length": "4",
+												"children": []
+											},
+											{
+												"type": "-500553564",
+												"label": "::",
+												"typeLabel": "operator",
+												"pos": "63",
+												"length": "3",
+												"children": []
+											},
+											{
+												"type": "3373707",
+												"label": "NodeHandle",
+												"typeLabel": "name",
+												"pos": "65",
+												"length": "11",
+												"children": []
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "3373707",
+								"label": "var",
+								"typeLabel": "name",
+								"pos": "76",
+								"length": "2",
+								"children": []
+							}
+						]
+					}
+				]
+			},
+			{
+				"type": "425139773",
+				"typeLabel": "decl_stmt",
+				"pos": "81",
+				"length": "76",
+				"children": [
+					{
+						"type": "3079338",
+						"typeLabel": "decl",
+						"pos": "81",
+						"length": "76",
+						"children": [
+							{
+								"type": "3575610",
+								"typeLabel": "type",
+								"pos": "81",
+								"length": "15",
+								"children": [
+									{
+										"type": "3373707",
+										"typeLabel": "name",
+										"pos": "81",
+										"length": "15",
+										"children": [
+											{
+												"type": "3373707",
+												"label": "ros",
+												"typeLabel": "name",
+												"pos": "81",
+												"length": "4",
+												"children": []
+											},
+											{
+												"type": "-500553564",
+												"label": "::",
+												"typeLabel": "operator",
+												"pos": "84",
+												"length": "3",
+												"children": []
+											},
+											{
+												"type": "3373707",
+												"label": "Publisher",
+												"typeLabel": "name",
+												"pos": "86",
+												"length": "10",
+												"children": []
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "3373707",
+								"label": "var",
+								"typeLabel": "name",
+								"pos": "96",
+								"length": "12",
+								"children": []
+							},
+							{
+								"type": "3237136",
+								"typeLabel": "init",
+								"pos": "110",
+								"length": "47",
+								"children": [
+									{
+										"type": "3127797",
+										"typeLabel": "expr",
+										"pos": "110",
+										"length": "47",
+										"children": [
+											{
+												"type": "3045982",
+												"typeLabel": "call",
+												"pos": "110",
+												"length": "47",
+												"children": [
+													{
+														"type": "3373707",
+														"typeLabel": "name",
+														"pos": "110",
+														"length": "33",
+														"children": [
+															{
+																"type": "3373707",
+																"label": "var",
+																"typeLabel": "name",
+																"pos": "110",
+																"length": "2",
+																"children": []
+															},
+															{
+																"type": "-500553564",
+																"label": ".",
+																"typeLabel": "operator",
+																"pos": "111",
+																"length": "2",
+																"children": []
+															},
+															{
+																"type": "3373707",
+																"typeLabel": "name",
+																"pos": "112",
+																"length": "31",
+																"children": [
+																	{
+																		"type": "3373707",
+																		"label": "advertise",
+																		"typeLabel": "name",
+																		"pos": "112",
+																		"length": "10",
+																		"children": []
+																	},
+																	{
+																		"type": "-40060704",
+																		"typeLabel": "argument_list",
+																		"pos": "121",
+																		"length": "22",
+																		"children": [
+																			{
+																				"type": "-1589682499",
+																				"typeLabel": "argument",
+																				"pos": "122",
+																				"length": "17",
+																				"children": [
+																					{
+																						"type": "3127797",
+																						"typeLabel": "expr",
+																						"pos": "122",
+																						"length": "17",
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"typeLabel": "name",
+																								"pos": "122",
+																								"length": "17",
+																								"children": [
+																									{
+																										"type": "3373707",
+																										"label": "std_msgs",
+																										"typeLabel": "name",
+																										"pos": "122",
+																										"length": "9",
+																										"children": []
+																									},
+																									{
+																										"type": "-500553564",
+																										"label": "::",
+																										"typeLabel": "operator",
+																										"pos": "130",
+																										"length": "3",
+																										"children": []
+																									},
+																									{
+																										"type": "3373707",
+																										"label": "String",
+																										"typeLabel": "name",
+																										"pos": "132",
+																										"length": "7",
+																										"children": []
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													},
+													{
+														"type": "-40060704",
+														"typeLabel": "argument_list",
+														"pos": "139",
+														"length": "18",
+														"children": [
+															{
+																"type": "-1589682499",
+																"typeLabel": "argument",
+																"pos": "140",
+																"length": "10",
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"pos": "140",
+																		"length": "10",
+																		"children": [
+																			{
+																				"type": "182460591",
+																				"label": "stringliteral",
+																				"typeLabel": "literal",
+																				"pos": "140",
+																				"length": "10",
+																				"children": []
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "-1589682499",
+																"typeLabel": "argument",
+																"pos": "151",
+																"length": "5",
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"pos": "151",
+																		"length": "5",
+																		"children": [
+																			{
+																				"type": "182460591",
+																				"label": "intliteral",
+																				"typeLabel": "literal",
+																				"pos": "151",
+																				"length": "5",
+																				"children": []
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

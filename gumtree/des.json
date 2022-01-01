@@ -1,0 +1,1683 @@
+{
+	"root": {
+		"type": "3594628",
+		"typeLabel": "unit",
+		"id": 240,
+		"children": [
+			{
+				"type": "1942574248",
+				"typeLabel": "include",
+				"id": 2,
+				"children": [
+					{
+						"type": "-962590641",
+						"label": "#include",
+						"typeLabel": "directive",
+						"id": 0,
+						"children": []
+					},
+					{
+						"type": "3143036",
+						"label": "<sstream>",
+						"typeLabel": "file",
+						"id": 1,
+						"children": []
+					}
+				]
+			},
+			{
+				"type": "1942574248",
+				"typeLabel": "include",
+				"id": 5,
+				"children": [
+					{
+						"type": "-962590641",
+						"label": "#include",
+						"typeLabel": "directive",
+						"id": 3,
+						"children": []
+					},
+					{
+						"type": "3143036",
+						"label": "\"rclcpp/rclcpp.hpp\"",
+						"typeLabel": "file",
+						"id": 4,
+						"children": []
+					}
+				]
+			},
+			{
+				"type": "1942574248",
+				"typeLabel": "include",
+				"id": 8,
+				"children": [
+					{
+						"type": "-962590641",
+						"label": "#include",
+						"typeLabel": "directive",
+						"id": 6,
+						"children": []
+					},
+					{
+						"type": "3143036",
+						"label": "\"std_msgs/msg/string.hpp\"",
+						"typeLabel": "file",
+						"id": 7,
+						"children": []
+					}
+				]
+			},
+			{
+				"type": "1380938712",
+				"typeLabel": "function",
+				"id": 239,
+				"children": [
+					{
+						"type": "3575610",
+						"typeLabel": "type",
+						"id": 10,
+						"children": [
+							{
+								"type": "3373707",
+								"label": "int",
+								"typeLabel": "name",
+								"id": 9,
+								"children": []
+							}
+						]
+					},
+					{
+						"type": "3373707",
+						"label": "main",
+						"typeLabel": "name",
+						"id": 11,
+						"children": []
+					},
+					{
+						"type": "1133090676",
+						"typeLabel": "parameter_list",
+						"id": 24,
+						"children": [
+							{
+								"type": "1954460585",
+								"typeLabel": "parameter",
+								"id": 16,
+								"children": [
+									{
+										"type": "3079338",
+										"typeLabel": "decl",
+										"id": 15,
+										"children": [
+											{
+												"type": "3575610",
+												"typeLabel": "type",
+												"id": 13,
+												"children": [
+													{
+														"type": "3373707",
+														"label": "int",
+														"typeLabel": "name",
+														"id": 12,
+														"children": []
+													}
+												]
+											},
+											{
+												"type": "3373707",
+												"label": "argc",
+												"typeLabel": "name",
+												"id": 14,
+												"children": []
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "1954460585",
+								"typeLabel": "parameter",
+								"id": 23,
+								"children": [
+									{
+										"type": "3079338",
+										"typeLabel": "decl",
+										"id": 22,
+										"children": [
+											{
+												"type": "3575610",
+												"typeLabel": "type",
+												"id": 20,
+												"children": [
+													{
+														"type": "3373707",
+														"label": "char",
+														"typeLabel": "name",
+														"id": 17,
+														"children": []
+													},
+													{
+														"type": "-615513385",
+														"label": "*",
+														"typeLabel": "modifier",
+														"id": 18,
+														"children": []
+													},
+													{
+														"type": "-615513385",
+														"label": "*",
+														"typeLabel": "modifier",
+														"id": 19,
+														"children": []
+													}
+												]
+											},
+											{
+												"type": "3373707",
+												"label": "argv",
+												"typeLabel": "name",
+												"id": 21,
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"type": "93832333",
+						"typeLabel": "block",
+						"id": 238,
+						"children": [
+							{
+								"type": "1384891079",
+								"typeLabel": "block_content",
+								"id": 237,
+								"children": [
+									{
+										"type": "490731474",
+										"typeLabel": "expr_stmt",
+										"id": 38,
+										"children": [
+											{
+												"type": "3127797",
+												"typeLabel": "expr",
+												"id": 37,
+												"children": [
+													{
+														"type": "3045982",
+														"typeLabel": "call",
+														"id": 36,
+														"children": [
+															{
+																"type": "3373707",
+																"typeLabel": "name",
+																"id": 28,
+																"children": [
+																	{
+																		"type": "3373707",
+																		"label": "rclcpp",
+																		"typeLabel": "name",
+																		"id": 25,
+																		"children": []
+																	},
+																	{
+																		"type": "-500553564",
+																		"label": "::",
+																		"typeLabel": "operator",
+																		"id": 26,
+																		"children": []
+																	},
+																	{
+																		"type": "3373707",
+																		"label": "init",
+																		"typeLabel": "name",
+																		"id": 27,
+																		"children": []
+																	}
+																]
+															},
+															{
+																"type": "-40060704",
+																"typeLabel": "argument_list",
+																"id": 35,
+																"children": [
+																	{
+																		"type": "-1589682499",
+																		"typeLabel": "argument",
+																		"id": 31,
+																		"children": [
+																			{
+																				"type": "3127797",
+																				"typeLabel": "expr",
+																				"id": 30,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "argc",
+																						"typeLabel": "name",
+																						"id": 29,
+																						"children": []
+																					}
+																				]
+																			}
+																		]
+																	},
+																	{
+																		"type": "-1589682499",
+																		"typeLabel": "argument",
+																		"id": 34,
+																		"children": [
+																			{
+																				"type": "3127797",
+																				"typeLabel": "expr",
+																				"id": 33,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "argv",
+																						"typeLabel": "name",
+																						"id": 32,
+																						"children": []
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "490731474",
+										"typeLabel": "expr_stmt",
+										"id": 49,
+										"children": [
+											{
+												"type": "3127797",
+												"typeLabel": "expr",
+												"id": 48,
+												"children": [
+													{
+														"type": "3045982",
+														"typeLabel": "call",
+														"id": 47,
+														"children": [
+															{
+																"type": "3373707",
+																"typeLabel": "name",
+																"id": 42,
+																"children": [
+																	{
+																		"type": "3373707",
+																		"label": "rclcpp",
+																		"typeLabel": "name",
+																		"id": 39,
+																		"children": []
+																	},
+																	{
+																		"type": "-500553564",
+																		"label": "::",
+																		"typeLabel": "operator",
+																		"id": 40,
+																		"children": []
+																	},
+																	{
+																		"type": "3373707",
+																		"label": "init",
+																		"typeLabel": "name",
+																		"id": 41,
+																		"children": []
+																	}
+																]
+															},
+															{
+																"type": "-40060704",
+																"typeLabel": "argument_list",
+																"id": 46,
+																"children": [
+																	{
+																		"type": "-1589682499",
+																		"typeLabel": "argument",
+																		"id": 45,
+																		"children": [
+																			{
+																				"type": "3127797",
+																				"typeLabel": "expr",
+																				"id": 44,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "argc",
+																						"typeLabel": "name",
+																						"id": 43,
+																						"children": []
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "425139773",
+										"typeLabel": "decl_stmt",
+										"id": 67,
+										"children": [
+											{
+												"type": "3079338",
+												"typeLabel": "decl",
+												"id": 66,
+												"children": [
+													{
+														"type": "3575610",
+														"typeLabel": "type",
+														"id": 51,
+														"children": [
+															{
+																"type": "3373707",
+																"label": "auto",
+																"typeLabel": "name",
+																"id": 50,
+																"children": []
+															}
+														]
+													},
+													{
+														"type": "3373707",
+														"label": "node",
+														"typeLabel": "name",
+														"id": 52,
+														"children": []
+													},
+													{
+														"type": "3237136",
+														"typeLabel": "init",
+														"id": 65,
+														"children": [
+															{
+																"type": "3127797",
+																"typeLabel": "expr",
+																"id": 64,
+																"children": [
+																	{
+																		"type": "3045982",
+																		"typeLabel": "call",
+																		"id": 63,
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"typeLabel": "name",
+																				"id": 58,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "rclcpp",
+																						"typeLabel": "name",
+																						"id": 53,
+																						"children": []
+																					},
+																					{
+																						"type": "-500553564",
+																						"label": "::",
+																						"typeLabel": "operator",
+																						"id": 54,
+																						"children": []
+																					},
+																					{
+																						"type": "3373707",
+																						"label": "Node",
+																						"typeLabel": "name",
+																						"id": 55,
+																						"children": []
+																					},
+																					{
+																						"type": "-500553564",
+																						"label": "::",
+																						"typeLabel": "operator",
+																						"id": 56,
+																						"children": []
+																					},
+																					{
+																						"type": "3373707",
+																						"label": "make_shared",
+																						"typeLabel": "name",
+																						"id": 57,
+																						"children": []
+																					}
+																				]
+																			},
+																			{
+																				"type": "-40060704",
+																				"typeLabel": "argument_list",
+																				"id": 62,
+																				"children": [
+																					{
+																						"type": "-1589682499",
+																						"typeLabel": "argument",
+																						"id": 61,
+																						"children": [
+																							{
+																								"type": "3127797",
+																								"typeLabel": "expr",
+																								"id": 60,
+																								"children": [
+																									{
+																										"type": "182460591",
+																										"label": "\"talker\"",
+																										"typeLabel": "literal",
+																										"id": 59,
+																										"children": []
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "425139773",
+										"typeLabel": "decl_stmt",
+										"id": 95,
+										"children": [
+											{
+												"type": "3079338",
+												"typeLabel": "decl",
+												"id": 94,
+												"children": [
+													{
+														"type": "3575610",
+														"typeLabel": "type",
+														"id": 69,
+														"children": [
+															{
+																"type": "3373707",
+																"label": "auto",
+																"typeLabel": "name",
+																"id": 68,
+																"children": []
+															}
+														]
+													},
+													{
+														"type": "3373707",
+														"label": "chatter_pub",
+														"typeLabel": "name",
+														"id": 70,
+														"children": []
+													},
+													{
+														"type": "3237136",
+														"typeLabel": "init",
+														"id": 93,
+														"children": [
+															{
+																"type": "3127797",
+																"typeLabel": "expr",
+																"id": 92,
+																"children": [
+																	{
+																		"type": "3045982",
+																		"typeLabel": "call",
+																		"id": 91,
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"typeLabel": "name",
+																				"id": 83,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "node",
+																						"typeLabel": "name",
+																						"id": 71,
+																						"children": []
+																					},
+																					{
+																						"type": "-500553564",
+																						"label": "->",
+																						"typeLabel": "operator",
+																						"id": 72,
+																						"children": []
+																					},
+																					{
+																						"type": "3373707",
+																						"label": "create_publisher",
+																						"typeLabel": "name",
+																						"id": 73,
+																						"children": []
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 82,
+																						"children": [
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 81,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 80,
+																										"children": [
+																											{
+																												"type": "3373707",
+																												"typeLabel": "name",
+																												"id": 79,
+																												"children": [
+																													{
+																														"type": "3373707",
+																														"label": "std_msgs",
+																														"typeLabel": "name",
+																														"id": 74,
+																														"children": []
+																													},
+																													{
+																														"type": "-500553564",
+																														"label": "::",
+																														"typeLabel": "operator",
+																														"id": 75,
+																														"children": []
+																													},
+																													{
+																														"type": "3373707",
+																														"label": "msg",
+																														"typeLabel": "name",
+																														"id": 76,
+																														"children": []
+																													},
+																													{
+																														"type": "-500553564",
+																														"label": "::",
+																														"typeLabel": "operator",
+																														"id": 77,
+																														"children": []
+																													},
+																													{
+																														"type": "3373707",
+																														"label": "String",
+																														"typeLabel": "name",
+																														"id": 78,
+																														"children": []
+																													}
+																												]
+																											}
+																										]
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			},
+																			{
+																				"type": "-40060704",
+																				"typeLabel": "argument_list",
+																				"id": 90,
+																				"children": [
+																					{
+																						"type": "-1589682499",
+																						"typeLabel": "argument",
+																						"id": 86,
+																						"children": [
+																							{
+																								"type": "3127797",
+																								"typeLabel": "expr",
+																								"id": 85,
+																								"children": [
+																									{
+																										"type": "182460591",
+																										"label": "\"chatter\"",
+																										"typeLabel": "literal",
+																										"id": 84,
+																										"children": []
+																									}
+																								]
+																							}
+																						]
+																					},
+																					{
+																						"type": "-1589682499",
+																						"typeLabel": "argument",
+																						"id": 89,
+																						"children": [
+																							{
+																								"type": "3127797",
+																								"typeLabel": "expr",
+																								"id": 88,
+																								"children": [
+																									{
+																										"type": "3373707",
+																										"label": "rmw_qos_profile_default",
+																										"typeLabel": "name",
+																										"id": 87,
+																										"children": []
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "425139773",
+										"typeLabel": "decl_stmt",
+										"id": 107,
+										"children": [
+											{
+												"type": "3079338",
+												"typeLabel": "decl",
+												"id": 106,
+												"children": [
+													{
+														"type": "3575610",
+														"typeLabel": "type",
+														"id": 100,
+														"children": [
+															{
+																"type": "3373707",
+																"typeLabel": "name",
+																"id": 99,
+																"children": [
+																	{
+																		"type": "3373707",
+																		"label": "rclcpp",
+																		"typeLabel": "name",
+																		"id": 96,
+																		"children": []
+																	},
+																	{
+																		"type": "-500553564",
+																		"label": "::",
+																		"typeLabel": "operator",
+																		"id": 97,
+																		"children": []
+																	},
+																	{
+																		"type": "3373707",
+																		"label": "Rate",
+																		"typeLabel": "name",
+																		"id": 98,
+																		"children": []
+																	}
+																]
+															}
+														]
+													},
+													{
+														"type": "3373707",
+														"label": "loop_rate",
+														"typeLabel": "name",
+														"id": 101,
+														"children": []
+													},
+													{
+														"type": "-40060704",
+														"typeLabel": "argument_list",
+														"id": 105,
+														"children": [
+															{
+																"type": "-1589682499",
+																"typeLabel": "argument",
+																"id": 104,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 103,
+																		"children": [
+																			{
+																				"type": "182460591",
+																				"label": "10",
+																				"typeLabel": "literal",
+																				"id": 102,
+																				"children": []
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "425139773",
+										"typeLabel": "decl_stmt",
+										"id": 115,
+										"children": [
+											{
+												"type": "3079338",
+												"typeLabel": "decl",
+												"id": 114,
+												"children": [
+													{
+														"type": "3575610",
+														"typeLabel": "type",
+														"id": 109,
+														"children": [
+															{
+																"type": "3373707",
+																"label": "int",
+																"typeLabel": "name",
+																"id": 108,
+																"children": []
+															}
+														]
+													},
+													{
+														"type": "3373707",
+														"label": "count",
+														"typeLabel": "name",
+														"id": 110,
+														"children": []
+													},
+													{
+														"type": "3237136",
+														"typeLabel": "init",
+														"id": 113,
+														"children": [
+															{
+																"type": "3127797",
+																"typeLabel": "expr",
+																"id": 112,
+																"children": [
+																	{
+																		"type": "182460591",
+																		"label": "0",
+																		"typeLabel": "literal",
+																		"id": 111,
+																		"children": []
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "425139773",
+										"typeLabel": "decl_stmt",
+										"id": 137,
+										"children": [
+											{
+												"type": "3079338",
+												"typeLabel": "decl",
+												"id": 136,
+												"children": [
+													{
+														"type": "3575610",
+														"typeLabel": "type",
+														"id": 117,
+														"children": [
+															{
+																"type": "3373707",
+																"label": "auto",
+																"typeLabel": "name",
+																"id": 116,
+																"children": []
+															}
+														]
+													},
+													{
+														"type": "3373707",
+														"label": "msg",
+														"typeLabel": "name",
+														"id": 118,
+														"children": []
+													},
+													{
+														"type": "3237136",
+														"typeLabel": "init",
+														"id": 135,
+														"children": [
+															{
+																"type": "3127797",
+																"typeLabel": "expr",
+																"id": 134,
+																"children": [
+																	{
+																		"type": "3045982",
+																		"typeLabel": "call",
+																		"id": 133,
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"typeLabel": "name",
+																				"id": 131,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "std",
+																						"typeLabel": "name",
+																						"id": 119,
+																						"children": []
+																					},
+																					{
+																						"type": "-500553564",
+																						"label": "::",
+																						"typeLabel": "operator",
+																						"id": 120,
+																						"children": []
+																					},
+																					{
+																						"type": "3373707",
+																						"label": "make_shared",
+																						"typeLabel": "name",
+																						"id": 121,
+																						"children": []
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 130,
+																						"children": [
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 129,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 128,
+																										"children": [
+																											{
+																												"type": "3373707",
+																												"typeLabel": "name",
+																												"id": 127,
+																												"children": [
+																													{
+																														"type": "3373707",
+																														"label": "std_msgs",
+																														"typeLabel": "name",
+																														"id": 122,
+																														"children": []
+																													},
+																													{
+																														"type": "-500553564",
+																														"label": "::",
+																														"typeLabel": "operator",
+																														"id": 123,
+																														"children": []
+																													},
+																													{
+																														"type": "3373707",
+																														"label": "msg",
+																														"typeLabel": "name",
+																														"id": 124,
+																														"children": []
+																													},
+																													{
+																														"type": "-500553564",
+																														"label": "::",
+																														"typeLabel": "operator",
+																														"id": 125,
+																														"children": []
+																													},
+																													{
+																														"type": "3373707",
+																														"label": "String",
+																														"typeLabel": "name",
+																														"id": 126,
+																														"children": []
+																													}
+																												]
+																											}
+																										]
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			},
+																			{
+																				"type": "-40060704",
+																				"typeLabel": "argument_list",
+																				"id": 132,
+																				"children": []
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "113101617",
+										"typeLabel": "while",
+										"id": 233,
+										"children": [
+											{
+												"type": "-861311717",
+												"typeLabel": "condition",
+												"id": 145,
+												"children": [
+													{
+														"type": "3127797",
+														"typeLabel": "expr",
+														"id": 144,
+														"children": [
+															{
+																"type": "3045982",
+																"typeLabel": "call",
+																"id": 143,
+																"children": [
+																	{
+																		"type": "3373707",
+																		"typeLabel": "name",
+																		"id": 141,
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"label": "rclcpp",
+																				"typeLabel": "name",
+																				"id": 138,
+																				"children": []
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": "::",
+																				"typeLabel": "operator",
+																				"id": 139,
+																				"children": []
+																			},
+																			{
+																				"type": "3373707",
+																				"label": "ok",
+																				"typeLabel": "name",
+																				"id": 140,
+																				"children": []
+																			}
+																		]
+																	},
+																	{
+																		"type": "-40060704",
+																		"typeLabel": "argument_list",
+																		"id": 142,
+																		"children": []
+																	}
+																]
+															}
+														]
+													}
+												]
+											},
+											{
+												"type": "93832333",
+												"typeLabel": "block",
+												"id": 232,
+												"children": [
+													{
+														"type": "1384891079",
+														"typeLabel": "block_content",
+														"id": 231,
+														"children": [
+															{
+																"type": "425139773",
+																"typeLabel": "decl_stmt",
+																"id": 153,
+																"children": [
+																	{
+																		"type": "3079338",
+																		"typeLabel": "decl",
+																		"id": 152,
+																		"children": [
+																			{
+																				"type": "3575610",
+																				"typeLabel": "type",
+																				"id": 150,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"typeLabel": "name",
+																						"id": 149,
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"label": "std",
+																								"typeLabel": "name",
+																								"id": 146,
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": "::",
+																								"typeLabel": "operator",
+																								"id": 147,
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "stringstream",
+																								"typeLabel": "name",
+																								"id": 148,
+																								"children": []
+																							}
+																						]
+																					}
+																				]
+																			},
+																			{
+																				"type": "3373707",
+																				"label": "ss",
+																				"typeLabel": "name",
+																				"id": 151,
+																				"children": []
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "490731474",
+																"typeLabel": "expr_stmt",
+																"id": 161,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 160,
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"label": "ss",
+																				"typeLabel": "name",
+																				"id": 154,
+																				"children": []
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": "<<",
+																				"typeLabel": "operator",
+																				"id": 155,
+																				"children": []
+																			},
+																			{
+																				"type": "182460591",
+																				"label": "\"hello world \"",
+																				"typeLabel": "literal",
+																				"id": 156,
+																				"children": []
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": "<<",
+																				"typeLabel": "operator",
+																				"id": 157,
+																				"children": []
+																			},
+																			{
+																				"type": "3373707",
+																				"label": "count",
+																				"typeLabel": "name",
+																				"id": 158,
+																				"children": []
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": "++",
+																				"typeLabel": "operator",
+																				"id": 159,
+																				"children": []
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "490731474",
+																"typeLabel": "expr_stmt",
+																"id": 174,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 173,
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"typeLabel": "name",
+																				"id": 165,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "msg",
+																						"typeLabel": "name",
+																						"id": 162,
+																						"children": []
+																					},
+																					{
+																						"type": "-500553564",
+																						"label": "->",
+																						"typeLabel": "operator",
+																						"id": 163,
+																						"children": []
+																					},
+																					{
+																						"type": "3373707",
+																						"label": "data",
+																						"typeLabel": "name",
+																						"id": 164,
+																						"children": []
+																					}
+																				]
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": "=",
+																				"typeLabel": "operator",
+																				"id": 166,
+																				"children": []
+																			},
+																			{
+																				"type": "3045982",
+																				"typeLabel": "call",
+																				"id": 172,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"typeLabel": "name",
+																						"id": 170,
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"label": "ss",
+																								"typeLabel": "name",
+																								"id": 167,
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": ".",
+																								"typeLabel": "operator",
+																								"id": 168,
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "str",
+																								"typeLabel": "name",
+																								"id": 169,
+																								"children": []
+																							}
+																						]
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 171,
+																						"children": []
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "490731474",
+																"typeLabel": "expr_stmt",
+																"id": 200,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 199,
+																		"children": [
+																			{
+																				"type": "3045982",
+																				"typeLabel": "call",
+																				"id": 198,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"label": "RCLCPP_INFO",
+																						"typeLabel": "name",
+																						"id": 175,
+																						"children": []
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 197,
+																						"children": [
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 183,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 182,
+																										"children": [
+																											{
+																												"type": "3045982",
+																												"typeLabel": "call",
+																												"id": 181,
+																												"children": [
+																													{
+																														"type": "3373707",
+																														"typeLabel": "name",
+																														"id": 179,
+																														"children": [
+																															{
+																																"type": "3373707",
+																																"label": "node",
+																																"typeLabel": "name",
+																																"id": 176,
+																																"children": []
+																															},
+																															{
+																																"type": "-500553564",
+																																"label": "->",
+																																"typeLabel": "operator",
+																																"id": 177,
+																																"children": []
+																															},
+																															{
+																																"type": "3373707",
+																																"label": "get_logger",
+																																"typeLabel": "name",
+																																"id": 178,
+																																"children": []
+																															}
+																														]
+																													},
+																													{
+																														"type": "-40060704",
+																														"typeLabel": "argument_list",
+																														"id": 180,
+																														"children": []
+																													}
+																												]
+																											}
+																										]
+																									}
+																								]
+																							},
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 186,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 185,
+																										"children": [
+																											{
+																												"type": "182460591",
+																												"label": "\"%s\\n\"",
+																												"typeLabel": "literal",
+																												"id": 184,
+																												"children": []
+																											}
+																										]
+																									}
+																								]
+																							},
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 196,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 195,
+																										"children": [
+																											{
+																												"type": "3045982",
+																												"typeLabel": "call",
+																												"id": 194,
+																												"children": [
+																													{
+																														"type": "3373707",
+																														"typeLabel": "name",
+																														"id": 192,
+																														"children": [
+																															{
+																																"type": "3373707",
+																																"label": "msg",
+																																"typeLabel": "name",
+																																"id": 187,
+																																"children": []
+																															},
+																															{
+																																"type": "-500553564",
+																																"label": "->",
+																																"typeLabel": "operator",
+																																"id": 188,
+																																"children": []
+																															},
+																															{
+																																"type": "3373707",
+																																"label": "data",
+																																"typeLabel": "name",
+																																"id": 189,
+																																"children": []
+																															},
+																															{
+																																"type": "-500553564",
+																																"label": ".",
+																																"typeLabel": "operator",
+																																"id": 190,
+																																"children": []
+																															},
+																															{
+																																"type": "3373707",
+																																"label": "c_str",
+																																"typeLabel": "name",
+																																"id": 191,
+																																"children": []
+																															}
+																														]
+																													},
+																													{
+																														"type": "-40060704",
+																														"typeLabel": "argument_list",
+																														"id": 193,
+																														"children": []
+																													}
+																												]
+																											}
+																										]
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "490731474",
+																"typeLabel": "expr_stmt",
+																"id": 211,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 210,
+																		"children": [
+																			{
+																				"type": "3045982",
+																				"typeLabel": "call",
+																				"id": 209,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"typeLabel": "name",
+																						"id": 204,
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"label": "chatter_pub",
+																								"typeLabel": "name",
+																								"id": 201,
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": "->",
+																								"typeLabel": "operator",
+																								"id": 202,
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "publish",
+																								"typeLabel": "name",
+																								"id": 203,
+																								"children": []
+																							}
+																						]
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 208,
+																						"children": [
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 207,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 206,
+																										"children": [
+																											{
+																												"type": "3373707",
+																												"label": "msg",
+																												"typeLabel": "name",
+																												"id": 205,
+																												"children": []
+																											}
+																										]
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "490731474",
+																"typeLabel": "expr_stmt",
+																"id": 222,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 221,
+																		"children": [
+																			{
+																				"type": "3045982",
+																				"typeLabel": "call",
+																				"id": 220,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"typeLabel": "name",
+																						"id": 215,
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"label": "rclcpp",
+																								"typeLabel": "name",
+																								"id": 212,
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": "::",
+																								"typeLabel": "operator",
+																								"id": 213,
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "spin_some",
+																								"typeLabel": "name",
+																								"id": 214,
+																								"children": []
+																							}
+																						]
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 219,
+																						"children": [
+																							{
+																								"type": "-1589682499",
+																								"typeLabel": "argument",
+																								"id": 218,
+																								"children": [
+																									{
+																										"type": "3127797",
+																										"typeLabel": "expr",
+																										"id": 217,
+																										"children": [
+																											{
+																												"type": "3373707",
+																												"label": "node",
+																												"typeLabel": "name",
+																												"id": 216,
+																												"children": []
+																											}
+																										]
+																									}
+																								]
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															},
+															{
+																"type": "490731474",
+																"typeLabel": "expr_stmt",
+																"id": 230,
+																"children": [
+																	{
+																		"type": "3127797",
+																		"typeLabel": "expr",
+																		"id": 229,
+																		"children": [
+																			{
+																				"type": "3045982",
+																				"typeLabel": "call",
+																				"id": 228,
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"typeLabel": "name",
+																						"id": 226,
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"label": "loop_rate",
+																								"typeLabel": "name",
+																								"id": 223,
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": ".",
+																								"typeLabel": "operator",
+																								"id": 224,
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "sleep",
+																								"typeLabel": "name",
+																								"id": 225,
+																								"children": []
+																							}
+																						]
+																					},
+																					{
+																						"type": "-40060704",
+																						"typeLabel": "argument_list",
+																						"id": 227,
+																						"children": []
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "-934396624",
+										"typeLabel": "return",
+										"id": 236,
+										"children": [
+											{
+												"type": "3127797",
+												"typeLabel": "expr",
+												"id": 235,
+												"children": [
+													{
+														"type": "182460591",
+														"label": "0",
+														"typeLabel": "literal",
+														"id": 234,
+														"children": []
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

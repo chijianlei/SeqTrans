@@ -1,0 +1,90 @@
+{
+	"root": {
+		"type": "490731474",
+		"typeLabel": "expr_stmt",
+		"pos": "534",
+		"length": "24",
+		"children": [
+			{
+				"type": "3127797",
+				"typeLabel": "expr",
+				"pos": "534",
+				"length": "24",
+				"children": [
+					{
+						"type": "3045982",
+						"typeLabel": "call",
+						"pos": "534",
+						"length": "24",
+						"children": [
+							{
+								"type": "3373707",
+								"typeLabel": "name",
+								"pos": "534",
+								"length": "18",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "rclcpp",
+										"typeLabel": "name",
+										"pos": "534",
+										"length": "7",
+										"children": []
+									},
+									{
+										"type": "-500553564",
+										"label": "::",
+										"typeLabel": "operator",
+										"pos": "540",
+										"length": "3",
+										"children": []
+									},
+									{
+										"type": "3373707",
+										"label": "spin_some",
+										"typeLabel": "name",
+										"pos": "542",
+										"length": "10",
+										"children": []
+									}
+								]
+							},
+							{
+								"type": "-40060704",
+								"typeLabel": "argument_list",
+								"pos": "551",
+								"length": "7",
+								"children": [
+									{
+										"type": "-1589682499",
+										"typeLabel": "argument",
+										"pos": "552",
+										"length": "5",
+										"children": [
+											{
+												"type": "3127797",
+												"typeLabel": "expr",
+												"pos": "552",
+												"length": "5",
+												"children": [
+													{
+														"type": "3373707",
+														"label": "var",
+														"typeLabel": "name",
+														"pos": "552",
+														"length": "5",
+														"children": []
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

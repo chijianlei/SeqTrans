@@ -1,0 +1,166 @@
+
+SENT 1: ['int', 'main', '(', 'int', 'argc', ',', 'char', 'argv', ')']
+PRED 1: int main ( char )
+PRED SCORE: -0.6520
+
+BEST HYP:
+[-0.6520] ['int', 'main', '(', 'char', ')']
+[-2.1091] ['int', 'argv', '(', 'char', ')']
+[-2.8660] ['int', 'main', '(', 'int', 'argv', ',', 'char', ')']
+[-3.3400] ['int', 'main', '(', 'char', 'argv']
+[-3.5358] ['int', 'argv', '(', 'int', 'argv', ',', 'char', ')']
+
+SENT 2: ['ros', '::', 'init', '(', 'argc', ',', 'argv', ')']
+PRED 2: rclcpp :: init ( argc , argv )
+PRED SCORE: -0.0001
+
+BEST HYP:
+[-0.0001] ['rclcpp', '::', 'init', '(', 'argc', ',', 'argv', ')']
+[-11.5533] ['rclcpp', '::', 'init', '(', 'argc', ',', 'argc', ')']
+[-11.8988] ['rclcpp', '::', 'init', '(', 'argc', ',', 'init', ')']
+[-12.2921] ['rclcpp', '::', 'argv', '(', 'argc', ',', 'argv', ')']
+[-15.2423] ['swri', '::', 'init', '(', 'rclcpp', '::', 'Node', '::', 'SharedPtr', '(', ')', ')']
+
+SENT 3: ['ros', '::', 'NodeHandle', 'n']
+PRED 3: auto node = rclcpp :: Node :: make_shared ( "" )
+PRED SCORE: -0.0001
+
+BEST HYP:
+[-0.0001] ['auto', 'node', '=', 'rclcpp', '::', 'Node', '::', 'make_shared', '(', '""', ')']
+[-10.5240] ['rcutils_time_point_value_t', 'node', '=', 'rclcpp', '::', 'Node', '::', 'make_shared', '(', '""', ')']
+[-11.0079] ['::', 'nanoseconds', '=', 'rclcpp', '::', 'Node', '::', 'make_shared', '(', '""', ')']
+[-11.7748] ['::', 'node', '=', 'rclcpp', '::', 'Node', '::', 'make_shared', '(', '""', ')']
+[-11.9320] ['auto', 'node', '=', 'swri', '::', 'Node', '::', 'make_shared', '(', '""', ')']
+
+SENT 4: ['ros', '::', 'Publisher', 'chatter_pub', '=', 'n', '.', 'advertise', '<', 'std_msgs', '::', 'String', '>', '(', '""', ',', '1000', ')']
+PRED 4: auto chatter_pub = node -> create_publisher < std_msgs :: msg :: String > ( "" , rmw_qos_profile_default )
+PRED SCORE: -0.0001
+
+BEST HYP:
+[-0.0001] ['auto', 'chatter_pub', '=', 'node', '->', 'create_publisher', '<', 'std_msgs', '::', 'msg', '::', 'String', '>', '(', '""', ',', 'rmw_qos_profile_default', ')']
+[-11.7609] ['auto', 'n', '=', 'node', '->', 'create_publisher', '<', 'std_msgs', '::', 'msg', '::', 'String', '>', '(', '""', ',', 'rmw_qos_profile_default', ')']
+[-12.3783] ['auto', 'chatter_pub', '=', 'node', '->', 'create_publisher', '<', 'std_msgs', '::', 'msg', '::', 'String', '>', '(', '""', ',', 'rmw_qos_profile_sensor_data', ')']
+[-12.6921] ['auto', 'chatter_pub', '=', 'node', '->', 'create_publisher', '<', 'std_msgs', '::', 'msg', '::', 'String', '>', '(', '""', ',', 'depth_frame_id_', ')']
+[-12.6979] ['auto', '1000', '=', 'node', '->', 'create_publisher', '<', 'std_msgs', '::', 'msg', '::', 'String', '>', '(', '""', ',', 'rmw_qos_profile_default', ')']
+
+SENT 5: ['ros', '::', 'Rate', 'loop_rate', '(', '10', ')']
+PRED 5: rclcpp :: Rate loop_rate ( 10 )
+PRED SCORE: -0.0001
+
+BEST HYP:
+[-0.0001] ['rclcpp', '::', 'Rate', 'loop_rate', '(', '10', ')']
+[-12.0713] ['swri', '::', 'Rate', 'loop_rate', '(', '10', ')']
+[-12.2789] ['rclcpp', '::', 'Rate', 'loop_rate']
+[-12.5636] ['rclcpp', '::', 'Rate', 'loop_rate', '(', 'loop_rate', ')']
+[-12.5989] ['rclcpp', '::', 'Rate', 'Rate', '(', '10', ')']
+
+SENT 6: ['int', 'count', '=', '0']
+PRED 6: int count = 0
+PRED SCORE: -0.0323
+
+BEST HYP:
+[-0.0323] ['int', 'count', '=', '0']
+[-3.7455] ['int', '0', '=', '0']
+[-6.8887] ['int', '0', '=', '0', '0']
+[-9.2823] ['int', 'count', '=', 'count']
+[-9.3245] ['int', '0', '=', '0', '=', 'int', 'count']
+
+SENT 7: ['std_msgs', '::', 'String', 'msg']
+PRED 7: auto msg = std :: make_shared < std_msgs :: msg :: String >
+PRED SCORE: -0.0000
+
+BEST HYP:
+[-0.0000] ['auto', 'msg', '=', 'std', '::', 'make_shared', '<', 'std_msgs', '::', 'msg', '::', 'String', '>']
+[-13.2994] ['std_msgs', '::', 'msg', '=', 'std', '::', 'make_shared', '<', 'std_msgs', '::', 'msg', '::', 'String', '>']
+[-13.6828] ['std_msgs', '->', 'msg', '=', 'make_shared', '::', 'msg', '::', 'String', 'std_msgs', '::', 'msg', '::', 'String', '<', 'std_msgs', '::', 'msg', '::', 'String', '>']
+[-13.6893] ['std_msgs', '->', 'msg', '=', 'make_shared', '<', 'std_msgs', '::', 'msg', '::', 'String', '>']
+[-16.8642] ['std_msgs', '->', 'msg', '=', 'make_shared', '<', 'std_msgs', '::', 'msg', '::', 'String', '>', '::', 'msg', '->', 'Node', '->', 'node']
+
+SENT 8: ['while', '(', 'ros', '::', 'ok', ')']
+PRED 8: while ( rclcpp :: ok )
+PRED SCORE: -0.0001
+
+BEST HYP:
+[-0.0001] ['while', '(', 'rclcpp', '::', 'ok', ')']
+[-10.4222] ['rclcpp', '::', 'ok', '(', 'while', ')']
+[-11.3339] ['while', '(', 'swri', '::', 'ok', ')']
+[-12.2451] ['rclcpp', '::', 'ok', 'while', '(', 'while', ')']
+[-12.9207] ['ok', '(', 'rclcpp', '::', 'ok', ')']
+
+SENT 9: ['std', '::', 'stringstream', 'ss']
+PRED 9: std :: stringstream ss
+PRED SCORE: -0.0172
+
+BEST HYP:
+[-0.0172] ['std', '::', 'stringstream', 'ss']
+[-5.1892] ['std', '::', 'stringstream', 'ss', '::', 'stringstream', 'std', 'std', '::', 'stringstream', 'ss']
+[-7.5828] ['std', '::', 'stringstream', 'ss', 'std', 'std', '::', 'stringstream', 'ss']
+[-7.7528] ['std', '::', 'stringstream', 'ss', '::', 'stringstream', 'std', 'std', '::', 'stringstream']
+[-8.0794] ['std', '::', 'ss', 'ss']
+
+SENT 10: ['ss', '<<', '"hello', 'world', '"', '<<', 'count', '++']
+PRED 10: ss <<
+PRED SCORE: -2.8970
+
+BEST HYP:
+[-2.8970] ['ss', '<<']
+[-3.0729] ['ss', '"hello']
+[-3.0729] ['ss', 'world']
+[-3.0729] ['ss', '++']
+[-3.3669] ['ss', '<<', 'std', 'ss', 'make_shared', 'ss']
+
+SENT 11: ['msg', '.', 'data', '=', 'ss', '.', 'str']
+PRED 11: ss = swri . str
+PRED SCORE: -2.1267
+
+BEST HYP:
+[-2.1267] ['ss', '=', 'swri', '.', 'str']
+[-2.4262] ['ss', '=', 'std', '.', 'str', '<', 'msg', 'msg', 'data', '.', 'str', '.', 'str']
+[-2.5803] ['ss', '=', 'std', '.', 'data', '<', 'msg', 'msg', 'data', '.', 'str', '.', 'str']
+[-2.6509] ['ss', '=', 'handle', '->', 'str']
+[-2.9587] ['ss', '=', 'swri', '.', 'str', '<', 'msg', 'msg', 'data', '.', 'str', '.', 'str']
+
+SENT 12: ['ROS_INFO', '(', '""', ',', 'msg', '.', 'data', '.', 'c_str', '(', ')', ')']
+PRED 12: printf ( "" , msg . data ( ) )
+PRED SCORE: -0.2650
+
+BEST HYP:
+[-0.2650] ['printf', '(', '""', ',', 'msg', '.', 'data', '(', ')', ')']
+[-1.7419] ['printf', '(', '""', ',', 'data', '.', 'c_str', '(', ')', ')']
+[-3.5715] ['printf', '(', '""', ',', 'msg', '.', 'data', '.', 'c_str', '(', ')', ')']
+[-4.7806] ['printf', '(', '""', ',', 'msg', '.', 'c_str', '(', ')', ')']
+[-5.2443] ['printf', '(', '""', ',', 'msg', '.', 'msg', '.', 'c_str', '(', ')', ')']
+
+SENT 13: ['chatter_pub', '.', 'publish', '(', 'msg', ')']
+PRED 13: pub_depth_camera_info_ -> publish ( msg ( chatter_pub -> msg . publish ( ) )
+PRED SCORE: -1.1594
+
+BEST HYP:
+[-1.1594] ['pub_depth_camera_info_', '->', 'publish', '(', 'msg', '(', 'chatter_pub', '->', 'msg', '.', 'publish', '(', ')', ')']
+[-3.5504] ['pub_depth_camera_info_', '->', 'publish', '(', 'msg', ')']
+[-3.9352] ['pub_depth_camera_info_', '->', 'msg', '(', 'msg', ')']
+[-4.3300] ['pub_depth_camera_info_', '->', 'publish', '(', 'msg', '(', 'msg', ')']
+[-5.3189] ['pub_depth_camera_info_', '->', 'publish', '(', 'msg', '(', 'msg', '.', 'msg', '.', 'publish', '.', 'chatter_pub', ')']
+
+SENT 14: ['ros', '::', 'spinOnce']
+PRED 14: rclcpp :: spin_some ( node )
+PRED SCORE: -0.0001
+
+BEST HYP:
+[-0.0001] ['rclcpp', '::', 'spin_some', '(', 'node', ')']
+[-10.6411] ['rclcpp', '::', 'TimerBase', '(', 'node', ')']
+[-11.1378] ['rclcpp', '::', 'Vector3', '(', 'node', ')']
+[-11.6129] ['rclcpp', '::', '::', '(', 'node', ')']
+[-12.5403] ['rclcpp', '::', 'Time', '(', 'node', ')']
+
+SENT 15: ['loop_rate', '.', 'sleep']
+PRED 15: sleep . sleep
+PRED SCORE: -1.1503
+
+BEST HYP:
+[-1.1503] ['sleep', '.', 'sleep']
+[-1.6932] ['sleep', '.', 'loop_rate']
+[-3.6522] ['loop_rate', '.', 'sleep']
+[-4.2021] ['loop_rate', '.', 'loop_rate']
+[-4.7887] ['sleep', '.', 'fill']
+PRED AVG SCORE: -0.0716, PRED PPL: 1.0742

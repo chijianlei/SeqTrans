@@ -1,0 +1,342 @@
+{
+	"root": {
+		"type": "0",
+		"typeLabel": "Block",
+		"children": [
+			{
+				"type": "490731474",
+				"typeLabel": "expr_stmt",
+				"pos": "317",
+				"length": "20",
+				"children": [
+					{
+						"type": "3127797",
+						"typeLabel": "expr",
+						"pos": "317",
+						"length": "20",
+						"children": [
+							{
+								"type": "3373707",
+								"typeLabel": "name",
+								"pos": "317",
+								"length": "9",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "msg",
+										"typeLabel": "name",
+										"pos": "317",
+										"length": "4",
+										"children": []
+									},
+									{
+										"type": "-500553564",
+										"label": ".",
+										"typeLabel": "operator",
+										"pos": "320",
+										"length": "2",
+										"children": []
+									},
+									{
+										"type": "3373707",
+										"label": "data",
+										"typeLabel": "name",
+										"pos": "321",
+										"length": "5",
+										"children": []
+									}
+								]
+							},
+							{
+								"type": "-500553564",
+								"label": "=",
+								"typeLabel": "operator",
+								"pos": "326",
+								"length": "2",
+								"children": []
+							},
+							{
+								"type": "3045982",
+								"typeLabel": "call",
+								"pos": "328",
+								"length": "9",
+								"children": [
+									{
+										"type": "3373707",
+										"typeLabel": "name",
+										"pos": "328",
+										"length": "7",
+										"children": [
+											{
+												"type": "3373707",
+												"label": "ss",
+												"typeLabel": "name",
+												"pos": "328",
+												"length": "3",
+												"children": []
+											},
+											{
+												"type": "-500553564",
+												"label": ".",
+												"typeLabel": "operator",
+												"pos": "330",
+												"length": "2",
+												"children": []
+											},
+											{
+												"type": "3373707",
+												"label": "str",
+												"typeLabel": "name",
+												"pos": "331",
+												"length": "4",
+												"children": []
+											}
+										]
+									},
+									{
+										"type": "-40060704",
+										"typeLabel": "argument_list",
+										"pos": "334",
+										"length": "3",
+										"children": []
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"type": "490731474",
+				"typeLabel": "expr_stmt",
+				"pos": "342",
+				"length": "33",
+				"children": [
+					{
+						"type": "3127797",
+						"typeLabel": "expr",
+						"pos": "342",
+						"length": "33",
+						"children": [
+							{
+								"type": "3045982",
+								"typeLabel": "call",
+								"pos": "342",
+								"length": "33",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "ROS_INFO",
+										"typeLabel": "name",
+										"pos": "342",
+										"length": "9",
+										"children": []
+									},
+									{
+										"type": "-40060704",
+										"typeLabel": "argument_list",
+										"pos": "350",
+										"length": "25",
+										"children": [
+											{
+												"type": "-1589682499",
+												"typeLabel": "argument",
+												"pos": "351",
+												"length": "5",
+												"children": [
+													{
+														"type": "3127797",
+														"typeLabel": "expr",
+														"pos": "351",
+														"length": "5",
+														"children": [
+															{
+																"type": "182460591",
+																"label": "stringliteral",
+																"typeLabel": "literal",
+																"pos": "351",
+																"length": "5",
+																"children": []
+															}
+														]
+													}
+												]
+											},
+											{
+												"type": "-1589682499",
+												"typeLabel": "argument",
+												"pos": "357",
+												"length": "17",
+												"children": [
+													{
+														"type": "3127797",
+														"typeLabel": "expr",
+														"pos": "357",
+														"length": "17",
+														"children": [
+															{
+																"type": "3045982",
+																"typeLabel": "call",
+																"pos": "357",
+																"length": "17",
+																"children": [
+																	{
+																		"type": "3373707",
+																		"typeLabel": "name",
+																		"pos": "357",
+																		"length": "15",
+																		"children": [
+																			{
+																				"type": "3373707",
+																				"label": "msg",
+																				"typeLabel": "name",
+																				"pos": "357",
+																				"length": "4",
+																				"children": []
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": ".",
+																				"typeLabel": "operator",
+																				"pos": "360",
+																				"length": "2",
+																				"children": []
+																			},
+																			{
+																				"type": "3373707",
+																				"label": "data",
+																				"typeLabel": "name",
+																				"pos": "361",
+																				"length": "5",
+																				"children": []
+																			},
+																			{
+																				"type": "-500553564",
+																				"label": ".",
+																				"typeLabel": "operator",
+																				"pos": "365",
+																				"length": "2",
+																				"children": []
+																			},
+																			{
+																				"type": "3373707",
+																				"label": "c_str",
+																				"typeLabel": "name",
+																				"pos": "366",
+																				"length": "6",
+																				"children": []
+																			}
+																		]
+																	},
+																	{
+																		"type": "-40060704",
+																		"typeLabel": "argument_list",
+																		"pos": "371",
+																		"length": "3",
+																		"children": []
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"type": "490731474",
+				"typeLabel": "expr_stmt",
+				"pos": "380",
+				"length": "25",
+				"children": [
+					{
+						"type": "3127797",
+						"typeLabel": "expr",
+						"pos": "380",
+						"length": "25",
+						"children": [
+							{
+								"type": "3045982",
+								"typeLabel": "call",
+								"pos": "380",
+								"length": "25",
+								"children": [
+									{
+										"type": "3373707",
+										"typeLabel": "name",
+										"pos": "380",
+										"length": "20",
+										"children": [
+											{
+												"type": "3373707",
+												"label": "chatter_pub",
+												"typeLabel": "name",
+												"pos": "380",
+												"length": "12",
+												"children": []
+											},
+											{
+												"type": "-500553564",
+												"label": ".",
+												"typeLabel": "operator",
+												"pos": "391",
+												"length": "2",
+												"children": []
+											},
+											{
+												"type": "3373707",
+												"label": "publish",
+												"typeLabel": "name",
+												"pos": "392",
+												"length": "8",
+												"children": []
+											}
+										]
+									},
+									{
+										"type": "-40060704",
+										"typeLabel": "argument_list",
+										"pos": "399",
+										"length": "6",
+										"children": [
+											{
+												"type": "-1589682499",
+												"typeLabel": "argument",
+												"pos": "400",
+												"length": "4",
+												"children": [
+													{
+														"type": "3127797",
+														"typeLabel": "expr",
+														"pos": "400",
+														"length": "4",
+														"children": [
+															{
+																"type": "3373707",
+																"label": "msg",
+																"typeLabel": "name",
+																"pos": "400",
+																"length": "4",
+																"children": []
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" xmlns:pos="http://www.srcML.org/srcML/position" revision="0.9.5" language="C++" filename="C:\Users\CHIJIA~1\AppData\Local\Temp\gumtree6520031692539727563" pos:tabs="1"><function><type><name pos:line="1" pos:column="1">int<pos:position pos:line="1" pos:column="4"/></name></type> <name pos:line="1" pos:column="5">main<pos:position pos:line="1" pos:column="9"/></name><parameter_list pos:line="1" pos:column="9">(<parameter><decl><type><name pos:line="1" pos:column="10">int<pos:position pos:line="1" pos:column="13"/></name></type> <name pos:line="1" pos:column="14">argc<pos:position pos:line="1" pos:column="18"/></name></decl></parameter>, <parameter><decl><type><name pos:line="1" pos:column="20">char<pos:position pos:line="1" pos:column="24"/></name> <modifier pos:line="1" pos:column="25">*<pos:position pos:line="1" pos:column="26"/></modifier><modifier pos:line="1" pos:column="26">*<pos:position pos:line="1" pos:column="27"/></modifier></type><name pos:line="1" pos:column="27">argv<pos:position pos:line="1" pos:column="31"/></name></decl></parameter>)<pos:position pos:line="1" pos:column="32"/></parameter_list>
+<block pos:line="2" pos:column="1">{
+  <expr_stmt><expr><call><name><name pos:line="3" pos:column="3">ros<pos:position pos:line="3" pos:column="6"/></name><operator pos:line="3" pos:column="6">::<pos:position pos:line="3" pos:column="8"/></operator><name pos:line="3" pos:column="8">init<pos:position pos:line="3" pos:column="12"/></name></name><argument_list pos:line="3" pos:column="12">(<argument><expr><name pos:line="3" pos:column="13">argc<pos:position pos:line="3" pos:column="17"/></name></expr></argument>, <argument><expr><name pos:line="3" pos:column="19">argv<pos:position pos:line="3" pos:column="23"/></name></expr></argument>)<pos:position pos:line="3" pos:column="24"/></argument_list></call></expr>;<pos:position pos:line="3" pos:column="25"/></expr_stmt>
+  <decl_stmt><decl><type><name><name pos:line="4" pos:column="3">ros<pos:position pos:line="4" pos:column="6"/></name><operator pos:line="4" pos:column="6">::<pos:position pos:line="4" pos:column="8"/></operator><name pos:line="4" pos:column="8">NodeHandle<pos:position pos:line="4" pos:column="18"/></name></name></type> <name pos:line="4" pos:column="19">n<pos:position pos:line="4" pos:column="20"/></name></decl>;<pos:position pos:line="4" pos:column="21"/></decl_stmt>
+  <decl_stmt><decl><type><name><name pos:line="5" pos:column="3">ros<pos:position pos:line="5" pos:column="6"/></name><operator pos:line="5" pos:column="6">::<pos:position pos:line="5" pos:column="8"/></operator><name pos:line="5" pos:column="8">Publisher<pos:position pos:line="5" pos:column="17"/></name></name></type> <name pos:line="5" pos:column="18">chatter_pub<pos:position pos:line="5" pos:column="29"/></name> <init pos:line="5" pos:column="30">= <expr><call><name><name pos:line="5" pos:column="32">n<pos:position pos:line="5" pos:column="33"/></name><operator pos:line="5" pos:column="33">.<pos:position pos:line="5" pos:column="34"/></operator><name><name pos:line="5" pos:column="34">advertise<pos:position pos:line="5" pos:column="43"/></name><argument_list type="generic" pos:line="5" pos:column="43">&lt;<argument><expr><name><name pos:line="5" pos:column="44">std_msgs<pos:position pos:line="5" pos:column="52"/></name><operator pos:line="5" pos:column="52">::<pos:position pos:line="5" pos:column="54"/></operator><name pos:line="5" pos:column="54">String<pos:position pos:line="5" pos:column="60"/></name></name></expr></argument>&gt;<pos:position pos:line="5" pos:column="64"/></argument_list></name></name><argument_list pos:line="5" pos:column="61">(<argument><expr><literal type="string" pos:line="5" pos:column="62">"chatter"<pos:position pos:line="5" pos:column="71"/></literal></expr></argument>, <argument><expr><literal type="number" pos:line="5" pos:column="73">1000<pos:position pos:line="5" pos:column="77"/></literal></expr></argument>)<pos:position pos:line="5" pos:column="78"/></argument_list></call></expr></init></decl>;<pos:position pos:line="5" pos:column="79"/></decl_stmt>
+  <decl_stmt><decl><type><name><name pos:line="6" pos:column="3">ros<pos:position pos:line="6" pos:column="6"/></name><operator pos:line="6" pos:column="6">::<pos:position pos:line="6" pos:column="8"/></operator><name pos:line="6" pos:column="8">Rate<pos:position pos:line="6" pos:column="12"/></name></name></type> <name pos:line="6" pos:column="13">loop_rate<pos:position pos:line="6" pos:column="22"/></name><argument_list pos:line="6" pos:column="22">(<argument><expr><literal type="number" pos:line="6" pos:column="23">10<pos:position pos:line="6" pos:column="25"/></literal></expr></argument>)<pos:position pos:line="6" pos:column="26"/></argument_list></decl>;<pos:position pos:line="6" pos:column="27"/></decl_stmt>
+  <decl_stmt><decl><type><name pos:line="7" pos:column="3">int<pos:position pos:line="7" pos:column="6"/></name></type> <name pos:line="7" pos:column="7">count<pos:position pos:line="7" pos:column="12"/></name> <init pos:line="7" pos:column="13">= <expr><literal type="number" pos:line="7" pos:column="15">0<pos:position pos:line="7" pos:column="16"/></literal></expr></init></decl>;<pos:position pos:line="7" pos:column="17"/></decl_stmt>
+  <decl_stmt><decl><type><name><name pos:line="8" pos:column="3">std_msgs<pos:position pos:line="8" pos:column="11"/></name><operator pos:line="8" pos:column="11">::<pos:position pos:line="8" pos:column="13"/></operator><name pos:line="8" pos:column="13">String<pos:position pos:line="8" pos:column="19"/></name></name></type> <name pos:line="8" pos:column="20">msg<pos:position pos:line="8" pos:column="23"/></name></decl>;<pos:position pos:line="8" pos:column="24"/></decl_stmt>
+  <while pos:line="9" pos:column="3">while <condition pos:line="9" pos:column="9">(<expr><call><name><name pos:line="9" pos:column="10">ros<pos:position pos:line="9" pos:column="13"/></name><operator pos:line="9" pos:column="13">::<pos:position pos:line="9" pos:column="15"/></operator><name pos:line="9" pos:column="15">ok<pos:position pos:line="9" pos:column="17"/></name></name><argument_list pos:line="9" pos:column="17">()<pos:position pos:line="9" pos:column="19"/></argument_list></call></expr>)<pos:position pos:line="9" pos:column="20"/></condition>
+  <block pos:line="10" pos:column="3">{
+    <decl_stmt><decl><type><name><name pos:line="11" pos:column="5">std<pos:position pos:line="11" pos:column="8"/></name><operator pos:line="11" pos:column="8">::<pos:position pos:line="11" pos:column="10"/></operator><name pos:line="11" pos:column="10">stringstream<pos:position pos:line="11" pos:column="22"/></name></name></type> <name pos:line="11" pos:column="23">ss<pos:position pos:line="11" pos:column="25"/></name></decl>;<pos:position pos:line="11" pos:column="26"/></decl_stmt>
+    <expr_stmt><expr><name pos:line="12" pos:column="5">ss<pos:position pos:line="12" pos:column="7"/></name> <operator pos:line="12" pos:column="8">&lt;&lt;<pos:position pos:line="12" pos:column="16"/></operator> <literal type="string" pos:line="12" pos:column="11">"hello world "<pos:position pos:line="12" pos:column="25"/></literal> <operator pos:line="12" pos:column="26">&lt;&lt;<pos:position pos:line="12" pos:column="34"/></operator> <name pos:line="12" pos:column="29">count<pos:position pos:line="12" pos:column="34"/></name><operator pos:line="12" pos:column="34">++<pos:position pos:line="12" pos:column="36"/></operator></expr>;<pos:position pos:line="12" pos:column="37"/></expr_stmt>
+    <expr_stmt><expr><name><name pos:line="13" pos:column="5">msg<pos:position pos:line="13" pos:column="8"/></name><operator pos:line="13" pos:column="8">.<pos:position pos:line="13" pos:column="9"/></operator><name pos:line="13" pos:column="9">data<pos:position pos:line="13" pos:column="13"/></name></name> <operator pos:line="13" pos:column="14">=<pos:position pos:line="13" pos:column="15"/></operator> <call><name><name pos:line="13" pos:column="16">ss<pos:position pos:line="13" pos:column="18"/></name><operator pos:line="13" pos:column="18">.<pos:position pos:line="13" pos:column="19"/></operator><name pos:line="13" pos:column="19">str<pos:position pos:line="13" pos:column="22"/></name></name><argument_list pos:line="13" pos:column="22">()<pos:position pos:line="13" pos:column="24"/></argument_list></call></expr>;<pos:position pos:line="13" pos:column="25"/></expr_stmt>
+    <expr_stmt><expr><call><name pos:line="14" pos:column="5">ROS_INFO<pos:position pos:line="14" pos:column="13"/></name><argument_list pos:line="14" pos:column="13">(<argument><expr><literal type="string" pos:line="14" pos:column="14">"%s"<pos:position pos:line="14" pos:column="18"/></literal></expr></argument>, <argument><expr><call><name><name pos:line="14" pos:column="20">msg<pos:position pos:line="14" pos:column="23"/></name><operator pos:line="14" pos:column="23">.<pos:position pos:line="14" pos:column="24"/></operator><name pos:line="14" pos:column="24">data<pos:position pos:line="14" pos:column="28"/></name><operator pos:line="14" pos:column="28">.<pos:position pos:line="14" pos:column="29"/></operator><name pos:line="14" pos:column="29">c_str<pos:position pos:line="14" pos:column="34"/></name></name><argument_list pos:line="14" pos:column="34">()<pos:position pos:line="14" pos:column="36"/></argument_list></call></expr></argument>)<pos:position pos:line="14" pos:column="37"/></argument_list></call></expr>;<pos:position pos:line="14" pos:column="38"/></expr_stmt>
+    <expr_stmt><expr><call><name><name pos:line="15" pos:column="5">chatter_pub<pos:position pos:line="15" pos:column="16"/></name><operator pos:line="15" pos:column="16">.<pos:position pos:line="15" pos:column="17"/></operator><name pos:line="15" pos:column="17">publish<pos:position pos:line="15" pos:column="24"/></name></name><argument_list pos:line="15" pos:column="24">(<argument><expr><name pos:line="15" pos:column="25">msg<pos:position pos:line="15" pos:column="28"/></name></expr></argument>)<pos:position pos:line="15" pos:column="29"/></argument_list></call></expr>;<pos:position pos:line="15" pos:column="30"/></expr_stmt>
+    <expr_stmt><expr><call><name><name pos:line="16" pos:column="5">ros<pos:position pos:line="16" pos:column="8"/></name><operator pos:line="16" pos:column="8">::<pos:position pos:line="16" pos:column="10"/></operator><name pos:line="16" pos:column="10">spinOnce<pos:position pos:line="16" pos:column="18"/></name></name><argument_list pos:line="16" pos:column="18">()<pos:position pos:line="16" pos:column="20"/></argument_list></call></expr>;<pos:position pos:line="16" pos:column="21"/></expr_stmt>
+    <expr_stmt><expr><call><name><name pos:line="17" pos:column="5">loop_rate<pos:position pos:line="17" pos:column="14"/></name><operator pos:line="17" pos:column="14">.<pos:position pos:line="17" pos:column="15"/></operator><name pos:line="17" pos:column="15">sleep<pos:position pos:line="17" pos:column="20"/></name></name><argument_list pos:line="17" pos:column="20">()<pos:position pos:line="17" pos:column="22"/></argument_list></call></expr>;<pos:position pos:line="17" pos:column="23"/></expr_stmt>
+  }<pos:position pos:line="18" pos:column="4"/></block></while>
+  <return pos:line="19" pos:column="3">return <expr><literal type="number" pos:line="19" pos:column="10">0<pos:position pos:line="19" pos:column="11"/></literal></expr>;<pos:position pos:line="19" pos:column="12"/></return>
+}<pos:position pos:line="20" pos:column="2"/></block></function>
+</unit>
+
+ev:<['http://www.srcML.org/srcML/src']::unit filename='C:\Users\CHIJIA~1\AppData\Local\Temp\gumtree4976997011610417731' pos:tabs='1' language='C++' revision='0.9.5' xmlns:='http://www.srcML.org/srcML/src' xmlns:cpp='http://www.srcML.org/srcML/cpp' xmlns:pos='http://www.srcML.org/srcML/position'>
+ev:<['http://www.srcML.org/srcML/src']::function>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='1' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='4' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='9' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::parameter_list pos:column='9' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::parameter>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='10' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='13' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='14' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='18' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::parameter>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='20' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='24' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::modifier pos:column='25' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='26' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::modifier pos:column='26' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='27' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='27' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='31' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='32' pos:line='1'>
+ev:<['http://www.srcML.org/srcML/src']::block pos:column='1' pos:line='2'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='3' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='6' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='6' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='8' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='12' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='12' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='13' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='17' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='19' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='23' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='24' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='25' pos:line='3'>
+ev:<['http://www.srcML.org/srcML/src']::decl_stmt>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='3' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='6' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='6' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='8' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='18' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='19' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='20' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='21' pos:line='4'>
+ev:<['http://www.srcML.org/srcML/src']::decl_stmt>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='3' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='6' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='6' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='8' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='17' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='18' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='29' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::init pos:column='30' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='32' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='33' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='33' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='34' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='34' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='43' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='43' pos:line='5' type='generic'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='44' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='52' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='52' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='54' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='54' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='60' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='64' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='61' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='62' pos:line='5' type='string'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='71' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='73' pos:line='5' type='number'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='77' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='78' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='79' pos:line='5'>
+ev:<['http://www.srcML.org/srcML/src']::decl_stmt>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='3' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='6' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='6' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='8' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='12' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='13' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='22' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='22' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='23' pos:line='6' type='number'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='25' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='26' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='27' pos:line='6'>
+ev:<['http://www.srcML.org/srcML/src']::decl_stmt>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='3' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='6' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='7' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='12' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/src']::init pos:column='13' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='15' pos:line='7' type='number'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='16' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='17' pos:line='7'>
+ev:<['http://www.srcML.org/srcML/src']::decl_stmt>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='3' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='11' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='11' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='13' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='13' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='19' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='20' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='23' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='24' pos:line='8'>
+ev:<['http://www.srcML.org/srcML/src']::while pos:column='3' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/src']::condition pos:column='9' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='10' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='13' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='13' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='15' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='15' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='17' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='17' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='19' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='20' pos:line='9'>
+ev:<['http://www.srcML.org/srcML/src']::block pos:column='3' pos:line='10'>
+ev:<['http://www.srcML.org/srcML/src']::decl_stmt>
+ev:<['http://www.srcML.org/srcML/src']::decl>
+ev:<['http://www.srcML.org/srcML/src']::type>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='8' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='10' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='10' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='22' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='23' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='25' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='26' pos:line='11'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='7' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='8' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='16' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='11' pos:line='12' type='string'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='25' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='26' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='34' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='29' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='34' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='34' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='36' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='37' pos:line='12'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='8' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='9' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='9' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='13' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='14' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='15' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='16' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='18' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='18' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='19' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='19' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='22' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='22' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='24' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='25' pos:line='13'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='13' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='13' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='14' pos:line='14' type='string'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='18' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='20' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='23' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='23' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='24' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='24' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='28' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='28' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='29' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='29' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='34' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='34' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='36' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='37' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='38' pos:line='14'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='16' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='16' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='17' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='17' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='24' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='24' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/src']::argument>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='25' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='28' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='29' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='30' pos:line='15'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='8' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='8' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='10' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='10' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='18' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='18' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='20' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='21' pos:line='16'>
+ev:<['http://www.srcML.org/srcML/src']::expr_stmt>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::call>
+ev:<['http://www.srcML.org/srcML/src']::name>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='5' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='14' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/src']::operator pos:column='14' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='15' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/src']::name pos:column='15' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='20' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/src']::argument_list pos:column='20' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='22' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='23' pos:line='17'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='4' pos:line='18'>
+ev:<['http://www.srcML.org/srcML/src']::return pos:column='3' pos:line='19'>
+ev:<['http://www.srcML.org/srcML/src']::expr>
+ev:<['http://www.srcML.org/srcML/src']::literal pos:column='10' pos:line='19' type='number'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='11' pos:line='19'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='12' pos:line='19'>
+ev:<['http://www.srcML.org/srcML/position']:pos:position pos:column='2' pos:line='20'>

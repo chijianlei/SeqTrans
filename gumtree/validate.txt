@@ -1,0 +1,74 @@
+AstraDriver :: AstraDriver ( rclcpp :: Node :: SharedPtr * var , rclcpp :: Node :: SharedPtr * var , size_t var , size_t var , double var , size_t var , size_t var , double var , PixelFormat var ) : nh_ ( n ) , pnh_ ( pnh ) , device_manager_ ( AstraDeviceManager :: getSingelton ( ) ) , config_init_ ( false ) , color_frame_id_ ( "" ) , depth_frame_id_ ( "" ) , depth_registration_ ( false ) , data_skip_ir_counter_ ( 0 ) , data_skip_color_counter_ ( 0 ) , data_skip_depth_counter_ ( 0 ) , ir_subscribers_ ( false ) , color_subscribers_ ( false ) , depth_subscribers_ ( false ) , depth_raw_subscribers_ ( false ) , can_publish_ir_ ( true ) , can_publish_color_ ( true ) , can_publish_depth_ ( true )
+if ( ! device_ -> isIRStreamStarted ( )  )
+reconfigure_srv_ = this -> create_service < std_srvs :: srv :: Empty > ( "" , std :: bind ( & Controller :: ReconfigureService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) Controller :: ReconfigureService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+update_timer_ = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / update_rate_hz_ ) / update_rate_hz_ , std :: bind ( & Controller :: UpdateTimerCallback , this ) Controller :: UpdateTimerCallback , this )
+bool Controller :: ReconfigureService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < std_srvs :: srv :: Empty :: Request > :: srv :: Empty :: Request var , const std :: shared_ptr < std_srvs :: srv :: Empty :: Response > :: srv :: Empty :: Response var )
+rclcpp :: Subscription < nm :: Odometry > :: SharedPtr var
+rclcpp :: Subscription < nm :: Odometry > :: SharedPtr var
+rclcpp :: Subscription < mdm :: TransmissionFeedback > :: SharedPtr var
+FeedforwardPid ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.01 ) , var ( true ) , var ( false ) , var ( false ) , var ( false ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) , this -> now ( ) )
+FeedforwardPid ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.01 ) , var ( true ) , var ( false ) , var ( false ) , var ( false ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) , this -> now ( ) )
+this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 ) )
+var = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / var ) / var , std :: bind ( & FeedforwardPid :: ControlLoop , this ) FeedforwardPid :: ControlLoop , this )
+var -> header . stamp . sec = var / 1000000000
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Time var
+GainSchedulePID ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.1 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( true ) , var ( this -> now ( ) ) , var ( 0.0 ) , var ( false )
+var = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / var ) / var , std :: bind ( & GainSchedulePID :: ControlLoop , this ) GainSchedulePID :: ControlLoop , this )
+double var = ( var - var ) . seconds
+GearStateModule :: GearStateModule ( ) : min_gear_request_period_s_ ( - 1.0 ) , last_requested_gear_ ( snm :: DbwGear :: UNKNOWN ) , desired_gear_ ( snm :: DbwGear :: PARK ) , current_gear_ ( snm :: DbwGear :: UNKNOWN ) , reported_gear_ ( snm :: DbwGear :: UNKNOWN )
+rclcpp :: Time var = var -> var ( )
+auto var = GetModuleNodeHandle
+set_vehicle_gear_srv_ = var -> create_service < sumet_nav_msgs :: srv :: SetVehicleGear > ( "" , std :: bind ( & GearStateModule :: SetVehicleGearService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) GearStateModule :: SetVehicleGearService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+bool GearStateModule :: SetVehicleGearService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < sumet_nav_msgs :: srv :: SetVehicleGear :: Request > :: srv :: SetVehicleGear :: Request var , const std :: shared_ptr < sumet_nav_msgs :: srv :: SetVehicleGear :: Response > :: srv :: SetVehicleGear :: Response var )
+printf ( "" , 0.0 , 0.0 , 1.0 )
+start_engine_srv_ = var -> create_service < sumet_nav_msgs :: srv :: StartEngine > ( "" , std :: bind ( & IgnitionModule :: StartEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) IgnitionModule :: StartEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+stop_engine_srv_ = var -> create_service < sumet_nav_msgs :: srv :: StopEngine > ( "" , std :: bind ( & IgnitionModule :: StopEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) IgnitionModule :: StopEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+bool IgnitionModule :: StartEngineService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StartEngine :: Request > :: srv :: StartEngine :: Request var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StartEngine :: Response > :: srv :: StartEngine :: Response var )
+bool IgnitionModule :: StopEngineService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StopEngine :: Request > :: srv :: StopEngine :: Request var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StopEngine :: Response > :: srv :: StopEngine :: Response var )
+var -> header . stamp = var -> now ( )
+tf2 :: Quaternion var ( var . x ( ) * std :: sin ( var / 2 ) / 2 , var . y ( ) * std :: sin ( var / 2 ) / 2 , var . z ( ) * std :: sin ( var / 2 ) / 2 , std :: cos ( var / 2 ) / 2 )
+LocalXyWgs84Util :: LocalXyWgs84Util ( std :: shared_ptr < rclcpp :: Node > :: Node var ) : reference_latitude_ ( 0 ) , reference_longitude_ ( 0 ) , reference_angle_ ( 0 ) , reference_altitude_ ( 0 ) , rho_lat_ ( 0 ) , rho_lon_ ( 0 ) , cos_angle_ ( 0 ) , sin_angle_ ( 0 ) , frame_ ( "" ) , initialized_ ( false )
+MicrostrainFilterNodelet : last_vel_update_ ( 0 , 0 , RCL_ROS_TIME ) , last_lat_accel_ ( 0 ) , last_long_accel_ ( 0 ) , last_linear_vel_ ( 0 ) , last_angular_vel_ ( 0 ) , last_imu_update_ ( 0 , 0 , RCL_ROS_TIME ) , stopped_time_ ( 0.0 ) , stop_time_ ( 0 , 0 , RCL_ROS_TIME ) , imu_to_vehicle_trans_ ( tf2 :: Transform :: getIdentity ( ) ) , init_roll_ ( 0 ) , init_pitch_ ( 0 ) , init_yaw_ ( 0 ) , g_magnitude_ ( 9.8 ) , legacy_mode_ ( false ) , wxb0_ ( 0.0 ) , wyb0_ ( 0.0 ) , wzb0_ ( 0.0 ) , min_variance_ ( 0.02 ) , base_var_scale_ ( 1.0 ) , angular_rate_variance_scale_ ( 1.0 ) , max_interval1_ ( 0 ) , max_interval2_ ( 0 ) , max_vel_interval_ ( 0 ) , max_latency_ ( 0 ) , last_imu_msg_ ( new sensor_msgs :: msg :: Imu ) , Node ( "" )
+rclcpp :: Publisher < sensor_msgs :: msg :: Imu > :: SharedPtr var
+var = create_wall_timer ( 1.0 , std :: bind ( & MicrostrainFilterNodelet :: diagnostic_update_cb , this ) MicrostrainFilterNodelet :: diagnostic_update_cb , this )
+var = rclcpp :: Time ( 0 , 0 , RCL_ROS_TIME )
+var = rclcpp :: Time ( 0 , 0 , RCL_ROS_TIME )
+ModeSwitchPid ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( this -> now ( ) ) , var ( 0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0 ) , var ( STATE_STOP ) , var ( STATE_STOP )
+var = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / var ) / var , std :: bind ( & ModeSwitchPid :: ControlLoop , this ) ModeSwitchPid :: ControlLoop , this )
+double var = ( var - var ) . seconds
+double var = ( var - var ) . seconds
+auto var = GetModuleNodeHandle
+PidConfig :: PidConfig ( rclcpp :: Logger var ) : kp_ ( 0.0 ) , ki_ ( 0.0 ) , kd_ ( 0.0 ) , kp_stop_ ( 0.0 ) , ki_stop_ ( 0.0 ) , kd_stop_ ( 0.0 ) , min_i_ ( 0.0 ) , max_i_ ( 0.0 ) , min_d_ ( 0.0 ) , max_d_ ( 0.0 ) , feedforward_vs_speed_ratio_ ( 0.0 ) , measured_filter_cut_off_hz_ ( 0.0 ) , derr_filter_cut_off_hz_ ( 0.0 ) , logger_ ( logger )
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < geometry_msgs :: msg :: PoseWithCovarianceStamped > :: SharedPtr var
+rclcpp :: Publisher < geometry_msgs :: msg :: PoseWithCovarianceStamped > :: SharedPtr var
+geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr var ( new geometry_msgs :: msg :: PoseWithCovarianceStamped ( ) )
+var = create_timer ( 1.0 , std :: bind ( & PoseAggregator :: RunDiagnostics , this ) PoseAggregator :: RunDiagnostics , this )
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < std_msgs :: msg :: UInt8 > :: SharedPtr var
+rclcpp :: Publisher < std_msgs :: msg :: Char > :: SharedPtr var
+nav_msgs :: msg :: Odometry :: SharedPtr var ( new nav_msgs :: msg :: Odometry ( ) )
+nav_msgs :: msg :: Odometry :: SharedPtr var ( new nav_msgs :: msg :: Odometry ( ) )
+nav_msgs :: msg :: Odometry :: SharedPtr var ( new nav_msgs :: msg :: Odometry ( ) )
+geometry_msgs :: var :: PoseWithCovarianceStamped var
+rclcpp :: Time var = nh_ -> var ( )
+rclcpp :: Time var = nh_ -> var ( )
+explicit StateEst3DClass : var ( new nav_msgs :: msg :: Odometry ( ) ) , var ( new nav_msgs :: msg :: Odometry ( ) ) , var ( DEFAULT_SAMPLING_FREQUENCY ) , var ( false ) , var ( false ) , var ( false ) , Node ( "" ) , var ( 61 ) , var ( 'A' )
+TwistAggregator : Microstrain_ ( "" ) , Novatel_ ( "" ) , DSP3000_ ( "" ) , CAN_WS_Velocity_ ( "" ) , CAN_WS_Angular_ ( "" ) , CAN_Angular_ ( "" ) , DT_ ( 0.01 ) , cur_latitude_ ( 29.44 ) , last_odom_time_ ( 0 , 0 , RCL_ROS_TIME ) , Node ( "" )
+rclcpp :: Publisher < geometry_msgs :: msg :: TwistWithCovarianceStamped > :: SharedPtr var
+rclcpp :: Time var = swri :: TIME_MIN
+auto var = rclcpp :: Node :: make_shared ( "" )
+UtmToTfTransform :: UtmToTfTransform ( const geometry_msgs :: msg :: TransformStamped * var , std :: shared_ptr < UtmUtil > var , std :: shared_ptr < LocalXyWgs84Util > var , int32_t var , char var ) : transform_ ( transform ) , utm_util_ ( utm_util ) , local_xy_util_ ( local_xy_util ) , utm_zone_ ( utm_zone ) , utm_band_ ( utm_band )
+tf2 :: fromMsg ( transform_ . transform , var )
+var . transform = tf2 :: toMsg ( var . inverse ( ) )
+var . header . frame_id = transform_ . child_frame_id
+TfToUtmTransform :: TfToUtmTransform ( const geometry_msgs :: msg :: TransformStamped * var , std :: shared_ptr < UtmUtil > var , std :: shared_ptr < LocalXyWgs84Util > var , int32_t var , char var ) : transform_ ( transform ) , utm_util_ ( utm_util ) , local_xy_util_ ( local_xy_util ) , utm_zone_ ( utm_zone ) , utm_band_ ( utm_band )
+tf2 :: fromMsg ( transform_ . transform , var )
+var . transform = tf2 :: toMsg ( var . inverse ( ) )
+var . header . frame_id = transform_ . child_frame_id
+ROS_INFO ( "" , this -> getTimestamp ( var ) . nanoseconds var / 1000000000.0 , V_ . linear . x , V_ . linear . y , V_ . linear . z , V_ . angular . x , V_ . angular . y , V_ . angular . z )
+std :: vector < bool > VelocityStreamList3D :: do_average ( std :: vector < std :: vector < std :: string > :: string > :: vector < std :: string > :: string * var , const rclcpp :: Time * var , tf2 :: Vector3 * var , tf2 :: Vector3 * var , velocity_type var )

@@ -1,0 +1,1009 @@
+T_ = tf2 :: Transform :: getIdentity ( )
+void Absolute3DLocalizationElement :: run_update_step ( const tf2 :: Transform * var , const LaGenMatDouble & var , tf2 :: Transform * var , LaGenMatDouble & var , double var , bool var )
+tf2 :: Vector3 var = var . getOrigin ( )
+tf2 :: Vector3 var ( var ( 0 ) , var ( 1 ) , var ( 2 ) )
+tf2 :: Quaternion var
+var = tf2 :: Transform ( var , var )
+tf2 :: Vector3 var ( var ( 0 ) , var ( 1 ) , var ( 2 ) )
+tf2 :: Quaternion var
+tf2 :: Transform var ( var , var )
+tf2 :: Transform var
+void Absolute3DLocalizationElement :: load_pos_and_cov_data ( const tf2 :: Transform * var , const LaGenMatDouble & var )
+tf2 :: Vector3 var = var . getOrigin ( )
+void Absolute3DLocalizationElement :: load_pose_data_from_msg ( const geometry_msgs :: msg :: PoseWithCovarianceStamped * var )
+const geometry_msgs :: var :: Point * var = var . pose . pose . position
+const geometry_msgs :: var :: Quaternion * var = var . pose . pose . orientation
+tf2 :: Transform var ( tf2 :: Quaternion ( var . var , var . y , var . z , var . w ) . var , var . y , var . z , var . w )
+tf2 :: Vector3 var = T_ . getOrigin ( )
+ROS_ERROR ( "" "" , swri :: toSec ( this -> getTimestamp ( ) ) -> getTimestamp ( ) , var . x ( ) , var . y ( ) , var . z ( ) , var , var , var )
+void Absolute3DLocalizationElement :: set_position_data ( const tf2 :: Transform * var )
+tf2 :: Vector3 var = var . getOrigin ( )
+AstraDriver :: AstraDriver ( rclcpp :: Node :: SharedPtr * var , rclcpp :: Node :: SharedPtr * var , size_t var , size_t var , double var , size_t var , size_t var , double var , PixelFormat var ) : nh_ ( n ) , pnh_ ( pnh ) , device_manager_ ( AstraDeviceManager :: getSingelton ( ) ) , config_init_ ( false ) , color_frame_id_ ( "" ) , depth_frame_id_ ( "" ) , depth_registration_ ( false ) , data_skip_ir_counter_ ( 0 ) , data_skip_color_counter_ ( 0 ) , data_skip_depth_counter_ ( 0 ) , ir_subscribers_ ( false ) , color_subscribers_ ( false ) , depth_subscribers_ ( false ) , depth_raw_subscribers_ ( false ) , can_publish_ir_ ( true ) , can_publish_color_ ( true ) , can_publish_depth_ ( true )
+pub_depth_raw_ = nh_ -> create_publisher < sensor_msgs :: msg :: Image > ( "" , rmw_qos_profile_sensor_data )
+pub_depth_camera_info_ = nh_ -> create_publisher < sensor_msgs :: msg :: CameraInfo > ( "" , rmw_qos_profile_sensor_data )
+void AstraDriver :: irAttemptStream ( )
+pnh_ -> get_parameter ( "" , depth_registration_ )
+if ( ! device_ -> isIRStreamStarted ( )  )
+if ( device_ -> isDepthStreamStarted ( ) )
+if ( device_ -> isIRStreamStarted ( ) )
+void AstraDriver :: newIRFrameCallback ( sensor_msgs :: msg :: Image :: SharedPtr var )
+pub_depth_camera_info_ -> publish ( getDepthCameraInfo ( var -> width , var -> height , var -> header . stamp ) -> width , var -> height , var -> header . stamp )
+void AstraDriver :: newColorFrameCallback ( sensor_msgs :: msg :: Image :: SharedPtr var )
+void AstraDriver :: newDepthFrameCallback ( sensor_msgs :: msg :: Image :: SharedPtr var )
+sensor_msgs :: msg :: CameraInfo :: SharedPtr var
+sensor_msgs :: msg :: Image :: SharedPtr var = rawToFloatingPointConversion ( var )
+sensor_msgs :: msg :: CameraInfo :: SharedPtr AstraDriver :: getDefaultCameraInfo ( int var , int var , double var )
+sensor_msgs :: msg :: CameraInfo :: SharedPtr var = std :: make_shared < sensor_msgs :: msg :: CameraInfo > ( )
+var -> d . resize ( 5 , 0.0 )
+var -> k . fill ( 0.0 )
+var -> p [ 2 ] -= depth_ir_offset_x_ * var
+var -> k [ 5 ] = ( var * ( 3. / 8. ) ) - 0.5
+var -> r . fill ( 0.0 )
+var -> p . fill ( 0.0 )
+var -> k [ 2 ] -= depth_ir_offset_x_ * var
+var -> p [ 6 ] -= depth_ir_offset_y_ * var
+var -> p [ 10 ] = 1.0
+sensor_msgs :: msg :: CameraInfo :: SharedPtr AstraDriver :: getIRCameraInfo ( int var , int var , builtin_interfaces :: msg :: Time var )
+sensor_msgs :: msg :: CameraInfo :: SharedPtr var
+sensor_msgs :: msg :: CameraInfo :: SharedPtr var
+sensor_msgs :: msg :: CameraInfo :: SharedPtr var = getIRCameraInfo ( var , var , var )
+var -> p [ 2 ] = var -> k [ 2 ]
+var -> k [ 2 ] = ( var / 2 ) - 0.5
+var -> p [ 6 ] = var -> k [ 5 ]
+pnh_ -> get_parameter ( "" , depth_frame_id_ )
+pnh_ -> get_parameter ( "" , can_publish_depth_ )
+return var -> at ( var - 1 )
+if ( var == 0 || var > var -> size ( ) )
+return var -> at ( var - 1 )
+while ( rclcpp :: ok ( ) && ! device_ )
+while ( rclcpp :: ok ( ) && ! device_ -> isValid ( ) )
+sensor_msgs :: msg :: Image :: SharedPtr AstraDriver :: rawToFloatingPointConversion ( sensor_msgs :: msg :: Image :: SharedPtr var )
+sensor_msgs :: msg :: Image :: SharedPtr var = std :: make_shared < sensor_msgs :: msg :: Image > ( )
+swri_nav_msgs :: msg :: PathPoint var
+swri_nav_msgs :: msg :: PathPoint var = var
+swri_nav_msgs :: msg :: PathPoint var
+void calcPathOnBezierCurve ( const int var , const std :: vector < Point2d > * var , swri_nav_msgs :: msg :: PathSegment * var , bool var , bool var )
+void calcPathOnBezierCurveDeCasteljau ( const double var , const std :: vector < Point2d > * var , swri_nav_msgs :: msg :: PathSegment * var , bool var , bool var , int var )
+swri_nav_msgs :: msg :: PathSegment var
+start_acquisition_time_ = swri :: TIME_MIN
+last_data_time_ = swri :: TIME_MIN
+bias_computation_time_ = swri :: TIME_MIN
+initialize ( 1000 , start_acquisition_time_ )
+void BiasCalcClass :: initialize ( int var , rclcpp :: Time var )
+rclcpp :: Duration BiasCalcClass :: get_bias_age ( rclcpp :: Time var )
+bool BiasCalcClass :: get_is_bias_current ( rclcpp :: Time var )
+return ( swri :: toSec ( get_bias_age ( var ) ) < bias_validity_duration_ )
+bool BiasCalcClass :: load_new_data ( double var , rclcpp :: Time var , bool var )
+double var = swri :: toSec ( var - last_data_time_ )
+bool VehicleDimensions :: getParam ( const std :: shared_ptr < rclcpp :: Node > :: Node * var , std :: string var )
+var &= var -> get_parameter < double > ( var + "" , length )
+var &= var -> get_parameter < double > ( var + "" , width )
+var &= var -> get_parameter < double > ( var + "" , rear_overhang )
+var &= var -> get_parameter < double > ( var + "" , wheelbase )
+var &= var -> get_parameter < double > ( var + "" , track )
+bool collisionCheckPath ( const swri_nav_msgs :: msg :: Path * var , const VehicleDimensions & var , const Costmap & var , double * var , cv :: Mat * var )
+swri_nav_msgs :: msg :: PathSegment var = var . segments [ var ]
+bool collisionCheckPath ( const swri_nav_msgs :: msg :: Path * var , const VehicleDimensions & var , const CostmapTiling & var , double * var )
+swri_nav_msgs :: msg :: PathSegment var = var . segments [ var ]
+void pathFootprintToMarker ( const swri_nav_msgs :: msg :: Path * var , const VehicleDimensions & var , const std_msgs :: msg :: ColorRGBA * var , visualization_msgs :: msg :: Marker * var )
+var . type = visualization_msgs :: msg :: Marker :: LINE_LIST
+var . action = visualization_msgs :: msg :: Marker :: ADD
+geometry_msgs :: msg :: Vector3 var
+const swri_nav_msgs :: msg :: PathSegment * var = var . segments [ var ]
+std :: vector < geometry_msgs :: msg :: Point > var ( 5 )
+Controller :: Controller ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , update_rate_hz_ ( 25.0 ) , require_brake_ ( false ) , robotic_mode_ ( true ) , engine_running_ ( true ) , ignition_on_ ( true )
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+void Controller :: initialize ( )
+curvature_input_pub_ = this -> create_publisher < mcm :: Float32Stamped > ( "" , rclcpp :: QoS ( 3 ) )
+speed_input_pub_ = this -> create_publisher < mcm :: Float32Stamped > ( "" , rclcpp :: QoS ( 3 ) )
+dbw_state_pub_ = this -> create_publisher < snm :: DriveByWireState > ( "" , rclcpp :: QoS ( 3 ) )
+robotic_mode_sub_ = this -> create_subscription < mcm :: BoolStamped > ( "" , 3 , std :: bind ( & Controller :: handleRoboticMode , this , std :: placeholders :: _1 ) Controller :: handleRoboticMode , this , std :: placeholders :: _1 )
+engine_running_sub_ = this -> create_subscription < mcm :: BoolStamped > ( "" , 3 , std :: bind ( & Controller :: handleEngineRunning , this , std :: placeholders :: _1 ) Controller :: handleEngineRunning , this , std :: placeholders :: _1 )
+ignition_on_sub_ = this -> create_subscription < mcm :: BoolStamped > ( "" , 3 , std :: bind ( & Controller :: handleIgnitionOn , this , std :: placeholders :: _1 ) Controller :: handleIgnitionOn , this , std :: placeholders :: _1 )
+reconfigure_srv_ = this -> create_service < std_srvs :: srv :: Empty > ( "" , std :: bind ( & Controller :: ReconfigureService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) Controller :: ReconfigureService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+update_timer_ = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / update_rate_hz_ ) / update_rate_hz_ , std :: bind ( & Controller :: UpdateTimerCallback , this ) Controller :: UpdateTimerCallback , this )
+RCLCPP_INFO ( this -> get_logger ( ) , "" , update_rate_hz_ )
+void Controller :: UpdateTimerCallback ( )
+auto var = std :: make_shared < mcm :: Float32Stamped > ( )
+var -> header . stamp = this -> now ( )
+speed_input_pub_ -> publish ( * var )
+auto var = std :: make_shared < mcm :: Float32Stamped > ( )
+var -> header . stamp = this -> now ( )
+curvature_input_pub_ -> publish ( * var )
+var -> InitializeModule ( this , var , var )
+auto var = std :: make_shared < snm :: DriveByWireState > ( )
+var -> header . stamp = this -> now ( )
+dbw_state_pub_ -> publish ( * var )
+bool Controller :: ReconfigureService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < std_srvs :: srv :: Empty :: Request > :: srv :: Empty :: Request var , const std :: shared_ptr < std_srvs :: srv :: Empty :: Response > :: srv :: Empty :: Response var )
+void Controller :: handleRoboticMode ( const marti_common_msgs :: msg :: BoolStamped :: SharedPtr var )
+void Controller :: handleEngineRunning ( const mcm :: BoolStamped :: SharedPtr var )
+void Controller :: handleIgnitionOn ( const mcm :: BoolStamped :: SharedPtr var )
+bool Costmap :: fromMsg ( const sumet_nav_msgs :: msg :: Costmap * var )
+bool Costmap :: fromMsg ( const persistent_map_msgs :: msg :: LocalGridMap * var )
+void Costmap :: toMsg ( sumet_nav_msgs :: msg :: Costmap * var )
+void Costmap :: toMsg ( persistent_map_msgs :: msg :: LocalGridMap * var )
+geometry_msgs :: var :: Point var
+persistent_map_msgs :: var :: MapLayer var
+auto var = GetModuleNodeHandle
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , timeout_s_ )
+auto var = GetNodeHandle
+curvature_sub_ = var -> create_subscription < marti_common_msgs :: msg :: Float32Stamped > ( "" , 2 , std :: bind ( & CurvatureCommandModule :: handleCurvatureMsg , this , std :: placeholders :: _1 ) CurvatureCommandModule :: handleCurvatureMsg , this , std :: placeholders :: _1 )
+curvature_sub_ . reset ( )
+void CurvatureCommandModule :: handleCurvatureMsg ( const marti_common_msgs :: msg :: Float32Stamped :: SharedPtr var ) = var
+void DerivativeEstimator :: add_new_data ( const rclcpp :: Time * var , double var )
+sumet_state_estimator :: StampedDoubleData var ( var )
+double var = swri :: toSec ( rclcpp :: Time ( var . header . stamp ) . header . stamp - rclcpp :: Time ( var . header . stamp ) . header . stamp )
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: TimerBase :: SharedPtr var
+std :: shared_ptr < du :: Updater > var
+rclcpp :: Subscription < nm :: Odometry > :: SharedPtr var
+rclcpp :: Subscription < nm :: Odometry > :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Subscription < mdm :: TransmissionFeedback > :: SharedPtr var
+FeedforwardPid ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.01 ) , var ( true ) , var ( false ) , var ( false ) , var ( false ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) , this -> now ( ) )
+FeedforwardPid ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.01 ) , var ( true ) , var ( false ) , var ( false ) , var ( false ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) ) , var ( this -> get_logger ( ) . get_child ( "" ) , this -> now ( ) )
+var = this -> create_subscription < nm :: Odometry > ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleOdometry , this , std :: placeholders :: _1 ) FeedforwardPid :: HandleOdometry , this , std :: placeholders :: _1 )
+var = this -> create_subscription < mcm :: Float32Stamped > ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleSpeedCommand , this , std :: placeholders :: _1 ) FeedforwardPid :: HandleSpeedCommand , this , std :: placeholders :: _1 )
+var = this -> create_subscription < mcm :: Float32Stamped > ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleAccelerationCommand , this , std :: placeholders :: _1 ) FeedforwardPid :: HandleAccelerationCommand , this , std :: placeholders :: _1 )
+var = this -> create_subscription < mdm :: TransmissionFeedback > ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleTransmissionSense , this , std :: placeholders :: _1 ) FeedforwardPid :: HandleTransmissionSense , this , std :: placeholders :: _1 )
+var . getParams ( this -> get_node_parameters_interface ( ) )
+var = std :: make_shared < du :: Updater > ( this -> create_sub_node ( "" ) )
+this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 ) )
+this -> set_on_parameters_set_callback ( std :: bind ( & FeedforwardPid :: ReconfigCb , this , std :: placeholders :: _1 ) FeedforwardPid :: ReconfigCb , this , std :: placeholders :: _1 )
+var = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / var ) / var , std :: bind ( & FeedforwardPid :: ControlLoop , this ) FeedforwardPid :: ControlLoop , this )
+var = this -> create_publisher < mcm :: Float32Stamped > ( "" , rclcpp :: QoS ( 1 ) )
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_bool
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var . successful = true
+void ControlLoop
+rclcpp :: Time var = this -> var ( )
+RCLCPP_DEBUG ( this -> get_logger ( ) , "" , var . value , var . value , var . GetMeasuredFiltered ( ) , var , var , var )
+var -> publish ( * makeFloat32StampedPtr ( var , var ) , var )
+var -> publish ( * makeFloat32StampedPtr ( var , var ) , var )
+var -> publish ( * makeFloat32StampedPtr ( var , var . GetMeasuredFiltered ( ) ) , var . GetMeasuredFiltered ( ) )
+void HandleOdometry ( const nm :: Odometry :: SharedPtr var )
+void HandleSpeedCommand ( const mcm :: Float32Stamped :: SharedPtr var )
+void HandleAccelerationCommand ( const mcm :: Float32Stamped :: SharedPtr var )
+void HandleTransmissionSense ( const mdm :: TransmissionFeedback :: SharedPtr var )
+sensor_msgs :: msg :: Image :: SharedPtr var ( new sensor_msgs :: msg :: Image )
+var -> header . stamp . sec = var / 1000000000
+ROS_DEBUG ( "" , float ( ( var / 1000000000 - prev_time_stamp_ ) * 1000.0 ) var / 1000000000 - prev_time_stamp_ ) * 1000.0 )
+prev_time_stamp_ = var / 1000000000
+double var = var / 1000000000
+var -> header . stamp . sec = floor ( var )
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Time var
+GainSchedulePID ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.1 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( true ) , var ( this -> now ( ) ) , var ( 0.0 ) , var ( false )
+var = this -> create_subscription < nm :: Odometry > ( "" , 1 , std :: bind ( & GainSchedulePID :: HandleOdometry , this , std :: placeholders :: _1 ) GainSchedulePID :: HandleOdometry , this , std :: placeholders :: _1 )
+var = this -> create_subscription < mcm :: Float32Stamped > ( "" , 1 , std :: bind ( & GainSchedulePID :: HandleSpeedCommand , this , std :: placeholders :: _1 ) GainSchedulePID :: HandleSpeedCommand , this , std :: placeholders :: _1 )
+var . loadFromParameterServer ( this -> get_node_parameters_interface ( ) , "" )
+RCLCPP_INFO ( this -> get_logger ( ) , "" , var . toString ( ) . c_str )
+this -> set_on_parameters_set_callback ( std :: bind ( & GainSchedulePID :: dynamicReconfigCallback , this , std :: placeholders :: _1 ) GainSchedulePID :: dynamicReconfigCallback , this , std :: placeholders :: _1 )
+var = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / var ) / var , std :: bind ( & GainSchedulePID :: ControlLoop , this ) GainSchedulePID :: ControlLoop , this )
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+var = ( this -> get_parameter ( "" ) ) . as_double
+RCLCPP_INFO ( this -> get_logger ( ) , "" , var . toString ( ) . c_str )
+void ControlLoop
+rclcpp :: Time var = this -> var ( )
+var . header . stamp = var
+var . value = std :: max ( var , 0.0 ) / 100.0
+var -> publish ( var )
+var . header . stamp = var
+var . value = std :: max ( - var , 0.0 ) / 100.0
+var -> publish ( var )
+RCLCPP_DEBUG ( this -> get_logger ( ) , "" , var , var , var , var * var )
+double IntegralTerm ( const rclcpp :: Time * var , double var )
+double var = ( var - var ) . seconds
+rclcpp :: Time var = this -> var ( )
+double var = ( var - var . header . stamp ) . seconds
+double var = ( var - var . header . stamp ) . seconds
+void HandleOdometry ( const nm :: Odometry :: SharedPtr var )
+void HandleSpeedCommand ( const mcm :: Float32Stamped :: SharedPtr var )
+rclcpp :: Time var = this -> var ( )
+GearStateModule :: GearStateModule ( ) : min_gear_request_period_s_ ( - 1.0 ) , last_requested_gear_ ( snm :: DbwGear :: UNKNOWN ) , desired_gear_ ( snm :: DbwGear :: PARK ) , current_gear_ ( snm :: DbwGear :: UNKNOWN ) , reported_gear_ ( snm :: DbwGear :: UNKNOWN )
+auto var = GetModuleNodeHandle
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , min_gear_request_period_s_ )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , var . c_str ( ) )
+RCLCPP_ERROR ( var -> get_logger ( ) , "" , GetName . c_str , var . c_str ( ) )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , var . c_str ( ) )
+RCLCPP_ERROR ( var -> get_logger ( ) , "" , GetName . c_str , var . c_str ( ) )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , var . c_str ( ) )
+RCLCPP_ERROR ( var -> get_logger ( ) , "" , GetName . c_str , var . c_str ( ) )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , auto_gear_in_reverse_timeout_s_ )
+rclcpp :: Time var = var -> var ( )
+auto var = GetModuleNodeHandle
+set_vehicle_gear_srv_ = var -> create_service < sumet_nav_msgs :: srv :: SetVehicleGear > ( "" , std :: bind ( & GearStateModule :: SetVehicleGearService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) GearStateModule :: SetVehicleGearService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+transmission_input_pub_ = var -> create_publisher < mcm :: StringStamped > ( "" , rclcpp :: QoS ( 10 ) )
+transmission_sense_sub_ = var -> create_subscription < marti_dbw_msgs :: msg :: TransmissionFeedback > ( "" , 10 , std :: bind ( & GearStateModule :: handleTransmissionSense , this , std :: placeholders :: _1 ) GearStateModule :: handleTransmissionSense , this , std :: placeholders :: _1 )
+auto_gear_in_reverse_sub_ = var -> create_subscription < marti_common_msgs :: msg :: BoolStamped > ( "" , 2 , std :: bind ( & GearStateModule :: handleAutoGearInReverse , this , std :: placeholders :: _1 ) GearStateModule :: handleAutoGearInReverse , this , std :: placeholders :: _1 )
+set_vehicle_gear_srv_ . reset ( )
+bool GearStateModule :: SetVehicleGearService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < sumet_nav_msgs :: srv :: SetVehicleGear :: Request > :: srv :: SetVehicleGear :: Request var , const std :: shared_ptr < sumet_nav_msgs :: srv :: SetVehicleGear :: Response > :: srv :: SetVehicleGear :: Response var )
+gear_mode_ = var -> mode
+var -> result . success = true
+var -> result . message = ""
+var -> result . success = false
+var -> result . message = ""
+void GearStateModule :: HandleGearAssignment ( const rclcpp :: Time * var )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , desired_gear_ , reported_gear_ )
+double var = ( var - last_gear_request_time_ ) . seconds
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , var , min_gear_request_period_s_ )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str )
+last_gear_request_time_ = var -> var ( )
+mcm :: StringStamped :: SharedPtr var = std :: make_shared < mcm :: StringStamped > ( )
+var -> header . stamp = var -> var ( )
+transmission_input_pub_ -> publish ( * var )
+void GearStateModule :: handleTransmissionSense ( const marti_dbw_msgs :: msg :: TransmissionFeedback :: SharedPtr var )
+void GearStateModule :: handleAutoGearInReverse ( const marti_common_msgs :: msg :: BoolStamped :: SharedPtr var ) = var
+printf ( "" , path_ . c_str ( ) )
+printf ( "" , image_path_ . c_str ( ) )
+printf ( "" , var . what ( ) )
+printf ( "" , var . what ( ) )
+printf ( "" , path_ . c_str ( ) )
+printf ( "" , image_path_ . c_str ( ) )
+printf ( "" , width_ )
+printf ( "" , height_ )
+printf ( "" , tile_size_ )
+printf ( "" , extension_ . c_str ( ) )
+printf ( "" , datum_ . c_str ( ) )
+printf ( "" , projection_ . c_str ( ) )
+printf ( "" , transform_ . at < double > ( 0 , 0 ) , 0 , transform_ . at < double > ( 0 , 1 ) , 1 , transform_ . at < double > ( 0 , 2 ) , 2 + x_offset_ )
+printf ( "" , transform_ . at < double > ( 1 , 0 ) , 0 , transform_ . at < double > ( 1 , 1 ) , 1 , transform_ . at < double > ( 1 , 2 ) , 2 + y_offset_ )
+printf ( "" , 0.0 , 0.0 , 1.0 )
+auto var = GetModuleNodeHandle
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , start_engine_time_s_ )
+double var = ( var -> now ( ) - start_request_time_ ) . seconds
+auto var = GetNodeHandle
+start_engine_srv_ = var -> create_service < sumet_nav_msgs :: srv :: StartEngine > ( "" , std :: bind ( & IgnitionModule :: StartEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) IgnitionModule :: StartEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+stop_engine_srv_ = var -> create_service < sumet_nav_msgs :: srv :: StopEngine > ( "" , std :: bind ( & IgnitionModule :: StopEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) IgnitionModule :: StopEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )
+run_engine_pub_ = var -> create_publisher < mcm :: BoolStamped > ( "" , rclcpp :: QoS ( 1 ) )
+bool IgnitionModule :: StartEngineService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StartEngine :: Request > :: srv :: StartEngine :: Request var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StartEngine :: Response > :: srv :: StartEngine :: Response var )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str )
+var -> result = snm :: StartEngine_Response :: SUCCESS
+var -> result |= snm :: StartEngine_Response :: ERROR_ITO_ACTIVE
+var -> result |= snm :: StartEngine_Response :: ERROR_ALREADY_RUNNING
+var -> result |= snm :: StartEngine_Response :: ERROR_IGNITION_OFF
+var -> result |= snm :: StartEngine_Response :: ERROR_NOT_IN_PARK
+if ( var -> result == snm :: StartEngine_Response :: SUCCESS )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str )
+start_request_time_ = var -> now ( )
+bool IgnitionModule :: StopEngineService ( const std :: shared_ptr < rmw_request_id_t > var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StopEngine :: Request > :: srv :: StopEngine :: Request var , const std :: shared_ptr < sumet_nav_msgs :: srv :: StopEngine :: Response > :: srv :: StopEngine :: Response var )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str )
+var -> result = snm :: StopEngine_Response :: SUCCESS
+var -> result |= snm :: StopEngine_Response :: ERROR_ITO_ACTIVE
+var -> result |= snm :: StopEngine_Response :: ERROR_ALREADY_STOPPED
+if ( var -> result == snm :: StopEngine_Response :: SUCCESS )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str )
+mcm :: BoolStamped :: SharedPtr var = std :: make_shared < mcm :: BoolStamped > ( )
+var -> header . stamp = var -> now ( )
+run_engine_pub_ -> publish ( * var )
+bool LocalizationElement :: split_element ( rclcpp :: Time var , LocalizationElement & var )
+void LocalizationElement :: setTimestamp ( const rclcpp :: Time * var ) = var
+geometry_msgs :: msg :: TwistWithCovarianceStamped var
+bool LocalizationQueue6DOF :: run_filter_step ( const rclcpp :: Time * var )
+rclcpp :: Time var
+ROS_ERROR ( "" , ( ( double ) var . nanoseconds ( ) ) / 1000000000.0 )
+bool LocalizationQueue6DOF :: process_queue ( rclcpp :: Time var , bool var )
+void LocalizationQueue6DOF :: regularize_list ( const rclcpp :: Time * var )
+rclcpp :: Time var = ReturnElement ( var ) -> getTimestamp
+bool LocalizationQueue6DOF :: find_idx_for_timestamp ( const rclcpp :: Time * var , int & var , int var )
+void LocalizationQueue6DOF :: getVehiclePose ( geometry_msgs :: msg :: PoseWithCovarianceStamped * var )
+geometry_msgs :: msg :: Pose * var = var . var . var
+tf2 :: Quaternion var
+void LocalizationQueue6DOF :: getVehicleTwist ( geometry_msgs :: msg :: TwistWithCovarianceStamped * var )
+tf2 :: Transform getTransform ( const LaVectorDouble & var )
+tf2 :: Transform var
+var . setOrigin ( tf2 :: Vector3 ( var ( 0 ) , var ( 1 ) , var ( 2 ) ) ( 0 ) , var ( 1 ) , var ( 2 ) )
+tf2 :: Quaternion var
+int LocalizationQueue6DOF :: get_closest_elem ( const rclcpp :: Time * var )
+double var = swri :: toSec ( ReturnElement ( var ) -> getTimestamp - var )
+double LocalizationQueue6DOF :: getDT ( int var , const rclcpp :: Time * var , rclcpp :: Time * var )
+rclcpp :: Time var = ReturnElement ( var + 1 ) -> getTimestamp
+rclcpp :: Time var = ReturnElement ( var ) -> getTimestamp
+var = swri :: toSec ( var - var )
+var = swri :: toSec ( var - var )
+rclcpp :: Time var = ReturnElement ( var ) -> getTimestamp
+var = swri :: toSec ( var - var )
+var = swri :: TIME_MAX
+uint64_t var = ReturnElement ( var ) -> getTimestamp . nanoseconds
+void gen_G_and_V_6DOF ( const tf2 :: Vector3 * var , const tf2 :: Vector3 * var , const tf2 :: Vector3 * var , const tf2 :: Vector3 * var , double var , LaGenMatDouble & var , LaGenMatDouble & var )
+void Predict6DofForDT ( double var , const tf2 :: Quaternion * var , const tf2 :: Vector3 * var , const tf2 :: Vector3 * var , const tf2 :: Vector3 * var , tf2 :: Vector3 * var , tf2 :: Quaternion * var )
+tf2 :: Vector3 var
+void PredictDiff6DofForDT ( double var , const tf2 :: Quaternion * var , const tf2 :: Vector3 * var , const tf2 :: Vector3 * var , tf2 :: Vector3 * var , tf2 :: Quaternion * var )
+tf2 :: Transform var
+var . setOrigin ( tf2 :: Vector3 ( var ( 0 ) , var ( 1 ) , 0.0 ) ( 0 ) , var ( 1 ) , 0.0 )
+tf2 :: Transform var
+tf2 :: Quaternion integrate_angular_velocity ( double var , const tf2 :: Vector3 * var , const tf2 :: Quaternion * var )
+tf2 :: Vector3 var ( 0.0 , 0.0 , 1.0 )
+tf2 :: Quaternion var ( var . x ( ) * std :: sin ( var / 2 ) / 2 , var . y ( ) * std :: sin ( var / 2 ) / 2 , var . z ( ) * std :: sin ( var / 2 ) / 2 , std :: cos ( var / 2 ) / 2 )
+double get_cov_by_idx_3x3 ( const std :: array < double , 9 > , 9 * var , int32_t var , int32_t var )
+double get_cov_by_idx_6x6 ( const std :: array < double , 36 > , 36 * var , int32_t var , int32_t var )
+void set_cov_by_idx_3x3 ( std :: array < double , 9 > , 9 * var , int32_t var , int32_t var , double var )
+void set_cov_by_idx_6x6 ( std :: array < double , 36 > , 36 * var , int32_t var , int32_t var , double var )
+LocalXyWgs84Util :: LocalXyWgs84Util ( std :: shared_ptr < rclcpp :: Node > :: Node var ) : reference_latitude_ ( 0 ) , reference_longitude_ ( 0 ) , reference_angle_ ( 0 ) , reference_altitude_ ( 0 ) , rho_lat_ ( 0 ) , rho_lon_ ( 0 ) , cos_angle_ ( 0 ) , sin_angle_ ( 0 ) , frame_ ( "" ) , initialized_ ( false )
+origin_sub_ = var -> create_subscription < geometry_msgs :: msg :: PoseStamped > ( "" , std :: bind ( & LocalXyWgs84Util :: HandleOrigin , this , _1 ) LocalXyWgs84Util :: HandleOrigin , this , _1 )
+void LocalXyWgs84Util :: HandleOrigin ( const geometry_msgs :: msg :: PoseStamped :: SharedPtr var )
+origin_sub_ . reset ( )
+reference_angle_ = tf2 :: getYaw ( var -> pose . orientation )
+origin_sub_ . reset ( )
+void LongitudinalDynamicsModel :: getParams ( rclcpp :: node_interfaces :: NodeParametersInterface :: SharedPtr var )
+rclcpp :: init ( var , var )
+rclcpp :: spin ( std :: make_shared < sumet_low_level_controller :: Controller > :: Controller ( rclcpp :: NodeOptions ( ) ) :: NodeOptions ( ) )
+rclcpp :: shutdown ( )
+MicrostrainFilterNodelet : last_vel_update_ ( 0 , 0 , RCL_ROS_TIME ) , last_lat_accel_ ( 0 ) , last_long_accel_ ( 0 ) , last_linear_vel_ ( 0 ) , last_angular_vel_ ( 0 ) , last_imu_update_ ( 0 , 0 , RCL_ROS_TIME ) , stopped_time_ ( 0.0 ) , stop_time_ ( 0 , 0 , RCL_ROS_TIME ) , imu_to_vehicle_trans_ ( tf2 :: Transform :: getIdentity ( ) ) , init_roll_ ( 0 ) , init_pitch_ ( 0 ) , init_yaw_ ( 0 ) , g_magnitude_ ( 9.8 ) , legacy_mode_ ( false ) , wxb0_ ( 0.0 ) , wyb0_ ( 0.0 ) , wzb0_ ( 0.0 ) , min_variance_ ( 0.02 ) , base_var_scale_ ( 1.0 ) , angular_rate_variance_scale_ ( 1.0 ) , max_interval1_ ( 0 ) , max_interval2_ ( 0 ) , max_vel_interval_ ( 0 ) , max_latency_ ( 0 ) , last_imu_msg_ ( new sensor_msgs :: msg :: Imu ) , Node ( "" )
+rclcpp :: Publisher < sensor_msgs :: msg :: Imu > :: SharedPtr var
+rclcpp :: Time var
+rclcpp :: Time var
+rclcpp :: Time var
+geometry_msgs :: msg :: Vector3 var
+tf2 :: Transform var
+geometry_msgs :: msg :: Vector3 var
+std :: shared_ptr < diagnostic_updater :: Updater > var
+sensor_msgs :: msg :: Imu * var
+rclcpp :: TimerBase :: SharedPtr var
+var = create_wall_timer ( 1.0 , std :: bind ( & MicrostrainFilterNodelet :: diagnostic_update_cb , this ) MicrostrainFilterNodelet :: diagnostic_update_cb , this )
+var = swri :: Subscriber ( this , "" , 5 , & MicrostrainFilterNodelet :: Microstrain_cb , this )
+var = std :: make_shared < diagnostic_updater :: Updater > ( nh_ , nh_ -> get_name ( ) )
+tf2 :: Quaternion var
+var . initialize ( var , nh_ -> now ( ) )
+var = rclcpp :: Time ( 0 , 0 , RCL_ROS_TIME )
+var = rclcpp :: Time ( 0 , 0 , RCL_ROS_TIME )
+var = swri :: Subscriber ( this , "" , 5 , & MicrostrainFilterNodelet :: Microstrain_cb , this )
+var . Begin ( nh_ -> now ( ) . nanoseconds )
+var = swri :: Subscriber ( this , "" , 5 , & MicrostrainFilterNodelet :: Velocity_cb , this )
+var . Begin ( nh_ -> now ( ) . nanoseconds )
+var = swri :: advertise < sensor_msgs :: msg :: Imu > ( this , "" , 100 )
+var . Begin ( nh_ -> now ( ) . nanoseconds )
+void Microstrain_cb ( const sensor_msgs :: msg :: Imu :: SharedPtr var )
+var . EndBegin ( var -> header . stamp . nanosec )
+var . Begin ( var -> header . stamp . nanosec )
+sensor_msgs :: var :: Imu :: SharedPtr var ( new sensor_msgs :: var :: Imu ( * var ) var )
+tf2 :: Quaternion var
+tf2 :: Transform var ( var )
+tf2 :: Quaternion var ( var -> orientation . x , var -> orientation . y , var -> orientation . z , var -> orientation . w )
+tf2 :: Transform ( var ) . getBasis . getRPY ( var , var , var )
+var -> publish ( var )
+var . End ( nh_ -> now ( ) . nanoseconds )
+var . EndBegin ( nh_ -> now ( ) . nanoseconds )
+void handle_biases ( sensor_msgs :: msg :: Imu :: SharedPtr * var )
+var . load_new_data ( var -> angular_velocity . x , var , true )
+var . load_new_data ( var -> angular_velocity . y , var , true )
+var . load_new_data ( var -> angular_velocity . z , var , true )
+void transform_measurement ( sensor_msgs :: msg :: Imu :: SharedPtr * var , const tf2 :: Transform * var )
+tf2 :: Matrix3x3 var ( swri_transform_util :: SnapToRightAngle ( var . getRotation ( ) ) . getRotation ( ) )
+tf2 :: Vector3 var ( var -> angular_velocity . x , var -> angular_velocity . y , var -> angular_velocity . z )
+tf2 :: Vector3 var ( var -> linear_acceleration . x , var -> linear_acceleration . y , var -> linear_acceleration . z )
+tf2 :: Quaternion var ( var -> orientation . x , var -> orientation . y , var -> orientation . z , var -> orientation . w )
+tf2 :: Matrix3x3 var = swri_transform_util :: Get3x3Cov ( var -> angular_velocity_covariance )
+tf2 :: Matrix3x3 var = swri_transform_util :: Get3x3Cov ( var -> linear_acceleration_covariance )
+tf2 :: Matrix3x3 var = swri_transform_util :: Get3x3Cov ( var -> orientation_covariance )
+tf2 :: Matrix3x3 var = var . transposeTimes ( var ) * var
+tf2 :: Matrix3x3 var = var . transposeTimes ( var ) * var
+tf2 :: Matrix3x3 var = var . transposeTimes ( var ) * var
+void remove_non_gravity_accels ( sensor_msgs :: msg :: Imu :: SharedPtr * var )
+if ( ( rclcpp :: Time ( var -> header . stamp ) - var ) . nanoseconds > 0.15 * 1000000000.0 )
+void update_covariance ( sensor_msgs :: msg :: Imu :: SharedPtr * var )
+tf2 :: Vector3 var ( var -> linear_acceleration . x , var -> linear_acceleration . y , var -> linear_acceleration . z )
+void estimate_pitch_and_roll ( sensor_msgs :: msg :: Imu :: SharedPtr * var )
+tf2 :: Vector3 var ( 0.0 , 0.0 , 1.0 )
+tf2 :: Vector3 var ( var -> linear_acceleration . x , var -> linear_acceleration . y , var -> linear_acceleration . z )
+tf2 :: Vector3 var ( var )
+tf2 :: Vector3 var = var . cross ( var )
+tf2 :: Quaternion var
+tf2 :: Transform var ( var . inverse ( ) )
+tf2 :: Vector3 var = var * var
+void Velocity_cb ( const geometry_msgs :: msg :: TwistWithCovarianceStamped :: SharedPtr var )
+var . EndBegin ( var -> header . stamp . nanosec )
+var = ( double ( nh_ -> now ( ) - var ) . nanoseconds ) / 1000000000.0
+var = create_wall_timer ( 1.0 , std :: bind ( & MicrostrainFilterNodelet :: diagnostic_update_cb , this ) MicrostrainFilterNodelet :: diagnostic_update_cb , this )
+void diagnostic_update_cb
+var . add ( "" , ( nh_ -> now ( ) - var ) . nanoseconds / 1000000000.0 )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: ERROR , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: OK , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: ERROR , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: ERROR , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: OK , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+double var = var . get_bias_age ( nh_ -> now ( ) ) . nanoseconds
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: OK , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: ERROR , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+var . add ( "" , ( nh_ -> now ( ) - var ) . nanoseconds / 1000000000.0 )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: OK , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: WARN , "" )
+void setCov3x3DiagVals ( std :: array < double , 9 > , 9 * var , double var , double var , double var )
+void getCov3x3DiagVals ( const std :: array < double , 9 > , 9 * var , double & var , double & var , double & var )
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Time var
+rclcpp :: Time var
+ModeSwitchPid ( rclcpp :: NodeOptions var ) : Node ( "" , options ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( this -> now ( ) ) , var ( 0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0.0 ) , var ( 0 ) , var ( STATE_STOP ) , var ( STATE_STOP )
+var = this -> create_subscription < nm :: Odometry > ( "" , 1 , std :: bind ( & ModeSwitchPid :: HandleOdometry , this , std :: placeholders :: _1 ) ModeSwitchPid :: HandleOdometry , this , std :: placeholders :: _1 )
+var = this -> create_subscription < mcm :: Float32Stamped > ( "" , 1 , std :: bind ( & ModeSwitchPid :: HandleSpeedCommand , this , std :: placeholders :: _1 ) ModeSwitchPid :: HandleSpeedCommand , this , std :: placeholders :: _1 )
+var = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 > , 1 > , std :: ratio < 1 , 1 > , 1 ( 1.0 / var ) / var , std :: bind ( & ModeSwitchPid :: ControlLoop , this ) ModeSwitchPid :: ControlLoop , this )
+void ControlLoop
+rclcpp :: Time var = this -> var ( )
+var = STATE_STOP
+var . header . stamp = var
+var . value = std :: max ( var , 0.0 ) / 100.0
+var -> publish ( var )
+var . header . stamp = var
+var . value = std :: max ( - var , 0.0 ) / 100.0
+var -> publish ( var )
+double RunThrottle ( const rclcpp :: Time * var , double var , double var )
+double var = ( var - var ) . seconds
+double RunBrake ( const rclcpp :: Time * var , double var , double var )
+double var = ( var - var ) . seconds
+rclcpp :: Time var = this -> var ( )
+double var = ( var - var . header . stamp ) . seconds
+double var = ( var - var . header . stamp ) . seconds
+void HandleOdometry ( const nm :: Odometry :: SharedPtr var )
+void HandleSpeedCommand ( const mcm :: Float32Stamped :: SharedPtr var )
+auto var = GetModuleNodeHandle
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , timeout_s_ )
+void MototronStatusModule :: HandleMototronStatus ( const mm :: MototronStatus :: SharedPtr var )
+auto var = GetNodeHandle
+status_sub_ = var -> create_subscription < mm :: MototronStatus > ( "" , 3 , std :: bind ( & MototronStatusModule :: HandleMototronStatus , this , std :: placeholders :: _1 ) MototronStatusModule :: HandleMototronStatus , this , std :: placeholders :: _1 )
+status_sub_ . reset ( )
+double var = ( var -> now ( ) - status_msg_ . header . stamp ) . seconds
+ZoneData :: ZoneData ( const sumet_world_model_msgs :: msg :: ControlZone * var )
+if ( ! var . GetTransform ( var , frame_id , rclcpp :: Time ( 0 ) , var ) )
+auto var = GetModuleNodeHandle
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , timeout_s_ )
+declare_sub_parameter ( var , "" , rclcpp :: ParameterValue ( std :: string ( "" ) ) :: string ( "" ) )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , target_frame_ . c_str ( ) )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , stopped_speed_threshold_ )
+auto var = GetModuleNodeHandle
+odom_sub_ = var -> create_subscription < nav_msgs :: msg :: Odometry > ( "" , 3 , std :: bind ( & OdometryModule :: HandleOdomMessage , this , std :: placeholders :: _1 ) OdometryModule :: HandleOdomMessage , this , std :: placeholders :: _1 )
+odom_sub_ . reset ( )
+void OdometryModule :: HandleOdomMessage ( const nav_msgs :: msg :: Odometry :: SharedPtr var )
+tf2 :: Quaternion var
+tf2 :: fromMsg ( var -> pose . pose . orientation , var )
+tf2 :: Matrix3x3 ( var ) . getEulerYPR ( vehicle_yaw_ , vehicle_pitch_ , vehicle_roll_ )
+double var = ( var -> now ( ) - odom_msg_ . header . stamp ) . seconds
+void reduceSegments ( swri_nav_msgs :: msg :: Path * var )
+const swri_nav_msgs :: msg :: Path var = var
+double updateDistance ( const double var , swri_nav_msgs :: msg :: PathSegment * var )
+double updateDistance ( const double var , swri_nav_msgs :: msg :: Path * var )
+void removeCoincidentPoints ( swri_nav_msgs :: msg :: PathSegment * var , const double var )
+swri_nav_msgs :: msg :: PathSegment var
+void removeCoincidentPoints ( swri_nav_msgs :: msg :: Path * var , const double var )
+bool getBackPoint ( const swri_nav_msgs :: msg :: Path * var , swri_nav_msgs :: msg :: PathPoint * var )
+void updateYaw ( swri_nav_msgs :: msg :: PathSegment * var )
+swri_nav_msgs :: msg :: PathPoint * var = var . points [ var ]
+swri_nav_msgs :: msg :: PathPoint * var = var . points [ var ] + 1
+void updateYaw ( swri_nav_msgs :: msg :: Path * var )
+void unwrapYaw ( swri_nav_msgs :: msg :: PathSegment * var )
+void unwrapYaw ( swri_nav_msgs :: msg :: Path * var )
+void separationFromLineSegment ( const swri_nav_msgs :: msg :: PathPoint var , const swri_nav_msgs :: msg :: PathPoint var , const double var , const double var , bool var , bool var , double & var , double & var )
+tf2 :: Vector3 var ( var . var , var . var , 0.0 )
+tf2 :: Vector3 var ( var . var , var . var , 0.0 )
+tf2 :: Vector3 var ( var , var , 0.0 )
+tf2 :: Vector3 var = var - var
+tf2 :: Vector3 var = var + var * var
+bool findLocalNearestDistanceForward ( const swri_nav_msgs :: msg :: PathSegment * var , const double var , const double var , const double var , double & var , double & var )
+swri_nav_msgs :: msg :: PathPoint var
+bool findLocalNearestDistanceBackward ( const swri_nav_msgs :: msg :: PathSegment * var , const double var , const double var , const double var , double & var , double & var )
+swri_nav_msgs :: msg :: PathSegment var = var
+bool findLocalNearestDistanceBidirect ( const swri_nav_msgs :: msg :: PathSegment * var , const double var , const double var , const double var , double & var , double & var )
+int distanceToIndex ( const swri_nav_msgs :: msg :: PathSegment * var , const double var , const int var )
+bool interpolatePathSegment ( const swri_nav_msgs :: msg :: PathSegment * var , const double var , swri_nav_msgs :: msg :: PathPoint * var )
+void updateSpacing ( swri_nav_msgs :: msg :: PathSegment * var , const double var )
+swri_nav_msgs :: msg :: PathSegment var = var
+swri_nav_msgs :: msg :: PathPoint var
+void transformPathPoint ( const swri_transform_util :: Transform * var , swri_nav_msgs :: msg :: PathPoint * var )
+tf2 :: Vector3 var ( var . x , var . y , 0.0 )
+tf2 :: Vector3 var = var * var
+tf2 :: Quaternion var = var * var
+var . yaw = tf2 :: getYaw ( var )
+void transformPathSegment ( const swri_transform_util :: Transform * var , swri_nav_msgs :: msg :: PathSegment * var )
+void transformPath ( const swri_transform_util :: Transform * var , swri_nav_msgs :: msg :: Path * var )
+void makeLinePathSegment ( const double var , const double var , swri_nav_msgs :: msg :: PathSegment * var )
+void makeArcPathSegment ( const double var , double var , const double var , swri_nav_msgs :: msg :: PathSegment * var )
+swri_nav_msgs :: msg :: PathPoint var
+void makeArcPathSegment ( const double var , const double var , const double var , const swri_nav_msgs :: msg :: PathPoint * var , swri_nav_msgs :: msg :: PathSegment * var )
+void appendArcPathSegment ( const double var , const double var , const double var , swri_nav_msgs :: msg :: Path * var )
+swri_nav_msgs :: msg :: PathSegment var
+swri_nav_msgs :: msg :: PathPoint var
+void PoseTransformer :: transform_pose ( const std :: string * var , const std :: string * var , const geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr var , geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr var , double var )
+tf2 :: Transform var
+var = tf_buffer_ -> lookupTransform ( var , var , tf2 :: timeFromSec ( 0 ) , tf2 :: durationFromSec ( 0 ) )
+tf2 :: Transform var ( var . getRotation ( ) )
+tf2 :: Matrix3x3 var ( swri_transform_util :: SnapToRightAngle ( var . getRotation ( ) ) . getRotation ( ) )
+tf2 :: Transform var
+var = tf_buffer_ -> lookupTransform ( world_frame_ , var , tf2 :: timeFromSec ( 0 ) , tf2 :: durationFromSec ( 0 ) )
+tf2 :: Matrix3x3 var ( var . getRotation ( ) )
+tf2 :: Vector3 var = var . getOrigin ( )
+tf2 :: Transform var ( tf2 :: Quaternion :: getIdentity ( ) , var * var . getOrigin ( ) )
+tf2 :: Vector3 var
+var . setX ( var -> pose . pose . var . x )
+var . setZ ( var -> pose . pose . var . z )
+tf2 :: Matrix3x3 var ( 0 , 0 , 0 , 0 , var , 0 , 0 , 0 , 0 )
+tf2 :: Matrix3x3 var = var . inverse ( )
+tf2 :: Matrix3x3 var ( var . y ( ) , - var . x ( ) , 0 , var . x ( ) , var . y ( ) , 0 , 0 , 0 , 1 )
+tf2 :: Matrix3x3 var = swri_transform_util :: GetUpperLeft ( var -> pose . covariance )
+tf2 :: Matrix3x3 var = swri_transform_util :: GetUpperLeft ( var -> pose . covariance )
+tf2 :: Quaternion var
+tf2 :: fromMsg ( var -> pose . pose . var , var )
+var -> pose . pose . var = tf2 :: toMsg ( var )
+tf2 :: Matrix3x3 var = swri_transform_util :: GetLowerRight ( var -> pose . covariance )
+std :: shared_ptr < marti_common_msgs :: msg :: Float32Stamped > makeFloat32StampedPtr ( rclcpp :: Time var , double var )
+std :: shared_ptr < marti_common_msgs :: msg :: Float32Stamped > var = std :: make_shared < marti_common_msgs :: var :: Float32Stamped > ( )
+ControlMapConfig :: ControlMapConfig ( rclcpp :: Logger var ) : min_brake_ ( 0.0 ) , max_brake_ ( 1.0 ) , brake_stop_ ( 0.6 ) , min_throttle_ ( 0.0 ) , max_throttle_ ( 1.0 ) , min_stop_brake_ ( 0.0 ) , logger_ ( logger )
+RCLCPP_INFO ( logger_ , "" "" "" "" "" "" "" , min_brake_ , max_brake_ , min_throttle_ , max_throttle_ , brake_stop_ , min_stop_brake_ )
+PidConfig :: PidConfig ( rclcpp :: Logger var ) : kp_ ( 0.0 ) , ki_ ( 0.0 ) , kd_ ( 0.0 ) , kp_stop_ ( 0.0 ) , ki_stop_ ( 0.0 ) , kd_stop_ ( 0.0 ) , min_i_ ( 0.0 ) , max_i_ ( 0.0 ) , min_d_ ( 0.0 ) , max_d_ ( 0.0 ) , feedforward_vs_speed_ratio_ ( 0.0 ) , measured_filter_cut_off_hz_ ( 0.0 ) , derr_filter_cut_off_hz_ ( 0.0 ) , logger_ ( logger )
+RCLCPP_INFO ( logger_ , "" "" "" "" "" "" "" "" "" "" "" "" "" "" , kp_ , ki_ , kd_ , kp_stop_ , ki_stop_ , kd_stop_ , min_i_ , max_i_ , min_d_ , max_d_ , feedforward_vs_speed_ratio_ , measured_filter_cut_off_hz_ , derr_filter_cut_off_hz_ )
+double SimplePid :: Update ( const rclcpp :: Time * var )
+double var = ( ( var - last_update_time_ ) . nanoseconds ) * 1.0e-9
+auto var = GetModuleNodeHandle
+RCLCPP_INFO ( var -> get_logger ( ) , "" , GetName . c_str , timeout_s_ )
+auto var = GetNodeHandle
+speed_sub_ = var -> create_subscription < marti_common_msgs :: msg :: Float32Stamped > ( "" , 2 , std :: bind ( & SpeedCommandModule :: handleSpeedMsg , this , std :: placeholders :: _1 ) SpeedCommandModule :: handleSpeedMsg , this , std :: placeholders :: _1 )
+speed_sub_ . reset ( )
+if ( var == sumet_nav_msgs :: msg :: DbwGear :: REVERSE || var == sumet_nav_msgs :: msg :: DbwGear :: DRIVE || var == sumet_nav_msgs :: msg :: DbwGear :: DRIVE2 = true = false )
+void SpeedCommandModule :: handleSpeedMsg ( const marti_common_msgs :: msg :: Float32Stamped :: SharedPtr var ) = var
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: TimerBase :: SharedPtr var
+std :: shared_ptr < du :: Updater > var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: Publisher < mcm :: Float32Stamped > :: SharedPtr var
+void initialize
+var = this -> create_subscription < mcm :: Float32Stamped > ( "" , 2 , std :: bind ( & SteeringCalibrationNodelet :: handleSteeringSense , this , std :: placeholders :: _1 ) SteeringCalibrationNodelet :: handleSteeringSense , this , std :: placeholders :: _1 )
+var = this -> create_publisher < mcm :: Float32Stamped > ( "" , rclcpp :: QoS ( 2 ) )
+var = this -> create_subscription < mcm :: Float32Stamped > ( "" , 2 , std :: bind ( & SteeringCalibrationNodelet :: handleCurvatureSetpoint , this , std :: placeholders :: _1 ) SteeringCalibrationNodelet :: handleCurvatureSetpoint , this , std :: placeholders :: _1 )
+var = this -> create_wall_timer ( std :: chrono :: duration < int , std :: milli > , std :: milli ( 1000 ) , std :: bind ( & SteeringCalibrationNodelet :: handleDiagnosticTimer , this ) SteeringCalibrationNodelet :: handleDiagnosticTimer , this )
+var = std :: make_shared < du :: Updater > ( this -> create_sub_node ( "" ) )
+void handleDiagnosticTimer
+void handleSteeringSense ( const mcm :: Float32Stamped :: SharedPtr var )
+var . header . stamp = var -> header . stamp
+curvaturesFromSteerings ( & var . value , & var , & var -> value , 1 )
+var -> publish ( var )
+void handleCurvatureSetpoint ( const mcm :: Float32Stamped :: SharedPtr var )
+var . header . stamp = var -> header . stamp
+steeringsFromCurvatures ( & var . value , & var , & var -> value , 1 )
+var -> publish ( var )
+rclcpp :: Publisher < geometry_msgs :: msg :: PoseWithCovarianceStamped > :: SharedPtr var
+rclcpp :: Publisher < geometry_msgs :: msg :: PoseWithCovarianceStamped > :: SharedPtr var
+std :: shared_ptr < diagnostic_updater :: Updater > var
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: Time var
+rclcpp :: Time var
+void transmission_sense_cb ( const marti_dbw_msgs :: msg :: TransmissionFeedback :: SharedPtr var )
+void Novatel_cb ( const gps_common_msgs :: msg :: GPSFix :: SharedPtr var )
+geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr var ( new geometry_msgs :: msg :: PoseWithCovarianceStamped ( ) )
+tf2 :: Quaternion var
+tf2 :: fromMsg ( var -> pose . pose . orientation , var )
+tf2 :: Transform var ( var )
+tf2 :: Vector3 var ( 0.0 , 0.0 , 1.0 )
+tf2 :: Transform var ( tf2 :: Quaternion ( var , M_PI ) , M_PI )
+var -> pose . pose . orientation = tf2 :: toMsg ( var . getRotation ( ) )
+var -> publish ( var )
+void get_gps_variances ( const gps_common_msgs :: msg :: GPSFix * var , double & var , double & var , double & var )
+void GPSFix2VehiclePose ( geometry_msgs :: msg :: PoseWithCovarianceStamped * var , const gps_common_msgs :: msg :: GPSFix * var )
+geometry_msgs :: msg :: Point * var = var . pose . pose . position
+tf2 :: Quaternion var = tf2 :: Quaternion :: getIdentity ( )
+tf2 :: Vector3 var ( var . x , var . y , var . z )
+void Imu_msg_handler ( const sensor_msgs :: msg :: Imu * var )
+var = nh_ -> now ( )
+geometry_msgs :: var :: PoseWithCovarianceStamped :: SharedPtr var ( new geometry_msgs :: var :: PoseWithCovarianceStamped ( ) )
+tf2 :: Quaternion var ( var . orientation . x , var . orientation . y , var . orientation . z , var . orientation . w )
+var = var * tf2 :: Quaternion ( tf2 :: Vector3 ( 1.0 , 0.0 , 0.0 ) , 0.0 , 0.0 , sumet_util :: _pi )
+tf2 :: Transform ( var ) . getBasis . getRPY ( var , var , var )
+tf2 :: Quaternion var = tf2 :: Quaternion :: getIdentity ( )
+tf2 :: Vector3 var ( 0 , 0 , 0 )
+var -> publish ( var )
+void Imu_cb ( const sensor_msgs :: msg :: Imu :: SharedPtr var )
+var = swri :: Subscriber ( this , "" , 100 , & PoseAggregator :: Novatel_cb , this )
+var = swri :: Subscriber ( this , "" , 100 , & PoseAggregator :: Imu_cb , this )
+var = swri :: Subscriber ( this , "" , 1 , & PoseAggregator :: transmission_sense_cb , this )
+var = swri :: advertise < geometry_msgs :: msg :: PoseWithCovarianceStamped > ( this , "" , 100 )
+var = swri :: TIME_MIN
+var = swri :: TIME_MIN
+var = std :: make_shared < swri_transform_util :: LocalXyWgs84Util > ( nh_ )
+rclcpp :: Time var = nh_ -> now ( )
+double var = swri :: toSec ( var - var )
+rclcpp :: Time var = nh_ -> now ( )
+double var = swri :: toSec ( var - var )
+void RunDiagnostics
+var = create_timer ( 1.0 , std :: bind ( & PoseAggregator :: RunDiagnostics , this ) PoseAggregator :: RunDiagnostics , this )
+void setPose ( geometry_msgs :: msg :: Pose * var , const tf2 :: Vector3 * var , const tf2 :: Quaternion * var )
+var . fill ( 0.0 )
+void getCov3x3DiagVals ( const std :: array < double , 9 > , 9 * var , double & var , double & var , double & var )
+var = create_timer ( 1.0 , std :: bind ( & PoseAggregator :: RunDiagnostics , this ) PoseAggregator :: RunDiagnostics , this )
+var = swri :: Subscriber ( this , "" , 1 , & PoseAggregator :: transmission_sense_cb , this )
+var = std :: make_shared < diagnostic_updater :: Updater > ( nh_ , nh_ -> get_name ( ) )
+explicit PoseAggregator : var ( false ) , Node ( "" )
+nav_msgs :: msg :: Odometry :: SharedPtr var
+nav_msgs :: msg :: Odometry :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < nav_msgs :: msg :: Odometry > :: SharedPtr var
+rclcpp :: Publisher < std_msgs :: msg :: UInt8 > :: SharedPtr var
+rclcpp :: Publisher < std_msgs :: msg :: Char > :: SharedPtr var
+std :: shared_ptr < tf2_ros :: TransformBroadcaster > var
+rclcpp :: TimerBase :: SharedPtr var
+nav_msgs :: msg :: Odometry :: SharedPtr var
+nav_msgs :: msg :: Odometry :: SharedPtr var
+rclcpp :: Time var
+rclcpp :: Time var
+rclcpp :: Time var
+rclcpp :: Time var
+std :: shared_ptr < diagnostic_updater :: Updater > var
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: Time var
+void publish_transforms
+var = std :: make_shared < diagnostic_updater :: Updater > ( nh_ , nh_ -> get_name ( ) )
+void localizationOutputCallback
+rclcpp :: Time var = nh_ -> now ( )
+var = create_timer ( 1.0 / var , std :: bind ( & StateEst3DClass :: localizationOutputCallback , this ) StateEst3DClass :: localizationOutputCallback , this )
+var -> sendTransform ( var )
+tf2 :: fromMsg ( var . transform , var )
+tf2 :: Transform var
+var = var * var . inverse ( )
+tf2 :: Quaternion var
+tf2 :: Transform var ( var )
+tf2 :: Vector3 var = var . getOrigin ( ) - var * var . getOrigin ( )
+var -> sendTransform ( var )
+void compute_and_publish_relative_location ( const rclcpp :: Time * var , bool var )
+nav_msgs :: msg :: Odometry :: SharedPtr var ( new nav_msgs :: msg :: Odometry ( ) )
+tf2 :: Transform var
+var -> publish ( var )
+var . header . stamp = var -> header . stamp
+void compute_and_publish_absolute_location ( const rclcpp :: Time * var , bool var )
+nav_msgs :: msg :: Odometry :: SharedPtr var ( new nav_msgs :: msg :: Odometry ( ) )
+tf2 :: Transform var
+var . header . stamp = var -> header . stamp
+var -> publish ( var )
+nav_msgs :: msg :: Odometry :: SharedPtr var ( new nav_msgs :: msg :: Odometry ( ) )
+var -> publish ( var )
+std_msgs :: msg :: UInt8 :: SharedPtr var ( new std_msgs :: var :: UInt8 ( ) )
+var -> publish ( var )
+std_msgs :: msg :: Char :: SharedPtr var ( new std_msgs :: var :: Char ( ) )
+var -> publish ( var )
+ROS_ERROR_THROTTLE ( 5.0 , "" )
+void get_last_localXY ( const sumet_state_estimator :: LocalizationQueue6DOF * var , nav_msgs :: msg :: Odometry * var , tf2 :: Transform * var )
+geometry_msgs :: msg :: PoseWithCovarianceStamped var
+geometry_msgs :: msg :: TwistWithCovarianceStamped var
+tf2 :: Vector3 var ( var . pose . pose . position . x , var . pose . pose . position . y , var . pose . pose . position . z )
+tf2 :: Quaternion var ( var . pose . pose . orientation . x , var . pose . pose . orientation . y , var . pose . pose . orientation . z , var . pose . pose . orientation . w )
+void get_last_odom_UTM ( const sumet_state_estimator :: LocalizationQueue6DOF * var , nav_msgs :: msg :: Odometry * var , uint8_t & var , char & var )
+geometry_msgs :: msg :: PoseWithCovarianceStamped var
+geometry_msgs :: msg :: PoseWithCovarianceStamped var
+geometry_msgs :: msg :: TwistWithCovarianceStamped var
+void convert_localxy_pose_to_utm_pose ( const geometry_msgs :: msg :: Pose * var , geometry_msgs :: msg :: Pose * var , uint8_t & var , char & var )
+uint8_t GetUTMZone ( const geometry_msgs :: msg :: Pose * var , uint8_t & var )
+void Velocity_cb ( const geometry_msgs :: msg :: TwistWithCovarianceStamped :: SharedPtr var )
+void check_validity ( const geometry_msgs :: msg :: TwistWithCovarianceStamped :: SharedPtr * var )
+const std :: array < double , 36 > * var = var -> twist . covariance
+void Position_cb ( const geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr var )
+geometry_msgs :: var :: PoseWithCovarianceStamped :: SharedPtr var
+var . reset ( new geometry_msgs :: var :: PoseWithCovarianceStamped ( * var ) var )
+nav_msgs :: var :: Odometry :: SharedPtr var ( new nav_msgs :: var :: Odometry ( ) )
+var = nh_ -> now ( )
+geometry_msgs :: var :: PoseWithCovarianceStamped :: SharedPtr var = std :: make_shared < geometry_msgs :: var :: PoseWithCovarianceStamped > ( )
+ROS_DEBUG ( "" , var -> header . frame_id . c_str ( ) )
+void publish_gps ( const geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr * var )
+geometry_msgs :: var :: PoseWithCovarianceStamped var = * var
+nav_msgs :: var :: Odometry :: SharedPtr var ( new nav_msgs :: var :: Odometry ( ) )
+geometry_msgs :: var :: PoseWithCovarianceStamped var
+var -> publish ( var )
+bool is_gps_measurement ( const geometry_msgs :: msg :: PoseWithCovarianceStamped :: SharedPtr * var )
+var = swri :: Subscriber ( this , "" , 100 , & StateEst3DClass :: Velocity_cb , this )
+var = swri :: Subscriber ( this , "" , 100 , & StateEst3DClass :: Position_cb , this )
+var = swri :: advertise < nav_msgs :: msg :: Odometry > ( this , "" , 100 )
+var = swri :: advertise < nav_msgs :: msg :: Odometry > ( this , "" , 100 )
+var = swri :: advertise < nav_msgs :: msg :: Odometry > ( this , "" , 100 )
+var = swri :: advertise < nav_msgs :: msg :: Odometry > ( this , "" , 100 )
+var = swri :: advertise < std_msgs :: msg :: UInt8 > ( this , "" , 10 , true )
+var = swri :: advertise < std_msgs :: msg :: Char > ( this , "" , 10 , true )
+var = std :: make_shared < swri_transform_util :: LocalXyWgs84Util > ( nh_ )
+var . header . frame_id = var
+var . child_frame_id = var
+var . header . frame_id = var
+var . child_frame_id = var
+var . header . frame_id = var
+var . child_frame_id = var
+var = swri :: TIME_MIN
+var = swri :: TIME_MIN
+var = swri :: TIME_MIN
+var = create_timer ( 1 , std :: bind ( & StateEst3DClass :: RunDiagnostics , this ) StateEst3DClass :: RunDiagnostics , this )
+rclcpp :: Time var = nh_ -> var ( )
+if ( var != swri :: TIME_MIN )
+var = swri :: toSec ( var - var )
+rclcpp :: Time var = nh_ -> now ( )
+double var = swri :: toSec ( var - var )
+rclcpp :: Time var = nh_ -> var ( )
+tf2 :: Transform ( var ) . getBasis . getRPY ( var , var , var )
+tf2 :: Transform ( var ) . getBasis . getRPY ( var , var , var )
+void RunDiagnostics
+explicit StateEst3DClass : var ( new nav_msgs :: msg :: Odometry ( ) ) , var ( new nav_msgs :: msg :: Odometry ( ) ) , var ( DEFAULT_SAMPLING_FREQUENCY ) , var ( false ) , var ( false ) , var ( false ) , Node ( "" ) , var ( 61 ) , var ( 'A' )
+TwistAggregator : Microstrain_ ( "" ) , Novatel_ ( "" ) , DSP3000_ ( "" ) , CAN_WS_Velocity_ ( "" ) , CAN_WS_Angular_ ( "" ) , CAN_Angular_ ( "" ) , DT_ ( 0.01 ) , cur_latitude_ ( 29.44 ) , last_odom_time_ ( 0 , 0 , RCL_ROS_TIME ) , Node ( "" )
+last_published_twist_ . header . stamp = rclcpp :: Time ( 0 , 0 )
+rclcpp :: Publisher < geometry_msgs :: msg :: TwistWithCovarianceStamped > :: SharedPtr var
+rclcpp :: TimerBase :: SharedPtr var
+geometry_msgs :: msg :: TwistWithCovarianceStamped var
+geometry_msgs :: msg :: Vector3Stamped var
+rclcpp :: Time var
+std :: shared_ptr < diagnostic_updater :: Updater > var
+rclcpp :: TimerBase :: SharedPtr var
+rclcpp :: Time var = swri :: TIME_MIN
+var = std :: make_shared < diagnostic_updater :: Updater > ( nh_ , nh_ -> get_name ( ) )
+void Microstrain_cb ( const sensor_msgs :: msg :: Imu :: SharedPtr var )
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+void Novatel_cb ( const gps_common_msgs :: msg :: GPSFix :: SharedPtr var )
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+void gyro_cb ( const marti_sensor_msgs :: msg :: Gyro :: SharedPtr var )
+ROS_WARN ( "" , nh_ -> get_name ( ) , var , var )
+if ( var . load_new_data ( var , nh_ -> now ( ) ) )
+ROS_INFO_THROTTLE ( 1.0 , "" , nh_ -> get_name ( ) , var )
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+void speed_cb ( const marti_sensor_msgs :: msg :: Velocity :: SharedPtr var )
+tf2 :: Vector3 var ( var , 0.0 , 0.0 )
+tf2 :: Vector3 var ( var , sumet_util :: _large_variance , sumet_util :: _large_variance )
+void transmission_sense_cb ( const marti_dbw_msgs :: msg :: TransmissionFeedback :: SharedPtr var )
+if ( var && ( ( nh_ -> now ( ) - var ) . nanoseconds > var * 1000000000 ) )
+ROS_WARN_THROTTLE ( 1.0 , "" , nh_ -> get_name ( ) )
+void TimerCallback
+rclcpp :: Time var = nh_ -> now ( )
+geometry_msgs :: msg :: TwistWithCovarianceStamped :: SharedPtr var ( new geometry_msgs :: msg :: TwistWithCovarianceStamped ( ) )
+var -> publish ( var )
+var = * var
+ROS_ERROR_THROTTLE ( 1.0 , "" "" , nh_ -> get_name ( ) )
+void check_and_fix_twist ( geometry_msgs :: msg :: TwistWithCovarianceStamped * var )
+ROS_ERROR_THROTTLE ( 1.0 , "" "" "" "" "" , nh_ -> get_name ( ) )
+var = nh_ -> now ( )
+ROS_ERROR_THROTTLE ( 1.0 , "" "" "" "" "" , nh_ -> get_name ( ) )
+var = nh_ -> now ( )
+ROS_ERROR_THROTTLE ( 10.0 , "" , nh_ -> get_name ( ) )
+double var = swri :: toSec ( rclcpp :: Time ( var . header . stamp ) . header . stamp - rclcpp :: Time ( var . header . stamp ) . header . stamp )
+ROS_ERROR_THROTTLE ( 10.0 , "" , nh_ -> get_name ( ) , var )
+var = swri :: Subscriber ( this , "" , 100 , & TwistAggregator :: Microstrain_cb , this )
+var = swri :: Subscriber ( this , "" , 100 , & TwistAggregator :: Novatel_cb , this )
+var = swri :: Subscriber ( this , "" , 100 , & TwistAggregator :: gyro_cb , this )
+var = swri :: Subscriber ( this , "" , 100 , & TwistAggregator :: speed_cb , this )
+var = swri :: Subscriber ( this , "" , 1 , & TwistAggregator :: transmission_sense_cb , this )
+var = swri :: advertise < geometry_msgs :: msg :: TwistWithCovarianceStamped > ( this , "" , 100 )
+var . header . stamp = rclcpp :: Time ( 0 , 1 )
+var . initialize ( 1000 * var , nh_ -> now ( ) )
+var = create_timer ( var , std :: bind ( & TwistAggregator :: TimerCallback , this ) TwistAggregator :: TimerCallback , this )
+double var = swri :: toSec ( nh_ -> now ( ) - var )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: OK , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: ERROR , "" )
+double var = swri :: toSec ( var - nh_ -> now ( ) )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: OK , "" )
+var . summary ( diagnostic_msgs :: msg :: DiagnosticStatus :: ERROR , "" )
+void RunDiagnostics
+var = create_timer ( 1.0 , std :: bind ( & TwistAggregator :: RunDiagnostics , this ) TwistAggregator :: RunDiagnostics , this )
+rclcpp :: init ( var , var )
+auto var = rclcpp :: Node :: make_shared ( "" )
+auto var = var -> create_publisher < std_msgs :: msg :: String > ( "" , rmw_qos_profile_default )
+rclcpp :: Rate var ( 10 )
+auto var = std :: make_shared < std_msgs :: var :: String > ( )
+while ( rclcpp :: ok ( ) )
+var -> data = var . str ( )
+RCLCPP_INFO ( var -> get_logger ( ) , "" , var -> data . c_str ( ) )
+var -> publish ( var )
+rclcpp :: spin_some ( var )
+Transform :: Transform ( const builtin_interfaces :: msg :: Time * var ) : transform_ ( std :: make_shared < IdentityTransform > ( time ) )
+Transform :: Transform ( const builtin_interfaces :: msg :: Time * var , const tf2 :: Transform * var ) : transform_ ( std :: make_shared < TfTransform > ( time , transform ) , transform )
+Transform :: Transform ( const builtin_interfaces :: msg :: Time * var , const tf2 :: Transform * var ) : transform_ ( std :: make_shared < TfTransform > ( time , transform ) , transform )
+Transform :: Transform ( std :: shared_ptr < TransformImpl > var ) : transform_ ( transform )
+Transform :: Transform ( const geometry_msgs :: msg :: TransformStamped * var ) : transform_ ( std :: make_shared < TfTransform > ( transform ) )
+Transform :: Transform ( const geometry_msgs :: msg :: TransformStamped * var ) : transform_ ( std :: make_shared < TfTransform > ( transform ) )
+Transform & Transform :: operator= ( std :: shared_ptr < TransformImpl > var )
+tf2 :: Vector3 Transform :: operator() ( const tf2 :: Vector3 * var )
+tf2 :: Vector3 var
+tf2 :: Vector3 Transform :: operator* ( const tf2 :: Vector3 * var )
+tf2 :: Vector3 var
+tf2 :: Quaternion Transform :: operator* ( const tf2 :: Quaternion * var )
+tf2 :: Quaternion var = var
+tf2 :: Vector3 Transform :: GetOrigin ( ) const
+tf2 :: Vector3 var
+transform_ -> Transform ( tf2 :: Vector3 ( 0 , 0 , 0 ) , 0 , 0 , var )
+tf2 :: Quaternion Transform :: GetOrientation ( ) const
+tf2 :: Transform Transform :: GetTF ( ) const
+return tf2 :: Transform ( GetOrientation , GetOrigin )
+std :: shared_ptr < TransformImpl > IdentityTransform :: Inverse ( ) const
+TransformImplPtr var = std :: make_shared < IdentityTransform > ( stamp_ )
+stamp_ = var
+TfTransform :: TfTransform ( const geometry_msgs :: msg :: TransformStamped * var )
+stamp_ = var . header . stamp
+void TfTransform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+tf2 :: Quaternion TfTransform :: GetOrientation ( ) const
+TransformImplPtr var = std :: make_shared < TfTransform > ( stamp_ , transform_ . var ( ) )
+void Transformer :: Initialize ( std :: shared_ptr < rclcpp :: Node > :: Node var , const std :: shared_ptr < tf2_ros :: Buffer > :: Buffer var )
+bool Transformer :: GetTransform ( const std :: string * var , const std :: string * var , const rclcpp :: Time * var , geometry_msgs :: msg :: TransformStamped * var )
+if ( tf_listener_ -> _frameExists ( var ) && tf_listener_ -> _frameExists ( var ) )
+var = tf_listener_ -> lookupTransform ( var , var , tf2 :: timeFromSec ( var . nanoseconds ( ) / 1000000000.0 ) . nanoseconds ( ) / 1000000000.0 , tf2 :: durationFromSec ( 0.01 ) )
+printf ( "" , var . what ( ) )
+printf ( "" , var . what ( ) )
+printf ( "" , var . what ( ) )
+tf2 :: Transform GetRelativeTransform ( double var , double var , double var , double var , double var , double var )
+tf2 :: Transform var = tf2 :: Transform :: getIdentity ( )
+tf2 :: Quaternion var = tf2 :: Quaternion :: getIdentity ( )
+var . setRotation ( tf2 :: Vector3 ( 0 , 0 , 1 ) , 0 , 1 , var )
+tf2 :: Quaternion var = tf2 :: Quaternion :: getIdentity ( )
+var . setRotation ( tf2 :: Vector3 ( 0 , 0 , 1 ) , 0 , 1 , var )
+tf2 :: Vector3 var = tf2 :: Transform ( var ) * tf2 :: Vector3 ( var , var , 0 )
+double GreatCircleDistance ( const tf2 :: Vector3 * var , const tf2 :: Vector3 * var )
+tf2 :: Quaternion SnapToRightAngle ( const tf2 :: Quaternion * var )
+if ( var == tf2 :: Quaternion :: getIdentity ( ) )
+tf2 :: Matrix3x3 var ( var )
+tf2 :: Vector3 var = var . getRow ( var ) . absolute
+tf2 :: Vector3 var = GetPrimaryAxis ( var . getRow ( var ) )
+return tf2 :: Quaternion :: getIdentity ( )
+tf2 :: Quaternion var
+tf2 :: Vector3 GetPrimaryAxis ( const tf2 :: Vector3 * var )
+tf2 :: Vector3 var = var
+bool IsRotation ( tf2 :: Matrix3x3 var )
+tf2 :: Matrix3x3 GetUpperLeft ( const std :: array < double , 36 > , 36 * var )
+tf2 :: Matrix3x3 var
+tf2 :: Matrix3x3 GetLowerRight ( const std :: array < double , 36 > , 36 * var )
+tf2 :: Matrix3x3 var
+tf2 :: Matrix3x3 Get3x3Cov ( const std :: array < double , 9 > , 9 * var )
+tf2 :: Matrix3x3 var
+void Set3x3Cov ( const tf2 :: Matrix3x3 * var , std :: array < double , 9 > , 9 * var )
+void SetUpperLeft ( const tf2 :: Matrix3x3 * var , std :: array < double , 36 > , 36 * var )
+void SetLowerRight ( const tf2 :: Matrix3x3 * var , std :: array < double , 36 > , 36 * var )
+UtmTransformer :: UtmTransformer ( ) : utm_util_ ( std :: make_shared < UtmUtil > ( ) ) , utm_zone_ ( 0 ) , utm_band_ ( 0 )
+bool UtmTransformer :: GetTransform ( const std :: string * var , const std :: string * var , const rclcpp :: Time * var , Transform & var )
+var = std :: make_shared < Wgs84ToUtmTransform > ( var , utm_util_ , utm_zone_ , utm_band_ )
+printf ( "" , var . c_str ( ) , local_xy_frame_ . c_str ( ) )
+var = std :: make_shared < TfToUtmTransform > ( var , utm_util_ , local_xy_util_ , utm_zone_ , utm_band_ )
+var = std :: make_shared < UtmToWgs84Transform > ( var , utm_util_ , utm_zone_ , utm_band_ )
+printf ( "" , local_xy_frame_ . c_str ( ) , var . c_str ( ) )
+var = std :: make_shared < UtmToTfTransform > ( var , utm_util_ , local_xy_util_ , utm_zone_ , utm_band_ )
+local_xy_util_ = std :: make_shared < LocalXyWgs84Util > ( handle_ )
+if ( ! var . empty ( ) && var [ 0 ] == '/' && tf_listener_ -> _frameExists ( var . substr ( 1 ) ) )
+if ( ! var . empty ( ) && var [ 0 ] != '/' && tf_listener_ -> _frameExists ( "" + var ) )
+UtmToTfTransform :: UtmToTfTransform ( const geometry_msgs :: msg :: TransformStamped * var , std :: shared_ptr < UtmUtil > var , std :: shared_ptr < LocalXyWgs84Util > var , int32_t var , char var ) : transform_ ( transform ) , utm_util_ ( utm_util ) , local_xy_util_ ( local_xy_util ) , utm_zone_ ( utm_zone ) , utm_band_ ( utm_band )
+stamp_ = var . header . stamp
+void UtmToTfTransform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+var = var * var
+tf2 :: Quaternion UtmToTfTransform :: GetOrientation ( ) const
+return var . getRotation ( ) * var . inverse ( )
+geometry_msgs :: msg :: TransformStamped var = transform_
+tf2 :: fromMsg ( transform_ . transform , var )
+var . transform = tf2 :: toMsg ( var . inverse ( ) )
+var . header . frame_id = transform_ . child_frame_id
+TransformImplPtr var = std :: make_shared < TfToUtmTransform > ( var , utm_util_ , local_xy_util_ , utm_zone_ , utm_band_ )
+var . child_frame_id = transform_ . header . frame_id
+TfToUtmTransform :: TfToUtmTransform ( const geometry_msgs :: msg :: TransformStamped * var , std :: shared_ptr < UtmUtil > var , std :: shared_ptr < LocalXyWgs84Util > var , int32_t var , char var ) : transform_ ( transform ) , utm_util_ ( utm_util ) , local_xy_util_ ( local_xy_util ) , utm_zone_ ( utm_zone ) , utm_band_ ( utm_band )
+stamp_ = var . header . stamp
+void TfToUtmTransform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+tf2 :: Vector3 var = var * var
+tf2 :: Quaternion TfToUtmTransform :: GetOrientation ( ) const
+return var . getRotation ( ) * var
+geometry_msgs :: msg :: TransformStamped var = transform_
+tf2 :: fromMsg ( transform_ . transform , var )
+var . transform = tf2 :: toMsg ( var . inverse ( ) )
+var . header . frame_id = transform_ . child_frame_id
+TransformImplPtr var = std :: make_shared < UtmToTfTransform > ( var , utm_util_ , local_xy_util_ , utm_zone_ , utm_band_ )
+var . child_frame_id = transform_ . header . frame_id
+stamp_ = var
+void UtmToWgs84Transform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+stamp_ = var
+void Wgs84ToUtmTransform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+std :: unique_lock < std :: mutex > var ( mutex_ )
+std :: unique_lock < std :: mutex > var ( mutex_ )
+Velocity3DLocalizationElement :: Velocity3DLocalizationElement ( const geometry_msgs :: msg :: TwistWithCovarianceStamped * var )
+void Velocity3DLocalizationElement :: convert_cov ( const std :: array < double , 36 > , 36 * var )
+void Velocity3DLocalizationElement :: get_twist ( geometry_msgs :: msg :: TwistWithCovarianceStamped * var )
+std :: array < double , 36 > * var = var . var . covariance
+void Velocity3DLocalizationElement :: run_update_step ( const tf2 :: Transform * var , const LaGenMatDouble & var , tf2 :: Transform * var , LaGenMatDouble & var , double var , bool var )
+tf2 :: Vector3 var = var . getOrigin ( var )
+tf2 :: Vector3 var ( 0.0 , 0.0 , 0.0 )
+tf2 :: Quaternion var = var . getRotation ( var )
+tf2 :: Transform ( var ) . getBasis var . getRPY ( var , var , var )
+tf2 :: Vector3 var ( var , var , var )
+tf2 :: Quaternion var = tf2 :: Quaternion :: getIdentity ( var )
+tf2 :: Vector3 var ( V_ . linear . x , V_ . linear . y , V_ . linear . z )
+tf2 :: Vector3 var ( V_ . angular . x , V_ . angular . y , V_ . angular . z )
+var = tf2 :: Transform :: getIdentity ( var )
+ROS_ERROR_THROTTLE ( 1.0 , "" , this -> getTimestamp ( var ) . nanoseconds var / 1000000000.0 , this -> orig_stamp_ . nanoseconds ( var ) / 1000000000.0 )
+tf2 :: Vector3 var ( var ( 0 ) , var ( 1 ) , var ( 2 ) )
+tf2 :: Quaternion var
+tf2 :: Transform var ( var , var )
+tf2 :: Transform var
+ROS_INFO ( "" , this -> getTimestamp ( var ) . nanoseconds var / 1000000000.0 , V_ . linear . x , V_ . linear . y , V_ . linear . z , V_ . angular . x , V_ . angular . y , V_ . angular . z )
+void Velocity3DLocalizationElement :: set_velocities ( const geometry_msgs :: msg :: Twist * var ) = var
+void Velocity3DLocalizationElement :: set_velocity_data ( const geometry_msgs :: msg :: TwistWithCovarianceStamped * var )
+return swri :: toSec ( this -> getTimestamp ( var ) - this -> orig_stamp_ )
+void Velocity3DLocalizationElement :: set_orig_timestamp ( const rclcpp :: Time * var )
+void VelocityList3D :: add_v ( tf2 :: Vector3 var , tf2 :: Vector3 var , std :: vector < bool > var , const rclcpp :: Time * var )
+void VelocityList3D :: add_w ( tf2 :: Vector3 var , tf2 :: Vector3 var , std :: vector < bool > var , const rclcpp :: Time * var )
+void VelocityList3D :: add_v_and_w ( tf2 :: Vector3 var , tf2 :: Vector3 var , std :: vector < bool > var , tf2 :: Vector3 var , tf2 :: Vector3 var , std :: vector < bool > var , const rclcpp :: Time * var )
+std :: vector < bool > VelocityList3D :: do_average ( tf2 :: Vector3 * var , tf2 :: Vector3 * var , const rclcpp :: Time * var , velocity_type var )
+rclcpp :: Time var = var - swri :: Duration ( static_window_ / 2.0 )
+rclcpp :: Time var = var + swri :: Duration ( static_window_ / 2.0 )
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+std :: vector < bool > VelocityList3D :: do_vel_average ( tf2 :: Vector3 * var , tf2 :: Vector3 * var , const rclcpp :: Time * var )
+std :: vector < bool > VelocityList3D :: do_w_average ( tf2 :: Vector3 * var , tf2 :: Vector3 * var , const rclcpp :: Time * var )
+bool VelocityList3D :: samples_in_window ( const rclcpp :: Time * var )
+rclcpp :: Time var = var - swri :: Duration ( static_window_ / 2.0 )
+rclcpp :: Time var = var + swri :: Duration ( static_window_ / 2.0 )
+tf2 :: Vector3 var
+tf2 :: Vector3 var = VelocityStream_ [ var ] . get_v ( var , var )
+tf2 :: Vector3 var = VelocityStream_ [ var ] . get_w ( var , var )
+void VelocityStreamList3D :: get_streams ( std :: vector < std :: vector < std :: string > :: string > :: vector < std :: string > :: string * var , const rclcpp :: Time * var , velocity_type var )
+void VelocityStreamList3D :: get_w_streams ( std :: vector < std :: vector < std :: string > :: string > :: vector < std :: string > :: string * var , const rclcpp :: Time * var )
+void VelocityStreamList3D :: get_v_streams ( std :: vector < std :: vector < std :: string > :: string > :: vector < std :: string > :: string * var , const rclcpp :: Time * var )
+void VelocityStreamList3D :: get_averaged_twist ( const rclcpp :: Time * var , geometry_msgs :: msg :: TwistWithCovariance * var )
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+std :: array < double , 36 > * var = var . covariance
+std :: vector < bool > VelocityStreamList3D :: do_average ( std :: vector < std :: vector < std :: string > :: string > :: vector < std :: string > :: string * var , const rclcpp :: Time * var , tf2 :: Vector3 * var , tf2 :: Vector3 * var , velocity_type var )
+tf2 :: Vector3 var
+tf2 :: Vector3 var
+std :: vector < bool > VelocityStreamList3D :: get_v_average ( const rclcpp :: Time * var , tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+std :: vector < bool > VelocityStreamList3D :: get_w_average ( const rclcpp :: Time * var , tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+bool Wgs84Transformer :: GetTransform ( const std :: string * var , const std :: string * var , const rclcpp :: Time * var , Transform & var )
+printf ( "" , var . c_str ( ) , local_xy_frame_ . c_str ( ) )
+var = std :: make_shared < TfToWgs84Transform > ( var , local_xy_util_ )
+printf ( "" , local_xy_frame_ . c_str ( ) , var . c_str ( ) )
+var = std :: make_shared < Wgs84ToTfTransform > ( var , local_xy_util_ )
+local_xy_util_ = std :: make_shared < LocalXyWgs84Util > ( handle_ )
+if ( ! var . empty ( ) && var [ 0 ] == '/' && tf_listener_ -> _frameExists ( var . substr ( 1 ) ) )
+if ( ! var . empty ( ) && var [ 0 ] != '/' && tf_listener_ -> _frameExists ( "" + var ) )
+TfToWgs84Transform :: TfToWgs84Transform ( const geometry_msgs :: msg :: TransformStamped * var , std :: shared_ptr < LocalXyWgs84Util > var ) : transform_ ( transform ) , local_xy_util_ ( local_xy_util )
+stamp_ = var . header . stamp
+void TfToWgs84Transform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+tf2 :: Vector3 var = var * var
+tf2 :: Quaternion TfToWgs84Transform :: GetOrientation ( ) const
+return var . getRotation ( ) * var
+geometry_msgs :: msg :: TransformStamped var = transform_
+var . transform = tf2 :: toMsg ( var . inverse ( ) )
+var . header . frame_id = transform_ . child_frame_id
+var . child_frame_id = transform_ . header . frame_id
+TransformImplPtr var = std :: make_shared < Wgs84ToTfTransform > ( var , local_xy_util_ )
+Wgs84ToTfTransform :: Wgs84ToTfTransform ( const geometry_msgs :: msg :: TransformStamped * var , std :: shared_ptr < LocalXyWgs84Util > var ) : transform_ ( transform ) , local_xy_util_ ( local_xy_util )
+stamp_ = var . header . stamp
+void Wgs84ToTfTransform :: Transform ( const tf2 :: Vector3 * var , tf2 :: Vector3 * var )
+var = var * var
+tf2 :: Quaternion Wgs84ToTfTransform :: GetOrientation ( ) const
+return var . getRotation ( ) * var . inverse ( )
+geometry_msgs :: msg :: TransformStamped var = transform_
+var . transform = tf2 :: toMsg ( var . inverse ( ) )
+var . header . frame_id = transform_ . child_frame_id
+var . child_frame_id = transform_ . header . frame_id
+TransformImplPtr var = std :: make_shared < TfToWgs84Transform > ( var , local_xy_util_ )

@@ -1,0 +1,75 @@
+var main ( int var , char * var )
+tf2 main ( int var , char * var )
+RCLCPP_DEBUG ( int var , char * var )
+RCLCPP_DEBUG main ( int var , char * var )
+tf2 main ( int var , char * * var )
+rclcpp :: init ( var , var )
+rclcpp :: init ( const , var )
+rclcpp :: init ( this , var )
+rclcpp :: init ( var , rclcpp :: Time ( 0.0 ) )
+rclcpp :: init ( var , rclcpp :: Time ( var )
+rclcpp :: TimerBase :: SharedPtr var
+auto var = rclcpp :: Node :: make_shared ( "" )
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: = :: SharedPtr var
+rclcpp :: Subscription :: SharedPtr var
+auto var = var -> create_publisher < std_msgs :: msg :: String > ( "" , rmw_qos_profile_default )
+var = var -> create_publisher < std_msgs :: msg :: String > ( "" , rmw_qos_profile_default )
+rclcpp :: Publisher var = var . transform < std_msgs :: String > ( "" , rmw_qos_profile_default )
+auto var = GetModuleNodeHandle -> create_publisher < std_msgs :: msg :: String > ( "" , rmw_qos_profile_default )
+rclcpp :: Publisher var = var . std :: String > ( "" , "" )
+rclcpp :: Rate var ( 10 )
+rclcpp :: fromMsg var ( 10 )
+rclcpp :: shutdown var ( 10 )
+rclcpp :: Rate var ( 10 ) , nh_
+rclcpp :: Rate var ( 10 ) = Node
+var = ( this -> get_parameter ( "" ) ) . as_double
+int var = GetModuleNodeHandle
+int var = 0
+auto var = 0
+auto var = GetModuleNodeHandle
+auto var = std :: make_shared < std_msgs :: var :: String > ( )
+rclcpp :: TimerBase :: SharedPtr var
+auto var
+auto var = rclcpp :: make_shared < std_msgs :: var :: String > ( )
+var :: TimerBase :: SharedPtr var
+while ( rclcpp :: ok ( ) )
+while ( swri :: ok ( ) )
+while ( var :: ok ( ) )
+while ( msg :: ok ( ) )
+while ( transform :: ok ( ) )
+rclcpp :: Time var
+rclcpp :: Subscription < mcm :: Float32Stamped > :: SharedPtr var
+rclcpp :: stringstream var
+rclcpp :: Subscription < mdm :: TransmissionFeedback > :: SharedPtr var
+std :: shared_ptr < mcm :: Float32Stamped > :: SharedPtr var
+var << ( << -> get_parameter ( "" ) ) . as_bool
+var << ( "" << get_parameter ( "" ) ) . as_bool
+var << child_frame_id << var
+var << ( "" var
+var << this -> create_publisher < mcm :: Float32Stamped > var
+var -> data = var . str ( )
+var = data = var . str ( )
+origin_sub_ -> data = var . str ( )
+this -> data = var . str ( )
+var -> data = var . str ( ) /
+RCLCPP_INFO ( var -> get_logger ( ) , "" , var -> data . c_str ( ) )
+ROS_DEBUG ( "" , var . data . c_str ( ) )
+RCLCPP_INFO ( this -> get_logger ( ) , "" , var -> data . c_str ( ) )
+printf ( "" , var . data . c_str ( ) )
+RCLCPP_DEBUG ( var -> get_logger ( ) , "" , var -> data . c_str ( ) )
+var -> publish ( var )
+var -> publish ( * var )
+var . publish ( var )
+this -> publish ( * var )
+var -> publish ( var ) = var
+rclcpp :: spin_some ( var )
+rclcpp :: TimerBase ( var )
+rclcpp :: shutdown ( )
+var :: spin_some ( var )
+rclcpp :: spin_some ( rclcpp :: Time var
+var -> sleep ( * )
+var -> sleep ( )
+var -> sleep ( "" )
+var . sleep ( this -> get_node_parameters_interface ( ) )
+var -> sleep ( ) , 1 )

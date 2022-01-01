@@ -1,0 +1,66 @@
+{
+	"root": {
+		"type": "425139773",
+		"typeLabel": "decl_stmt",
+		"pos": "204",
+		"length": "21",
+		"children": [
+			{
+				"type": "3079338",
+				"typeLabel": "decl",
+				"pos": "204",
+				"length": "21",
+				"children": [
+					{
+						"type": "3575610",
+						"typeLabel": "type",
+						"pos": "204",
+						"length": "17",
+						"children": [
+							{
+								"type": "3373707",
+								"typeLabel": "name",
+								"pos": "204",
+								"length": "17",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "std_msgs",
+										"typeLabel": "name",
+										"pos": "204",
+										"length": "9",
+										"children": []
+									},
+									{
+										"type": "-500553564",
+										"label": "::",
+										"typeLabel": "operator",
+										"pos": "212",
+										"length": "3",
+										"children": []
+									},
+									{
+										"type": "3373707",
+										"label": "String",
+										"typeLabel": "name",
+										"pos": "214",
+										"length": "7",
+										"children": []
+									}
+								]
+							}
+						]
+					},
+					{
+						"type": "3373707",
+						"label": "var",
+						"typeLabel": "name",
+						"pos": "221",
+						"length": "4",
+						"children": []
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,65 @@
+{
+	"root": {
+		"type": "490731474",
+		"typeLabel": "expr_stmt",
+		"pos": "410",
+		"length": "16",
+		"children": [
+			{
+				"type": "3127797",
+				"typeLabel": "expr",
+				"pos": "410",
+				"length": "16",
+				"children": [
+					{
+						"type": "3045982",
+						"typeLabel": "call",
+						"pos": "410",
+						"length": "16",
+						"children": [
+							{
+								"type": "3373707",
+								"typeLabel": "name",
+								"pos": "410",
+								"length": "14",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "ros",
+										"typeLabel": "name",
+										"pos": "410",
+										"length": "4",
+										"children": []
+									},
+									{
+										"type": "-500553564",
+										"label": "::",
+										"typeLabel": "operator",
+										"pos": "413",
+										"length": "3",
+										"children": []
+									},
+									{
+										"type": "3373707",
+										"label": "spinOnce",
+										"typeLabel": "name",
+										"pos": "415",
+										"length": "9",
+										"children": []
+									}
+								]
+							},
+							{
+								"type": "-40060704",
+								"typeLabel": "argument_list",
+								"pos": "423",
+								"length": "3",
+								"children": []
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

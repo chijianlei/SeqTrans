@@ -1,0 +1,98 @@
+{
+	"root": {
+		"type": "425139773",
+		"typeLabel": "decl_stmt",
+		"pos": "218",
+		"length": "27",
+		"children": [
+			{
+				"type": "3079338",
+				"typeLabel": "decl",
+				"pos": "218",
+				"length": "27",
+				"children": [
+					{
+						"type": "3575610",
+						"typeLabel": "type",
+						"pos": "218",
+						"length": "13",
+						"children": [
+							{
+								"type": "3373707",
+								"typeLabel": "name",
+								"pos": "218",
+								"length": "13",
+								"children": [
+									{
+										"type": "3373707",
+										"label": "rclcpp",
+										"typeLabel": "name",
+										"pos": "218",
+										"length": "7",
+										"children": []
+									},
+									{
+										"type": "-500553564",
+										"label": "::",
+										"typeLabel": "operator",
+										"pos": "224",
+										"length": "3",
+										"children": []
+									},
+									{
+										"type": "3373707",
+										"label": "Rate",
+										"typeLabel": "name",
+										"pos": "226",
+										"length": "5",
+										"children": []
+									}
+								]
+							}
+						]
+					},
+					{
+						"type": "3373707",
+						"label": "var",
+						"typeLabel": "name",
+						"pos": "231",
+						"length": "10",
+						"children": []
+					},
+					{
+						"type": "-40060704",
+						"typeLabel": "argument_list",
+						"pos": "240",
+						"length": "5",
+						"children": [
+							{
+								"type": "-1589682499",
+								"typeLabel": "argument",
+								"pos": "241",
+								"length": "3",
+								"children": [
+									{
+										"type": "3127797",
+										"typeLabel": "expr",
+										"pos": "241",
+										"length": "3",
+										"children": [
+											{
+												"type": "182460591",
+												"label": "intliteral",
+												"typeLabel": "literal",
+												"pos": "241",
+												"length": "3",
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,563 @@
+void calcPathPointOnBezierCurveerror nameArg situation ) 	void calcPathPointOnBezierCurveerror nameArg situation ) 
+swri_nav_msgs :: PathPoint dxy	swri_nav_msgs :: msg :: PathPoint dxy
+swri_nav_msgs :: PathPoint dxyn = dxy	swri_nav_msgs :: msg :: PathPoint dxyn = dxy
+swri_nav_msgs :: PathPoint ddxy	swri_nav_msgs :: msg :: PathPoint ddxy
+double ddx = ddxy . x	double ddx = ddxy . x
+double ddy = ddxy . y	double ddy = ddxy . y
+void calcPathOnBezierCurve ( const int num_t , const std :: vector < Point2d >  *  ctrl_pts , swri_nav_msgs :: PathSegment *  path , bool calc_yaw , bool calc_curvature ) 	void calcPathOnBezierCurve ( const int num_t , const std :: vector < Point2d >  *  ctrl_pts , swri_nav_msgs :: msg :: PathSegment *  path , bool calc_yaw , bool calc_curvature ) 
+void calcPathOnBezierCurveDeCasteljau ( const double err_tol , const std :: vector < Point2d >  *  ctrl_pts , swri_nav_msgs :: PathSegment *  path , bool calc_yaw , bool calc_curvature , int level ) 	void calcPathOnBezierCurveDeCasteljau ( const double err_tol , const std :: vector < Point2d >  *  ctrl_pts , swri_nav_msgs :: msg :: PathSegment *  path , bool calc_yaw , bool calc_curvature , int level ) 
+swri_nav_msgs :: PathSegment subpath	swri_nav_msgs :: msg :: PathSegment subpath
+bool VehicleDimensions :: getParam ( ros :: NodeHandle *  nh , std :: string ns ) 	bool VehicleDimensions :: getParam ( const std :: shared_ptr < rclcpp :: Node >  :: Node *  nh , std :: string ns ) 
+exist &= swri :: getParam ( nh , ns + "" , length ) 	exist &= nh -> get_parameter < double >  ( ns + "" , length ) 
+exist &= swri :: getParam ( nh , ns + "" , width ) 	exist &= nh -> get_parameter < double >  ( ns + "" , width ) 
+exist &= swri :: getParam ( nh , ns + "" , rear_overhang ) 	exist &= nh -> get_parameter < double >  ( ns + "" , rear_overhang ) 
+exist &= swri :: getParam ( nh , ns + "" , wheelbase ) 	exist &= nh -> get_parameter < double >  ( ns + "" , wheelbase ) 
+exist &= swri :: getParam ( nh , ns + "" , track ) 	exist &= nh -> get_parameter < double >  ( ns + "" , track ) 
+double xf = dim . length - dim . rear_overhang	double xf = dim . length - dim . rear_overhang
+double xr = - dim . rear_overhang	double xr = - dim . rear_overhang
+double w = 0.5 * dim . width	double w = 0.5 * dim . width
+i0 = std :: max ( i0 , 0 ) 	i0 = std :: max ( i0 , 0 ) 
+j0 = std :: max ( j0 , 0 ) 	j0 = std :: max ( j0 , 0 ) 
+bool collisionCheckPath ( const swri_nav_msgs :: Path *  path , const VehicleDimensions & dim , const Costmap & costmap , double * collision_dist , cv :: Mat *  draw_checked ) 	bool collisionCheckPath ( const swri_nav_msgs :: msg :: Path *  path , const VehicleDimensions & dim , const Costmap & costmap , double * collision_dist , cv :: Mat *  draw_checked ) 
+swri_nav_msgs :: PathSegment segment = path . segments [ segno ] 	swri_nav_msgs :: msg :: PathSegment segment = path . segments [ segno ] 
+bool collisionCheckPath ( const swri_nav_msgs :: Path *  path , const VehicleDimensions & dim , const CostmapTiling & costmap_tiling , double * collision_dist ) 	bool collisionCheckPath ( const swri_nav_msgs :: msg :: Path *  path , const VehicleDimensions & dim , const CostmapTiling & costmap_tiling , double * collision_dist ) 
+swri_nav_msgs :: PathSegment segment = path . segments [ segno ] 	swri_nav_msgs :: msg :: PathSegment segment = path . segments [ segno ] 
+error specifier situation	error specifier situation
+void pathFootprintToMarker ( const swri_nav_msgs :: Path *  path , const VehicleDimensions & dim , const std_msgs :: ColorRGBA *  color , visualization_msgs :: Marker *  marker ) 	void pathFootprintToMarker ( const swri_nav_msgs :: msg :: Path *  path , const VehicleDimensions & dim , const std_msgs :: msg :: ColorRGBA *  color , visualization_msgs :: msg :: Marker *  marker ) 
+marker . type = visualization_msgs :: Marker :: LINE_LIST	marker . type = visualization_msgs :: msg :: Marker :: LINE_LIST
+marker . action = visualization_msgs :: Marker :: ADD	marker . action = visualization_msgs :: msg :: Marker :: ADD
+geometry_msgs :: Vector3 scale	geometry_msgs :: msg :: Vector3 scale
+const swri_nav_msgs :: PathSegment *  segment = path . segments [ segno ] 	const swri_nav_msgs :: msg :: PathSegment *  segment = path . segments [ segno ] 
+std :: vector < geometry_msgs :: Point >  verts ( 5 ) 	std :: vector < geometry_msgs :: msg :: Point >  verts ( 5 ) 
+double X [ 4 ] 	double X [ 4 ] 
+double R [ 4 ] 	double R [ 4 ] 
+RotationMatrix2d ( pose . yaw , R ) 	RotationMatrix2d ( pose . yaw , R ) 
+costmap . worldToSuberror nameArg situation ) 	costmap . worldToSuberror nameArg situation ) 
+Controller :: Controller : update_rate_hz_ ( 25.0 )  , require_brake_ ( false )  , robotic_mode_ ( true )  , engine_running_ ( true )  , ignition_on_ ( true ) 	Controller :: Controller ( rclcpp :: NodeOptions options )  : Node ( "" , options )  , update_rate_hz_ ( 25.0 )  , require_brake_ ( false )  , robotic_mode_ ( true )  , engine_running_ ( true )  , ignition_on_ ( true ) 
+void Controller :: onInit	void Controller :: onInit
+pnh_ . param ( "" , initialization_delay , 1.0 ) 	initialization_delay = ( this -> get_parameter ( "" )  ) . as_double
+init_timer_ = nh_ . createWallTimer ( ros :: WallDuration ( initialization_delay )  , & Controller :: initialize , this , true ) 	std :: this_thread :: sleep_for ( std :: chrono :: duration < double , std :: ratio < 1 , 1 >  , 1 >  , std :: ratio < 1 , 1 >  , 1 ( initialization_delay )  ) 
+void Controller :: initialize ( const ros :: WallTimerEvent *  ignored ) 	void Controller :: initialize
+speed_input_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 3 , false ) 	speed_input_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 3 )  ) 
+curvature_input_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 3 , false ) 	curvature_input_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 3 )  ) 
+dbw_state_pub_ = nh_ . advertise < snm :: DriveByWireState >  ( "" , 3 ) 	dbw_state_pub_ = this -> create_publisher < snm :: DriveByWireState >  ( "" , rclcpp :: QoS ( 3 )  ) 
+robotic_mode_sub_ = nh_ . subscribe ( "" , 3 , & Controller :: handleRoboticMode , this ) 	robotic_mode_sub_ = this -> create_subscription < mcm :: BoolStamped >  ( "" , 3 , std :: bind ( & Controller :: handleRoboticMode , this , std :: placeholders :: _1 )  Controller :: handleRoboticMode , this , std :: placeholders :: _1 ) 
+engine_running_sub_ = nh_ . subscribe ( "" , 3 , & Controller :: handleEngineRunning , this ) 	engine_running_sub_ = this -> create_subscription < mcm :: BoolStamped >  ( "" , 3 , std :: bind ( & Controller :: handleEngineRunning , this , std :: placeholders :: _1 )  Controller :: handleEngineRunning , this , std :: placeholders :: _1 ) 
+ignition_on_sub_ = nh_ . subscribe ( "" , 3 , & Controller :: handleIgnitionOn , this ) 	ignition_on_sub_ = this -> create_subscription < mcm :: BoolStamped >  ( "" , 3 , std :: bind ( & Controller :: handleIgnitionOn , this , std :: placeholders :: _1 )  Controller :: handleIgnitionOn , this , std :: placeholders :: _1 ) 
+reconfigure_srv_ = pnh_ . advertiseService ( "" , & Controller :: ReconfigureService , this ) 	reconfigure_srv_ = this -> create_service < std_srvs :: srv :: Empty >  ( "" , std :: bind ( & Controller :: ReconfigureService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )  Controller :: ReconfigureService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) 
+update_timer_ = nh_ . createTimer ( ros :: Duration ( 1.0 / update_rate_hz_ )  / update_rate_hz_ , & Controller :: UpdateTimerCallback , this ) 	update_timer_ = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 >  , 1 >  , std :: ratio < 1 , 1 >  , 1 ( 1.0 / update_rate_hz_ )  / update_rate_hz_ , std :: bind ( & Controller :: UpdateTimerCallback , this )  Controller :: UpdateTimerCallback , this ) 
+pnh_ . param ( "" , update_rate_hz_ , 25.0 ) 	update_rate_hz_ = ( this -> get_parameter ( "" )  ) . as_double
+ROS_INFO ( "" , update_rate_hz_ ) 	RCLCPP_INFO ( this -> get_logger (  )  , "" , update_rate_hz_ ) 
+bool Controller :: VehicleStopped	bool Controller :: VehicleStopped
+void Controller :: UpdateTimerCallback ( const ros :: TimerEvent *  ev ) 	void Controller :: UpdateTimerCallback
+mcm :: Float32StampedPtr out = boost :: make_shared < mcm :: Float32Stamped > 	auto out = std :: make_shared < mcm :: Float32Stamped > 
+out -> header . stamp = ros :: Time :: now	out -> header . stamp = this -> now
+speed_input_pub_ . publish ( out ) 	speed_input_pub_ -> publish ( * out ) 
+mcm :: Float32StampedPtr out = boost :: make_shared < mcm :: Float32Stamped > 	auto out = std :: make_shared < mcm :: Float32Stamped > 
+out -> header . stamp = ros :: Time :: now	out -> header . stamp = this -> now
+curvature_input_pub_ . publish ( out ) 	curvature_input_pub_ -> publish ( * out ) 
+error other situation	error other situation
+module -> InitializeModule ( this , name , nh_ , pnh_ ) 	module -> InitializeModule ( this , name , nh ) 
+error other situation ) 	error other situation ) 
+snm :: DriveByWireStatePtr msg = boost :: make_shared < snm :: DriveByWireState > 	auto msg = std :: make_shared < snm :: DriveByWireState > 
+msg -> header . stamp = ros :: Time :: now	msg -> header . stamp = this -> now
+dbw_state_pub_ . publish ( msg ) 	dbw_state_pub_ -> publish ( * msg ) 
+bool Controller :: ReconfigureService ( std_srvs :: Empty :: Request *  request , std_srvs :: Empty :: Response *  response ) 	bool Controller :: ReconfigureService ( const std :: shared_ptr < rmw_request_id_t >  request_header , const std :: shared_ptr < std_srvs :: srv :: Empty :: Request >  :: srv :: Empty :: Request request , const std :: shared_ptr < std_srvs :: srv :: Empty :: Response >  :: srv :: Empty :: Response response ) 
+void Controller :: handleRoboticMode ( const mcm :: BoolStampedConstPtr *  msg ) 	void Controller :: handleRoboticMode ( const marti_common_msgs :: msg :: BoolStamped :: SharedPtr msg ) 
+void Controller :: handleEngineRunning ( const mcm :: BoolStampedConstPtr *  msg ) 	void Controller :: handleEngineRunning ( const mcm :: BoolStamped :: SharedPtr msg ) 
+void Controller :: handleIgnitionOn ( const mcm :: BoolStampedConstPtr *  msg ) 	void Controller :: handleIgnitionOn ( const mcm :: BoolStamped :: SharedPtr msg ) 
+bool Costmap :: fromMsg ( const sumet_nav_msgs :: Costmap *  msg ) 	bool Costmap :: fromMsg ( const sumet_nav_msgs :: msg :: Costmap *  msg ) 
+bool Costmap :: fromMsg ( const persistent_map_msgs :: LocalGridMap *  msg ) 	bool Costmap :: fromMsg ( const persistent_map_msgs :: msg :: LocalGridMap *  msg ) 
+error name situation ) 	error name situation ) 
+void Costmap :: toMsg ( sumet_nav_msgs :: Costmap *  msg ) 	void Costmap :: toMsg ( sumet_nav_msgs :: msg :: Costmap *  msg ) 
+msg . rect . top = y_min + map . rows * resolution	msg . rect . top = y_min + map . rows * resolution
+msg . rows = map . rows	msg . rows = map . rows
+void Costmap :: toMsg ( persistent_map_msgs :: LocalGridMap *  msg ) 	void Costmap :: toMsg ( persistent_map_msgs :: msg :: LocalGridMap *  msg ) 
+geometry_msgs :: Point point	geometry_msgs :: msg :: Point point
+persistent_map_msgs :: MapLayer layer	persistent_map_msgs :: msg :: MapLayer layer
+ros :: NodeHandle mnh = GetModuleNodeHandle	auto mnh = GetModuleNodeHandle
+mnh . param ( "" , timeout_s_ , timeout_s_ ) 	timeout_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , timeout_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , timeout_s_ ) 
+void CurvatureCommandModule :: Initialize	void CurvatureCommandModule :: Initialize
+ros :: NodeHandle nh = GetNodeHandle	auto nh = GetNodeHandle
+curvature_sub_ = nh . subscribe ( "" , 2 , & CurvatureCommandModule :: handleCurvatureMsg , this ) 	curvature_sub_ = nh -> create_subscription < marti_common_msgs :: msg :: Float32Stamped >  ( "" , 2 , std :: bind ( & CurvatureCommandModule :: handleCurvatureMsg , this , std :: placeholders :: _1 )  CurvatureCommandModule :: handleCurvatureMsg , this , std :: placeholders :: _1 ) 
+curvature_sub_ = ros :: Subscriber	curvature_sub_ . reset
+error other situation ) 	error other situation ) 
+ROS_WARN_THROTTLE ( 1.0 , "" ) 	RCLCPP_WARN ( nh -> get_logger (  )  , "" ) 
+void CurvatureCommandModule :: handleCurvatureMsg ( const marti_common_msgs :: Float32StampedConstPtr *  msg )  = msg	void CurvatureCommandModule :: handleCurvatureMsg ( const marti_common_msgs :: msg :: Float32Stamped :: SharedPtr msg )  = msg
+error name situation	error name situation
+boost :: shared_ptr < du :: Updater >  diagnostic_updater_	std :: shared_ptr < du :: Updater >  diagnostic_updater_
+ros :: WallTimer init_timer_	rclcpp :: TimerBase :: SharedPtr init_timer_
+ros :: Timer control_loop_timer_	rclcpp :: TimerBase :: SharedPtr control_loop_timer_
+ros :: Subscriber odom_sub_	rclcpp :: Subscription < nm :: Odometry >  :: SharedPtr odom_sub_
+ros :: Subscriber speed_command_sub_	rclcpp :: Subscription < mcm :: Float32Stamped >  :: SharedPtr speed_command_sub_
+ros :: Subscriber accel_command_sub_	rclcpp :: Subscription < mcm :: Float32Stamped >  :: SharedPtr accel_command_sub_
+ros :: Subscriber transmission_sense_sub_	rclcpp :: Subscription < mdm :: TransmissionFeedback >  :: SharedPtr transmission_sense_sub_
+ros :: Publisher brake_command_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr brake_command_pub_
+ros :: Publisher throttle_command_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr throttle_command_pub_
+ros :: Publisher pid_measured_filtered_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr pid_measured_filtered_pub_
+bool is_stopped_	bool parameters_updated_
+dynamic_reconfigure :: Server < speed_controller :: FeedforwardPidConfig >  *  reconfigure_server_	bool is_stopped_
+pnh_ . param ( "" , initialization_delay , 1.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 1.0 )  ) 
+odom_sub_ = nh_ . subscribe ( "" , 1 , & FeedforwardPid :: HandleOdometry , this ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+speed_command_sub_ = nh_ . subscribe ( "" , 1 , & FeedforwardPid :: HandleSpeedCommand , this ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+accel_command_sub_ = nh_ . subscribe ( "" , 1 , & FeedforwardPid :: HandleAccelerationCommand , this ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+transmission_sense_sub_ = nh_ . subscribe ( "" , 1 , & FeedforwardPid :: HandleTransmissionSense , this ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 1000.0 )  ) 
+throttle_command_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+brake_command_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pid_measured_filtered_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pnh_ . param ( "" , odom_timeout_ , 0.1 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pnh_ . param ( "" , command_timeout_ , 0.1 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pnh_ . param ( "" , stop_velocity_thresh_ , 0.01 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pnh_ . param ( "" , enable_feedforward_ , true ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+mdl_ . getParams ( pnh_ ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.1 )  ) 
+pnh_ . param ( "" , kp , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.1 )  ) 
+pnh_ . param ( "" , ki , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.01 )  ) 
+pnh_ . param ( "" , min_i , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( true )  ) 
+pnh_ . param ( "" , max_i , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pnh_ . param ( "" , meas_hz , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pid_config_ . SetGains ( kp , ki , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pid_config_ . SetLimits ( min_i , max_i , 0.0 , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pid_config_ . SetFilterCutOffHz ( meas_hz , 0.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+pnh_ . param ( "" , stop_brake_ , 0.5 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 20.0 )  ) 
+diagnostic_updater_ = boost :: make_shared < du :: Updater >  ( nh_ , pnh_ , getName  ) 	this -> set_on_parameters_set_callback ( std :: bind ( & FeedforwardPid :: ReconfigCb , this , std :: placeholders :: _1 )  FeedforwardPid :: ReconfigCb , this , std :: placeholders :: _1 ) 
+diagnostic_updater_ -> setHardwareID ( "" ) 	this -> onInit
+diagnostic_updater_ -> add ( "" , this , & FeedforwardPid :: updateDiagnostics ) 	initialization_delay = ( this -> get_parameter ( "" )  ) . as_double
+reconfigure_server_ = new dynamic_reconfigure :: Server < speed_controller :: FeedforwardPidConfig >  ( pnh_ ) 	std :: this_thread :: sleep_for ( std :: chrono :: duration < int , std :: milli >  , std :: milli ( int ( 1000 * initialization_delay )  * initialization_delay )  ( 1000 * initialization_delay )  * initialization_delay ) 
+reconfigure_server_ -> updateConfig ( reconfig_ ) 	RCLCPP_INFO ( this -> get_logger (  )  , "" ) 
+reconfigure_server_ -> setCallback ( boost :: bind ( & FeedforwardPid :: ReconfigCb , this , _1 , _2 )  FeedforwardPid :: ReconfigCb , this , _1 , _2 ) 	odom_sub_ = this -> create_subscription < nm :: Odometry >  ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleOdometry , this , std :: placeholders :: _1 )  FeedforwardPid :: HandleOdometry , this , std :: placeholders :: _1 ) 
+pnh_ . param ( "" , update_rate_hz , 20.0 ) 	speed_command_sub_ = this -> create_subscription < mcm :: Float32Stamped >  ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleSpeedCommand , this , std :: placeholders :: _1 )  FeedforwardPid :: HandleSpeedCommand , this , std :: placeholders :: _1 ) 
+control_loop_timer_ = nh_ . createTimer ( ros :: Duration ( 1.0 / update_rate_hz )  / update_rate_hz , & FeedforwardPid :: ControlLoop , this ) 	accel_command_sub_ = this -> create_subscription < mcm :: Float32Stamped >  ( "" , 1 , std :: bind ( & FeedforwardPid :: HandleAccelerationCommand , this , std :: placeholders :: _1 )  FeedforwardPid :: HandleAccelerationCommand , this , std :: placeholders :: _1 ) 
+mdl_ . throttle_deadband = reconfig_ . throttle_deadband	brake_command_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+mdl_ . throttle_gain = reconfig_ . throttle_gain	pid_measured_filtered_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+mdl_ . idle_power = reconfig_ . idle_power	odom_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . speed_offset = reconfig_ . speed_offset	command_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . peak_force = reconfig_ . peak_force	stop_velocity_thresh_ = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . brake_deadband = reconfig_ . brake_deadband	enable_feedforward_ = ( this -> get_parameter ( "" )  ) . as_bool
+mdl_ . brake_gain = reconfig_ . brake_gain	mdl_ . getParams ( this -> get_node_parameters_interface (  )  ) 
+mdl_ . brake_gain2 = reconfig_ . brake_gain2	kp = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . resistance_coeff_1 = reconfig_ . resistance_coeff_1	ki = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . resistance_coeff_v = reconfig_ . resistance_coeff_v	min_i = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . resistance_coeff_v2 = reconfig_ . resistance_coeff_v2	max_i = ( this -> get_parameter ( "" )  ) . as_double
+mdl_ . grav_gain = reconfig_ . grav_gain	meas_hz = ( this -> get_parameter ( "" )  ) . as_double
+pid_config_ . SetGains ( reconfig_ . kp , reconfig_ . ki , 0.0 ) 	pid_config_ . SetGains ( kp , ki , 0.0 ) 
+pid_config_ . SetLimits ( reconfig_ . min_integral , reconfig_ . max_integral , 0.0 , 0.0 ) 	pid_config_ . SetLimits ( min_i , max_i , 0.0 , 0.0 ) 
+pid_config_ . SetFilterCutOffHz ( reconfig_ . measured_filter_cut_off_hz , 0.0 ) 	pid_config_ . SetFilterCutOffHz ( meas_hz , 0.0 ) 
+stop_brake_ = reconfig_ . stop_brake	stop_brake_ = ( this -> get_parameter ( "" )  ) . as_double
+reconfigure_server_ -> updateConfig ( reconfig_ ) 	diagnostic_updater_ = std :: make_shared < du :: Updater >  ( this -> create_sub_node ( "" )  ) 
+reconfig_ . enable_feedforward = enable_feedforward_	diagnostic_updater_ -> setHardwareID ( "" ) 
+reconfig_ . delay = mdl_ . delay	diagnostic_updater_ -> add ( "" , this , & FeedforwardPid :: updateDiagnostics ) 
+reconfig_ . brake_gain = mdl_ . brake_gain	status . summary ( DS :: OK , "" ) 
+reconfig_ . brake_gain2 = mdl_ . brake_gain2	enable_feedforward_ = ( this -> get_parameter ( "" )  ) . as_bool
+reconfig_ . resistance_coeff_1 = mdl_ . resistance_coeff_1	mdl_ . getParams ( this -> get_node_parameters_interface (  )  ) 
+reconfig_ . resistance_coeff_v = mdl_ . resistance_coeff_v	odom_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . resistance_coeff_v2 = mdl_ . resistance_coeff_v2	command_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . grav_gain = mdl_ . grav_gain	stop_velocity_thresh_ = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . kp = pid_config_ . GetKp	kp = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . ki = pid_config_ . GetKi	ki = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . min_integral = pid_config_ . GetIntegralMin	min_i = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . max_integral = pid_config_ . GetIntegralMax	max_i = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . measured_filter_cut_off_hz = pid_config_ . GetMeasuredFilterCutOffHz	meas_hz = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_ . stop_brake = stop_brake_	pid_config_ . SetGains ( kp , ki , 0.0 ) 
+parameters_initialized_ = true	pid_config_ . SetLimits ( min_i , max_i , 0.0 , 0.0 ) 
+status . summary ( DS :: OK , "" ) 	pid_ . SetConfig ( pid_config_ ) 
+ROS_WARN_THROTTLE ( 1.0 , "" ) 	RCLCPP_WARN ( this -> get_logger (  )  , "" ) 
+ros :: Time now = ros :: Time :: now	rclcpp :: Time now = this -> now
+ROS_WARN ( "" , acceleration , velocity , pitch , in_reverse ) 	RCLCPP_WARN ( this -> get_logger (  )  , "" , acceleration , velocity , pitch , in_reverse ) 
+ROS_DEBUG ( "" , last_speed_command_ . value , last_accel_command_ . value , pid_ . GetMeasuredFiltered (  )  , gasbrake , gasbrake_ff , gasbrake_pid ) 	RCLCPP_DEBUG ( this -> get_logger (  )  , "" , last_speed_command_ . value , last_accel_command_ . value , pid_ . GetMeasuredFiltered (  )  , gasbrake , gasbrake_ff , gasbrake_pid ) 
+throttle_command_pub_ . publish ( makeFloat32StampedPtr ( now , throttle_cmd )  , throttle_cmd ) 	throttle_command_pub_ -> publish ( * makeFloat32StampedPtr ( now , throttle_cmd )  , throttle_cmd ) 
+brake_command_pub_ . publish ( makeFloat32StampedPtr ( now , brake_cmd )  , brake_cmd ) 	brake_command_pub_ -> publish ( * makeFloat32StampedPtr ( now , brake_cmd )  , brake_cmd ) 
+pid_measured_filtered_pub_ . publish ( makeFloat32StampedPtr ( now , pid_ . GetMeasuredFiltered (  )  )  , pid_ . GetMeasuredFiltered (  )  ) 	pid_measured_filtered_pub_ -> publish ( * makeFloat32StampedPtr ( now , pid_ . GetMeasuredFiltered (  )  )  , pid_ . GetMeasuredFiltered (  )  ) 
+void HandleOdometry ( const nm :: OdometryConstPtr *  msg ) 	void HandleOdometry ( const nm :: Odometry :: SharedPtr msg ) 
+void HandleSpeedCommand ( const mcm :: Float32StampedConstPtr *  msg ) 	void HandleSpeedCommand ( const mcm :: Float32Stamped :: SharedPtr msg ) 
+void HandleAccelerationCommand ( const mcm :: Float32StampedConstPtr *  msg ) 	void HandleAccelerationCommand ( const mcm :: Float32Stamped :: SharedPtr msg ) 
+void HandleTransmissionSense ( const mdm :: TransmissionFeedbackConstPtr *  msg ) 	void HandleTransmissionSense ( const mdm :: TransmissionFeedback :: SharedPtr msg ) 
+error name situation	error name situation
+ros :: NodeHandle nh_	rclcpp :: TimerBase :: SharedPtr init_timer_
+ros :: NodeHandle pnh_	rclcpp :: TimerBase :: SharedPtr control_loop_timer_
+boost :: shared_ptr < du :: Updater >  diagnostic_updater_	rclcpp :: Subscription < nm :: Odometry >  :: SharedPtr odom_sub_
+ros :: Publisher brake_command_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr brake_command_pub_
+ros :: Publisher throttle_command_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr throttle_command_pub_
+ros :: Time last_command_time_	rclcpp :: Time last_command_time_
+boost :: recursive_mutex reconfig_mutex_	bool parameters_updated_
+nh_ = getNodeHandle	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.5 )  ) 
+pnh_ = getPrivateNodeHandle	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.5 )  ) 
+pnh_ . param ( "" , initialization_delay , 1.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 10.0 )  ) 
+void initialize ( const ros :: WallTimerEvent *  ) 	void initialize
+odom_sub_ = nh_ . subscribe ( "" , 1 , & GainSchedulePID :: HandleOdometry , this ) 	odom_sub_ = this -> create_subscription < nm :: Odometry >  ( "" , 1 , std :: bind ( & GainSchedulePID :: HandleOdometry , this , std :: placeholders :: _1 )  GainSchedulePID :: HandleOdometry , this , std :: placeholders :: _1 ) 
+speed_command_sub_ = nh_ . subscribe ( "" , 1 , & GainSchedulePID :: HandleSpeedCommand , this ) 	speed_command_sub_ = this -> create_subscription < mcm :: Float32Stamped >  ( "" , 1 , std :: bind ( & GainSchedulePID :: HandleSpeedCommand , this , std :: placeholders :: _1 )  GainSchedulePID :: HandleSpeedCommand , this , std :: placeholders :: _1 ) 
+throttle_command_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	throttle_command_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+brake_command_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	brake_command_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+pnh_ . param ( "" , odom_timeout_ , 0.5 ) 	odom_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , command_timeout_ , 0.5 ) 	command_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , stop_speed_threshold_ , 0.0 ) 	stop_speed_threshold_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , feedforward_m_ , 0.0 ) 	feedforward_m_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , feedforward_b_ , 0.0 ) 	feedforward_b_ = ( this -> get_parameter ( "" )  ) . as_double
+speed_to_gain_p_ . loadFromParameterServer ( pnh_ , "" ) 	speed_to_gain_p_ . loadFromParameterServer ( this -> get_node_parameters_interface (  )  , "" ) 
+ROS_ERROR ( "" ) 	RCLCPP_ERROR ( this -> get_logger (  )  , "" ) 
+ROS_INFO ( "" , speed_to_gain_p_ . toString (  )  . c_str  ) 	RCLCPP_INFO ( this -> get_logger (  )  , "" , speed_to_gain_p_ . toString (  )  . c_str  ) 
+pnh_ . param ( "" , min_integral_contribution_ , - 10.0 ) 	min_integral_contribution_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , max_integral_contribution_ , 10.0 ) 	max_integral_contribution_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , update_rate_hz , 25.0 ) 	update_rate_hz = ( this -> get_parameter ( "" )  ) . as_double
+control_loop_timer_ = nh_ . createTimer ( ros :: Duration ( 1.0 / update_rate_hz )  / update_rate_hz , & GainSchedulePID :: ControlLoop , this ) 	control_loop_timer_ = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 >  , 1 >  , std :: ratio < 1 , 1 >  , 1 ( 1.0 / update_rate_hz )  / update_rate_hz , std :: bind ( & GainSchedulePID :: ControlLoop , this )  GainSchedulePID :: ControlLoop , this ) 
+i_gain_ = config . integral_gain	RCLCPP_WARN ( this -> get_logger (  )  , "" , name . c_str (  )  ) 
+min_gasbrake_command_ = config . min_gasbrake_command	result . successful = false
+max_gasbrake_command_ = config . max_gasbrake_command	result . reason = "No support for changing requested parameter during execution"
+ROS_ERROR ( "" , config . speed_to_gain . c_str (  )  ) 	feedforward_m_ = ( this -> get_parameter ( "" )  ) . as_double
+ROS_INFO ( "" , speed_to_gain_p_ . toString (  )  . c_str  ) 	feedforward_b_ = ( this -> get_parameter ( "" )  ) . as_double
+speed_to_gain_p_ . toString ( config . speed_to_gain ) 	speed_to_gain_p_ . loadFromParameterServer ( this -> get_node_parameters_interface (  )  , "" ) 
+speed_controller :: GainSchedulePidConfig config	std :: vector < double >  zero = 0.0
+config . stop_speed_threshold = stop_speed_threshold_	speed_to_gain_p_ . set ( zero , zero ) 
+config . max_gasbrake_command = max_gasbrake_command_	i_gain_ = ( this -> get_parameter ( "" )  ) . as_double
+speed_to_gain_p_ . toString ( config . speed_to_gain ) 	min_gasbrake_command_ = ( this -> get_parameter ( "" )  ) . as_double
+reconfig_server_ -> updateConfig ( config ) 	max_gasbrake_command_ = ( this -> get_parameter ( "" )  ) . as_double
+void ControlLoop ( const ros :: TimerEvent *  ) 	void ControlLoop
+ros :: Time now = ros :: Time :: now	rclcpp :: Time now = this -> now
+ROS_DEBUG ( "" , gasbrake_percent , feedforward , proportional , integral ) 	RCLCPP_DEBUG ( this -> get_logger (  )  , "" , gasbrake_percent , feedforward , proportional , integral ) 
+mcm :: Float32StampedPtr throttle_msg = boost :: make_shared < mcm :: Float32Stamped > 	auto throttle_msg = mcm :: Float32Stamped
+throttle_msg -> header . stamp = now	throttle_msg . header . stamp = now
+throttle_msg -> value = std :: max ( gasbrake_percent , 0.0 )  / 100.0	throttle_msg . value = std :: max ( gasbrake_percent , 0.0 )  / 100.0
+throttle_command_pub_ . publish ( throttle_msg ) 	throttle_command_pub_ -> publish ( throttle_msg ) 
+mcm :: Float32StampedPtr brake_msg = boost :: make_shared < mcm :: Float32Stamped > 	auto brake_msg = mcm :: Float32Stamped
+brake_msg -> header . stamp = now	brake_msg . header . stamp = now
+brake_msg -> value = std :: max ( - gasbrake_percent , 0.0 )  / 100.0	brake_msg . value = std :: max ( - gasbrake_percent , 0.0 )  / 100.0
+brake_command_pub_ . publish ( brake_msg ) 	brake_command_pub_ -> publish ( brake_msg ) 
+ROS_DEBUG ( "" , current_speed , speed_error , scheduled_gain , scheduled_gain * speed_error ) 	RCLCPP_DEBUG ( this -> get_logger (  )  , "" , current_speed , speed_error , scheduled_gain , scheduled_gain * speed_error ) 
+double IntegralTerm ( const ros :: Time *  now , double speed_error ) 	double IntegralTerm ( const rclcpp :: Time *  now , double speed_error ) 
+double dt = ( now - last_command_time_ ) . toSec	double dt = ( now - last_command_time_ ) . seconds
+ros :: Time now = ros :: Time :: now	rclcpp :: Time now = this -> now
+double age_meas = ( now - last_odom_ . header . stamp ) . toSec	double age_meas = ( now - last_odom_ . header . stamp ) . seconds
+ROS_WARN_THROTTLE ( 1.0 , "" "" , age_meas , odom_timeout_ ) 	RCLCPP_WARN ( this -> get_logger (  )  , "" "" , age_meas , odom_timeout_ ) 
+double age_comm = ( now - last_speed_command_ . header . stamp ) . toSec	double age_comm = ( now - last_speed_command_ . header . stamp ) . seconds
+ROS_WARN_THROTTLE ( 1.0 , "" "" , age_comm , command_timeout_ ) 	RCLCPP_WARN ( this -> get_logger (  )  , "" "" , age_comm , command_timeout_ ) 
+void HandleOdometry ( const nm :: OdometryConstPtr *  msg ) 	void HandleOdometry ( const nm :: Odometry :: SharedPtr msg ) 
+void HandleSpeedCommand ( const mcm :: Float32StampedConstPtr *  msg ) 	void HandleSpeedCommand ( const mcm :: Float32Stamped :: SharedPtr msg ) 
+ros :: init ( argc , argv , "" ) 	std :: this_thread :: sleep_for ( std :: chrono :: duration < int , std :: milli >  , std :: milli ( int ( 1000 * initialization_delay )  * initialization_delay )  ( 1000 * initialization_delay )  * initialization_delay ) 
+nodelet :: Loader nodelet	rclcpp :: Time now = this -> now
+nodelet :: M_string remappings ( ros :: names :: getRemappings (  )  ) 	rclcpp :: Time cur_time = this -> now
+nodelet :: V_string nargv	rclcpp :: Time now = this -> now
+ros :: spin	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 1.0f )  ) 
+GearStateModule :: GearStateModule : min_gear_request_period_s_ ( - 1.0 )  , last_gear_request_time_ ( ros :: Time :: now (  )  )  , last_requested_gear_ ( snm :: DbwGear :: UNKNOWN )  , desired_gear_ ( snm :: DbwGear :: PARK )  , current_gear_ ( snm :: DbwGear :: UNKNOWN )  , reported_gear_ ( snm :: DbwGear :: UNKNOWN ) 	GearStateModule :: GearStateModule : min_gear_request_period_s_ ( - 1.0 )  , last_requested_gear_ ( snm :: DbwGear :: UNKNOWN )  , desired_gear_ ( snm :: DbwGear :: PARK )  , current_gear_ ( snm :: DbwGear :: UNKNOWN )  , reported_gear_ ( snm :: DbwGear :: UNKNOWN ) 
+ros :: NodeHandle mnh = GetModuleNodeHandle	auto mnh = GetModuleNodeHandle
+mnh . param ( "" , min_gear_request_period_s_ , - 1.0 ) 	min_gear_request_period_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , min_gear_request_period_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , min_gear_request_period_s_ ) 
+mnh . getParam ( "" , initial_gear_mode_str ) 	initial_gear_mode_str = ( get_sub_parameter ( mnh , "" )  ) . as_string
+ROS_INFO ( "" , GetName  . c_str  , initial_gear_mode_str . c_str (  )  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , initial_gear_mode_str . c_str (  )  ) 
+ROS_ERROR ( "" , GetName  . c_str  , initial_gear_mode_str . c_str (  )  ) 	RCLCPP_ERROR ( mnh -> get_logger (  )  , "" , GetName  . c_str  , initial_gear_mode_str . c_str (  )  ) 
+mnh . getParam ( "" , automatic_forward_gear_str ) 	automatic_forward_gear_str = ( get_sub_parameter ( mnh , "" )  ) . as_string
+ROS_INFO ( "" , GetName  . c_str  , automatic_forward_gear_str . c_str (  )  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , automatic_forward_gear_str . c_str (  )  ) 
+ROS_ERROR ( "" , GetName  . c_str  , automatic_forward_gear_str . c_str (  )  ) 	RCLCPP_ERROR ( mnh -> get_logger (  )  , "" , GetName  . c_str  , automatic_forward_gear_str . c_str (  )  ) 
+mnh . getParam ( "" , automatic_reverse_gear_str ) 	automatic_reverse_gear_str = ( get_sub_parameter ( mnh , "" )  ) . as_string
+ROS_INFO ( "" , GetName  . c_str  , automatic_reverse_gear_str . c_str (  )  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , automatic_reverse_gear_str . c_str (  )  ) 
+ROS_ERROR ( "" , GetName  . c_str  , automatic_reverse_gear_str . c_str (  )  ) 	RCLCPP_ERROR ( mnh -> get_logger (  )  , "" , GetName  . c_str  , automatic_reverse_gear_str . c_str (  )  ) 
+mnh . param ( "" , auto_gear_in_reverse_timeout_s_ , - 1.0 ) 	auto_gear_in_reverse_timeout_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , auto_gear_in_reverse_timeout_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , auto_gear_in_reverse_timeout_s_ ) 
+void GearStateModule :: Update	void GearStateModule :: Update
+ros :: Time now = ros :: Time :: now	rclcpp :: Time now = mnh -> now
+void GearStateModule :: Initialize	void GearStateModule :: Initialize
+ros :: NodeHandle nh = GetNodeHandle	auto mnh = GetModuleNodeHandle
+set_vehicle_gear_srv_ = nh . advertiseService ( "" , & GearStateModule :: SetVehicleGearService , this ) 	set_vehicle_gear_srv_ = mnh -> create_service < sumet_nav_msgs :: srv :: SetVehicleGear >  ( "" , std :: bind ( & GearStateModule :: SetVehicleGearService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )  GearStateModule :: SetVehicleGearService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) 
+transmission_input_pub_ = nh . advertise < mcm :: StringStamped >  ( "" , 10 , false ) 	transmission_input_pub_ = mnh -> create_publisher < mcm :: StringStamped >  ( "" , rclcpp :: QoS ( 10 )  ) 
+transmission_sense_sub_ = nh . subscribe ( "" , 10 , & GearStateModule :: handleTransmissionSense , this ) 	transmission_sense_sub_ = mnh -> create_subscription < marti_dbw_msgs :: msg :: TransmissionFeedback >  ( "" , 10 , std :: bind ( & GearStateModule :: handleTransmissionSense , this , std :: placeholders :: _1 )  GearStateModule :: handleTransmissionSense , this , std :: placeholders :: _1 ) 
+auto_gear_in_reverse_sub_ = nh . subscribe ( "" , 2 , & GearStateModule :: handleAutoGearInReverse , this ) 	auto_gear_in_reverse_sub_ = mnh -> create_subscription < marti_common_msgs :: msg :: BoolStamped >  ( "" , 2 , std :: bind ( & GearStateModule :: handleAutoGearInReverse , this , std :: placeholders :: _1 )  GearStateModule :: handleAutoGearInReverse , this , std :: placeholders :: _1 ) 
+set_vehicle_gear_srv_ . shutdown	set_vehicle_gear_srv_ . reset
+bool GearStateModule :: SetVehicleGearService ( snm :: SetVehicleGear :: Request *  request , snm :: SetVehicleGear :: Response *  response ) 	bool GearStateModule :: SetVehicleGearService ( const std :: shared_ptr < rmw_request_id_t >  request_header , const std :: shared_ptr < sumet_nav_msgs :: srv :: SetVehicleGear :: Request >  :: srv :: SetVehicleGear :: Request request , const std :: shared_ptr < sumet_nav_msgs :: srv :: SetVehicleGear :: Response >  :: srv :: SetVehicleGear :: Response response ) 
+gear_mode_ = request . mode	gear_mode_ = request -> mode
+response . result . success = true	response -> result . success = true
+response . result . message = "success"	response -> result . message = "success"
+response . result . success = false	response -> result . success = false
+response . result . message = "invalid gear mode"	response -> result . message = "invalid gear mode"
+void GearStateModule :: HandleGearAssignment ( const ros :: Time *  now ) 	void GearStateModule :: HandleGearAssignment ( const rclcpp :: Time *  now ) 
+ROS_INFO_THROTTLE ( 1.0 , "" , GetName  . c_str  , desired_gear_ , reported_gear_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , desired_gear_ , reported_gear_ ) 
+double request_age = ( now - last_gear_request_time_ ) . toSec	double request_age = ( now - last_gear_request_time_ ) . seconds
+ROS_INFO ( "" , GetName  . c_str  , request_age , min_gear_request_period_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , request_age , min_gear_request_period_s_ ) 
+ROS_INFO_THROTTLE ( 1.0 , "" , GetName  . c_str  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  ) 
+ROS_INFO_THROTTLE ( 1.0 , "" , GetName  . c_str  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  ) 
+last_gear_request_time_ = ros :: Time :: now	last_gear_request_time_ = mnh -> now
+mcm :: StringStampedPtr msg = boost :: make_shared < mcm :: StringStamped > 	mcm :: StringStamped :: SharedPtr msg = std :: make_shared < mcm :: StringStamped > 
+msg -> header . stamp = ros :: Time :: now	msg -> header . stamp = mnh -> now
+transmission_input_pub_ . publish ( msg ) 	transmission_input_pub_ -> publish ( * msg ) 
+void GearStateModule :: handleTransmissionSense ( const marti_dbw_msgs :: TransmissionFeedbackConstPtr *  msg ) 	void GearStateModule :: handleTransmissionSense ( const marti_dbw_msgs :: msg :: TransmissionFeedback :: SharedPtr msg ) 
+void GearStateModule :: handleAutoGearInReverse ( const marti_common_msgs :: BoolStampedConstPtr *  msg )  = msg	void GearStateModule :: handleAutoGearInReverse ( const marti_common_msgs :: msg :: BoolStamped :: SharedPtr msg )  = msg
+ros :: NodeHandle mnh = GetModuleNodeHandle	auto mnh = GetModuleNodeHandle
+mnh . param ( "" , start_engine_time_s_ , - 1.0 ) 	start_engine_time_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , start_engine_time_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , start_engine_time_s_ ) 
+void IgnitionModule :: Update	void IgnitionModule :: Update
+double age = ( ros :: Time :: now - start_request_time_ ) . toSec	double age = ( mnh -> now - start_request_time_ ) . seconds
+error other situation ) 	error other situation ) 
+snprintf ( buffer , buffer , "" , start_engine_time_s_ - age ) 	snprintf ( buffer , buffer , "" , start_engine_time_s_ - age ) 
+AddStop ( buffer ) 	AddStop ( buffer ) 
+void IgnitionModule :: Initialize	void IgnitionModule :: Initialize
+ros :: NodeHandle nh = GetNodeHandle	auto nh = GetNodeHandle
+start_engine_srv_ = nh . advertiseService ( "" , & IgnitionModule :: StartEngineService , this ) 	start_engine_srv_ = nh -> create_service < sumet_nav_msgs :: srv :: StartEngine >  ( "" , std :: bind ( & IgnitionModule :: StartEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )  IgnitionModule :: StartEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) 
+stop_engine_srv_ = nh . advertiseService ( "" , & IgnitionModule :: StopEngineService , this ) 	stop_engine_srv_ = nh -> create_service < sumet_nav_msgs :: srv :: StopEngine >  ( "" , std :: bind ( & IgnitionModule :: StopEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 )  IgnitionModule :: StopEngineService , this , std :: placeholders :: _1 , std :: placeholders :: _2 , std :: placeholders :: _3 ) 
+run_engine_pub_ = nh . advertise < mcm :: BoolStamped >  ( "" , 1 , false ) 	run_engine_pub_ = nh -> create_publisher < mcm :: BoolStamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+bool IgnitionModule :: StartEngineService ( snm :: StartEngineRequest *  request , snm :: StartEngineResponse *  response ) 	bool IgnitionModule :: StartEngineService ( const std :: shared_ptr < rmw_request_id_t >  request_header , const std :: shared_ptr < sumet_nav_msgs :: srv :: StartEngine :: Request >  :: srv :: StartEngine :: Request request , const std :: shared_ptr < sumet_nav_msgs :: srv :: StartEngine :: Response >  :: srv :: StartEngine :: Response response ) 
+ROS_INFO ( "" , GetName  . c_str  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  ) 
+response . result = snm :: StartEngineResponse :: SUCCESS	response -> result = snm :: StartEngine_Response :: SUCCESS
+response . result |= snm :: StartEngineResponse :: ERROR_ITO_ACTIVE	response -> result |= snm :: StartEngine_Response :: ERROR_ITO_ACTIVE
+response . result |= snm :: StartEngineResponse :: ERROR_ALREADY_RUNNING	response -> result |= snm :: StartEngine_Response :: ERROR_ALREADY_RUNNING
+response . result |= snm :: StartEngineResponse :: ERROR_IGNITION_OFF	response -> result |= snm :: StartEngine_Response :: ERROR_IGNITION_OFF
+response . result |= snm :: StartEngineResponse :: ERROR_NOT_IN_PARK	response -> result |= snm :: StartEngine_Response :: ERROR_NOT_IN_PARK
+if ( response . result == snm :: StartEngineResponse :: SUCCESS ) 	if ( response -> result == snm :: StartEngine_Response :: SUCCESS ) 
+ROS_INFO ( "" , GetName  . c_str  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  ) 
+start_request_time_ = ros :: Time :: now	start_request_time_ = mnh -> now
+bool IgnitionModule :: StopEngineService ( snm :: StopEngineRequest *  request , snm :: StopEngineResponse *  response ) 	bool IgnitionModule :: StopEngineService ( const std :: shared_ptr < rmw_request_id_t >  request_header , const std :: shared_ptr < sumet_nav_msgs :: srv :: StopEngine :: Request >  :: srv :: StopEngine :: Request request , const std :: shared_ptr < sumet_nav_msgs :: srv :: StopEngine :: Response >  :: srv :: StopEngine :: Response response ) 
+ROS_INFO ( "" , GetName  . c_str  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  ) 
+response . result = snm :: StopEngineResponse :: SUCCESS	response -> result = snm :: StopEngine_Response :: SUCCESS
+response . result |= snm :: StopEngineResponse :: ERROR_ITO_ACTIVE	response -> result |= snm :: StopEngine_Response :: ERROR_ITO_ACTIVE
+response . result |= snm :: StopEngineResponse :: ERROR_ALREADY_STOPPED	response -> result |= snm :: StopEngine_Response :: ERROR_ALREADY_STOPPED
+if ( response . result == snm :: StopEngineResponse :: SUCCESS ) 	if ( response -> result == snm :: StopEngine_Response :: SUCCESS ) 
+ROS_INFO ( "" , GetName  . c_str  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  ) 
+void IgnitionModule :: sendRunMessage ( const bool run ) 	void IgnitionModule :: sendRunMessage ( const bool run ) 
+mcm :: BoolStampedPtr msg = boost :: make_shared < mcm :: BoolStamped > 	mcm :: BoolStamped :: SharedPtr msg = std :: make_shared < mcm :: BoolStamped > 
+msg -> header . stamp = ros :: Time :: now	msg -> header . stamp = mnh -> now
+run_engine_pub_ . publish ( msg ) 	run_engine_pub_ -> publish ( * msg ) 
+void LongitudinalDynamicsModel :: getParams ( const ros :: NodeHandle *  pnh ) 	void LongitudinalDynamicsModel :: getParams ( rclcpp :: node_interfaces :: NodeParametersInterface :: SharedPtr parent_interface ) 
+pnh . param ( "" , delay , 0.0 ) 	delay = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , throttle_deadband , 0.0 ) 	throttle_deadband = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , throttle_gain , 0.0 ) 	throttle_gain = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , idle_power , 0.0 ) 	idle_power = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , speed_offset , 0.0 ) 	speed_offset = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , peak_force , 1000.0 ) 	peak_force = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , brake_deadband , 0.0 ) 	brake_deadband = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , brake_gain , 0.0 ) 	brake_gain = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , brake_gain2 , 0.0 ) 	brake_gain2 = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , resistance_coeff_1 , 0.0 ) 	resistance_coeff_1 = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , resistance_coeff_v , 0.0 ) 	resistance_coeff_v = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , resistance_coeff_v2 , 0.0 ) 	resistance_coeff_v2 = ( parent_interface -> get_parameter ( "" )  ) . as_double
+pnh . param ( "" , grav_gain , 0.0 ) 	grav_gain = ( parent_interface -> get_parameter ( "" )  ) . as_double
+double Fp = Fe + Fg	double Fp = Fe + Fg
+double abs_Fb = brake_gain * brake_adj + brake_gain2 * ( brake_adj * brake_adj )	double abs_Fb = brake_gain * brake_adj + brake_gain2 * ( brake_adj * brake_adj )
+ROS_DEBUG ( "" "" , throttle , brake , velocity , ground_pitch , in_reverse , Fe , Fg , abs_Fb , abs_Fr , Fp , Fd , acceleration ) 	RCLCPP_DEBUG ( logger_ , "" "" , throttle , brake , velocity , ground_pitch , in_reverse , Fe , Fg , abs_Fb , abs_Fr , Fp , Fd , acceleration ) 
+ROS_DEBUG ( "" , tb , target_accel , pred_accel ) 	RCLCPP_DEBUG ( this -> logger_ , "" , tb , target_accel , pred_accel ) 
+ROS_WARN ( "" , exitflag ) 	RCLCPP_WARN ( logger_ , "" , exitflag ) 
+int main ( int argc , char * * argv ) 	int main ( int argc , char * * argv ) 
+ros :: init ( argc , argv , "" ) 	rclcpp :: init ( argc , argv ) 
+ros :: spin	rclcpp :: shutdown
+error name situation	error name situation
+ros :: NodeHandle nh_	rclcpp :: TimerBase :: SharedPtr init_timer_
+ros :: NodeHandle pnh_	rclcpp :: TimerBase :: SharedPtr control_loop_timer_
+boost :: shared_ptr < du :: Updater >  diagnostic_updater_	rclcpp :: Subscription < nm :: Odometry >  :: SharedPtr odom_sub_
+ros :: Publisher brake_command_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr brake_command_pub_
+ros :: Publisher throttle_command_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr throttle_command_pub_
+double command_timeout_	int brake_saturated_threshold_
+double brake_error_threshold_	double brake_integral_
+int brake_saturated_threshold_	double max_brake_integral_
+double brake_kp_	double command_timeout_
+double brake_ki_	double brake_error_threshold_
+double brake_integral_	double min_brake_integral_
+double max_brake_integral_	double brake_kp_
+double min_brake_integral_	double brake_ki_
+ros :: Time brake_last_time_	rclcpp :: Time brake_last_time_
+double throttle_error_threshold_	int throttle_saturated_threshold_
+int throttle_saturated_threshold_	double throttle_integral_
+double throttle_kp_	double max_throttle_integral_
+double throttle_ki_	double throttle_error_threshold_
+double throttle_integral_	double min_throttle_integral_
+double max_throttle_integral_	double throttle_kp_
+double min_throttle_integral_	double throttle_ki_
+ros :: Time throttle_last_time_	rclcpp :: Time throttle_last_time_
+nh_ = getNodeHandle	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.5 )  ) 
+pnh_ = getPrivateNodeHandle	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.5 )  ) 
+pnh_ . param ( "" , initialization_delay , 1.0 ) 	this -> declare_parameter ( "" , rclcpp :: ParameterValue ( 0.0 )  ) 
+odom_sub_ = nh_ . subscribe ( "" , 1 , & ModeSwitchPid :: HandleOdometry , this ) 	odom_sub_ = this -> create_subscription < nm :: Odometry >  ( "" , 1 , std :: bind ( & ModeSwitchPid :: HandleOdometry , this , std :: placeholders :: _1 )  ModeSwitchPid :: HandleOdometry , this , std :: placeholders :: _1 ) 
+speed_command_sub_ = nh_ . subscribe ( "" , 1 , & ModeSwitchPid :: HandleSpeedCommand , this ) 	speed_command_sub_ = this -> create_subscription < mcm :: Float32Stamped >  ( "" , 1 , std :: bind ( & ModeSwitchPid :: HandleSpeedCommand , this , std :: placeholders :: _1 )  ModeSwitchPid :: HandleSpeedCommand , this , std :: placeholders :: _1 ) 
+throttle_command_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	throttle_command_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+brake_command_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 1 , false ) 	brake_command_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 1 )  ) 
+pnh_ . param ( "" , odom_timeout_ , 0.5 ) 	odom_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , command_timeout_ , 0.5 ) 	command_timeout_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , brake_error_threshold_ , 0.0 ) 	brake_error_threshold_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , brake_saturated_threshold_ , 0 ) 	brake_saturated_threshold_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , brake_kp_ , 0.0 ) 	brake_kp_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , brake_ki_ , 0.0 ) 	brake_ki_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , max_brake_integral_ , 0.0 ) 	max_brake_integral_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , min_brake_integral_ , 0.0 ) 	min_brake_integral_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , throttle_error_threshold_ , 0.0 ) 	throttle_error_threshold_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , throttle_saturated_threshold_ , 0 ) 	throttle_saturated_threshold_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , throttle_kp_ , 0.0 ) 	throttle_kp_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , throttle_ki_ , 0.0 ) 	throttle_ki_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , max_throttle_integral_ , 0.0 ) 	max_throttle_integral_ = ( this -> get_parameter ( "" )  ) . as_double
+pnh_ . param ( "" , min_throttle_integral_ , 0.0 ) 	min_throttle_integral_ = ( this -> get_parameter ( "" )  ) . as_double
+control_loop_timer_ = nh_ . createTimer ( ros :: Duration ( 1.0 / update_rate_hz )  / update_rate_hz , & ModeSwitchPid :: ControlLoop , this ) 	control_loop_timer_ = this -> create_wall_timer ( std :: chrono :: duration < double , std :: ratio < 1 , 1 >  , 1 >  , std :: ratio < 1 , 1 >  , 1 ( 1.0 / update_rate_hz )  / update_rate_hz , std :: bind ( & ModeSwitchPid :: ControlLoop , this )  ModeSwitchPid :: ControlLoop , this ) 
+void ControlLoop ( const ros :: TimerEvent *  ) 	void ControlLoop
+ros :: Time now = ros :: Time :: now	rclcpp :: Time now = this -> now
+double current_speed = std :: abs ( last_odom_ . twist . twist . linear . x ) 	double current_speed = std :: abs ( last_odom_ . twist . twist . linear . x ) 
+mcm :: Float32StampedPtr throttle_msg = boost :: make_shared < mcm :: Float32Stamped > 	auto throttle_msg = mcm :: Float32Stamped
+throttle_msg -> header . stamp = now	throttle_msg . header . stamp = now
+throttle_msg -> value = std :: max ( gasbrake_percent , 0.0 )  / 100.0	throttle_msg . value = std :: max ( gasbrake_percent , 0.0 )  / 100.0
+throttle_command_pub_ . publish ( throttle_msg ) 	throttle_command_pub_ -> publish ( throttle_msg ) 
+mcm :: Float32StampedPtr brake_msg = boost :: make_shared < mcm :: Float32Stamped > 	auto brake_msg = mcm :: Float32Stamped
+brake_msg -> header . stamp = now	brake_msg . header . stamp = now
+brake_msg -> value = std :: max ( - gasbrake_percent , 0.0 )  / 100.0	brake_msg . value = std :: max ( - gasbrake_percent , 0.0 )  / 100.0
+brake_command_pub_ . publish ( brake_msg ) 	brake_command_pub_ -> publish ( brake_msg ) 
+double RunThrottle ( const ros :: Time *  now , double desired , double measured ) 	double RunThrottle ( const rclcpp :: Time *  now , double desired , double measured ) 
+double dt = ( now - throttle_last_time_ ) . toSec	double dt = ( now - throttle_last_time_ ) . seconds
+double RunBrake ( const ros :: Time *  now , double desired , double measured ) 	double RunBrake ( const rclcpp :: Time *  now , double desired , double measured ) 
+double dt = ( now - brake_last_time_ ) . toSec	double dt = ( now - brake_last_time_ ) . seconds
+ros :: Time now = ros :: Time :: now	rclcpp :: Time now = this -> now
+double age_meas = ( now - last_odom_ . header . stamp ) . toSec	double age_meas = ( now - last_odom_ . header . stamp ) . seconds
+ROS_WARN_THROTTLE ( 1.0 , "" "" , age_meas , odom_timeout_ ) 	RCLCPP_WARN ( this -> get_logger (  )  , "" "" , age_meas , odom_timeout_ ) 
+double age_comm = ( now - last_speed_command_ . header . stamp ) . toSec	double age_comm = ( now - last_speed_command_ . header . stamp ) . seconds
+ROS_WARN_THROTTLE ( 1.0 , "" "" , age_comm , command_timeout_ ) 	RCLCPP_WARN ( this -> get_logger (  )  , "" "" , age_comm , command_timeout_ ) 
+void HandleOdometry ( const nm :: OdometryConstPtr *  msg ) 	void HandleOdometry ( const nm :: Odometry :: SharedPtr msg ) 
+void HandleSpeedCommand ( const mcm :: Float32StampedConstPtr *  msg ) 	void HandleSpeedCommand ( const mcm :: Float32Stamped :: SharedPtr msg ) 
+void MototronStatusModule :: Reconfigure	void MototronStatusModule :: Reconfigure
+ros :: NodeHandle mnh = GetModuleNodeHandle	auto mnh = GetModuleNodeHandle
+mnh . param ( "" , timeout_s_ , - 1.0 ) 	timeout_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , timeout_s_ ) 	RCLCPP_INFO ( nh -> get_logger (  )  , "" , GetName  . c_str  , timeout_s_ ) 
+void MototronStatusModule :: HandleMototronStatus ( const mm :: MototronStatusConstPtr *  msg ) 	void MototronStatusModule :: HandleMototronStatus ( const mm :: MototronStatus :: SharedPtr msg ) 
+void MototronStatusModule :: Initialize	void MototronStatusModule :: Initialize
+ros :: NodeHandle nh = GetNodeHandle	auto nh = GetNodeHandle
+status_sub_ = nh . subscribe ( "" , 3 , & MototronStatusModule :: HandleMototronStatus , this ) 	status_sub_ = nh -> create_subscription < mm :: MototronStatus >  ( "" , 3 , std :: bind ( & MototronStatusModule :: HandleMototronStatus , this , std :: placeholders :: _1 )  MototronStatusModule :: HandleMototronStatus , this , std :: placeholders :: _1 ) 
+status_sub_ . shutdown	status_sub_ . reset
+void MototronStatusModule :: UpdateStatusValid	void MototronStatusModule :: UpdateStatusValid
+double age = ( ros :: Time :: now - status_msg_ . header . stamp ) . toSec	double age = ( mnh -> now - status_msg_ . header . stamp ) . seconds
+ZoneData :: ZoneData ( const sumet_world_model_msgs :: ControlZone *  msg ) 	ZoneData :: ZoneData ( const sumet_world_model_msgs :: msg :: ControlZone *  msg ) 
+error other situation ) 	error other situation ) 
+swri_transform_util :: Transform transform	swri_transform_util :: Transform transform ( rclcpp :: Time ( 0 )  ) 
+if ( ! tf_mgr . GetTransform ( target_frame , frame_id , ros :: Time ( 0 )  , transform )  ) 	if ( ! tf_mgr . GetTransform ( target_frame , frame_id , rclcpp :: Time ( 0 )  , transform )  ) 
+const cv :: Point *  pts [ 1 ] 	const cv :: Point *  pts [ 1 ] 
+cv :: fillPoly ( costmap . map , pts , npts , 1 , cv :: Scalar ( value )  , 8 ) 	cv :: fillPoly ( costmap . map , pts , npts , 1 , cv :: Scalar ( value )  , 8 ) 
+ros :: NodeHandle mnh = GetModuleNodeHandle	auto mnh = GetModuleNodeHandle
+mnh . param ( "" , timeout_s_ , - 1.0 ) 	timeout_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , timeout_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , timeout_s_ ) 
+mnh . param ( "" , target_frame_ , std :: string ( "" )  ) 	target_frame_ = ( get_sub_parameter ( mnh , "" )  ) . as_string
+ROS_INFO ( "" , GetName  . c_str  , target_frame_ . c_str (  )  ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , target_frame_ . c_str (  )  ) 
+mnh . param ( "" , stopped_speed_threshold_ , 0.01 ) 	stopped_speed_threshold_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , stopped_speed_threshold_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , stopped_speed_threshold_ ) 
+void OdometryModule :: Initialize	void OdometryModule :: Initialize
+ros :: NodeHandle nh = GetNodeHandle	auto mnh = GetModuleNodeHandle
+odom_sub_ = nh . subscribe ( "" , 3 , & OdometryModule :: HandleOdomMessage , this ) 	odom_sub_ = mnh -> create_subscription < nav_msgs :: msg :: Odometry >  ( "" , 3 , std :: bind ( & OdometryModule :: HandleOdomMessage , this , std :: placeholders :: _1 )  OdometryModule :: HandleOdomMessage , this , std :: placeholders :: _1 ) 
+odom_sub_ . shutdown	odom_sub_ . reset
+void OdometryModule :: HandleOdomMessage ( const nav_msgs :: OdometryConstPtr *  msg ) 	void OdometryModule :: HandleOdomMessage ( const nav_msgs :: msg :: Odometry :: SharedPtr msg ) 
+tf :: Quaternion bt_q	tf2 :: Quaternion bt_q
+tf :: quaternionMsgToTF ( msg -> pose . pose . orientation , bt_q ) 	tf2 :: fromMsg ( msg -> pose . pose . orientation , bt_q ) 
+tf :: Matrix3x3 ( bt_q )  . getRPY ( vehicle_roll_ , vehicle_pitch_ , vehicle_yaw_ ) 	tf2 :: Matrix3x3 ( bt_q )  . getEulerYPR ( vehicle_yaw_ , vehicle_pitch_ , vehicle_roll_ ) 
+double OdometryModule :: SpeedFromVelocity ( double velocity ) 	double OdometryModule :: SpeedFromVelocity ( double velocity ) 
+void OdometryModule :: UpdateOdomValid	void OdometryModule :: UpdateOdomValid
+double age = ( ros :: Time :: now - odom_msg_ . header . stamp ) . toSec	double age = ( mnh -> now - odom_msg_ . header . stamp ) . seconds
+cv :: floodFill ( src , mask , cv :: Point ( j , i )  , i , 0 , 0 , loDiff , upDiff , flags ) 	cv :: floodFill ( src , mask , cv :: Point ( j , i )  , i , 0 , 0 , loDiff , upDiff , flags ) 
+cv :: floodFill ( label_image , cv :: Point ( x , y )  , y , label_count , & rect , 0 , 0 , flags ) 	cv :: floodFill ( label_image , cv :: Point ( x , y )  , y , label_count , & rect , 0 , 0 , flags ) 
+cv :: Point2f centroid ( 0.0 , 0.0 ) 	cv :: Point2f centroid ( 0.0 , 0.0 ) 
+void reduceSegments ( swri_nav_msgs :: Path *  path ) 	void reduceSegments ( swri_nav_msgs :: msg :: Path *  path ) 
+const swri_nav_msgs :: Path path_cpy = path	const swri_nav_msgs :: msg :: Path path_cpy = path
+error name situation ) 	error name situation ) 
+if ( path . segments . empty || path . segments . back . in_reverse != segment_to_append . in_reverse ) 	if ( path . segments . empty || path . segments . back . in_reverse != segment_to_append . in_reverse ) 
+double updateDistance ( const double start_distance , swri_nav_msgs :: PathSegment *  segment ) 	double updateDistance ( const double start_distance , swri_nav_msgs :: msg :: PathSegment *  segment ) 
+double updateDistance ( const double start_distance , swri_nav_msgs :: Path *  path ) 	double updateDistance ( const double start_distance , swri_nav_msgs :: msg :: Path *  path ) 
+error name situation ) 	error name situation ) 
+void removeCoincidentPoints ( swri_nav_msgs :: PathSegment *  segment , const double tol ) 	void removeCoincidentPoints ( swri_nav_msgs :: msg :: PathSegment *  segment , const double tol ) 
+swri_nav_msgs :: PathSegment new_segment	swri_nav_msgs :: msg :: PathSegment new_segment
+void removeCoincidentPoints ( swri_nav_msgs :: Path *  path , const double tol ) 	void removeCoincidentPoints ( swri_nav_msgs :: msg :: Path *  path , const double tol ) 
+error name situation ) 	error name situation ) 
+bool getBackPoint ( const swri_nav_msgs :: Path *  path , swri_nav_msgs :: PathPoint *  back_pt ) 	bool getBackPoint ( const swri_nav_msgs :: msg :: Path *  path , swri_nav_msgs :: msg :: PathPoint *  back_pt ) 
+void updateYaw ( swri_nav_msgs :: PathSegment *  segment ) 	void updateYaw ( swri_nav_msgs :: msg :: PathSegment *  segment ) 
+swri_nav_msgs :: PathPoint *  pt = segment . points [ ptno ] 	swri_nav_msgs :: msg :: PathPoint *  pt = segment . points [ ptno ] 
+swri_nav_msgs :: PathPoint *  next_pt = segment . points [ ptno ]  + 1	swri_nav_msgs :: msg :: PathPoint *  next_pt = segment . points [ ptno ]  + 1
+void updateYaw ( swri_nav_msgs :: Path *  path ) 	void updateYaw ( swri_nav_msgs :: msg :: Path *  path ) 
+void unwrapYaw ( swri_nav_msgs :: PathSegment *  segment ) 	void unwrapYaw ( swri_nav_msgs :: msg :: PathSegment *  segment ) 
+void unwrapYaw ( swri_nav_msgs :: Path *  path ) 	void unwrapYaw ( swri_nav_msgs :: msg :: Path *  path ) 
+error name situation ) 	error name situation ) 
+void separationFromLineSegment ( const swri_nav_msgs :: PathPoint point0 , const swri_nav_msgs :: PathPoint point1 , const double x , const double y , bool clamp0 , bool clamp1 , double & separation , double & nearest_distance ) 	void separationFromLineSegment ( const swri_nav_msgs :: msg :: PathPoint point0 , const swri_nav_msgs :: msg :: PathPoint point1 , const double x , const double y , bool clamp0 , bool clamp1 , double & separation , double & nearest_distance ) 
+tf :: Vector3 x0 ( point0 . x , point0 . y , 0.0 ) 	tf2 :: Vector3 x0 ( point0 . x , point0 . y , 0.0 ) 
+tf :: Vector3 x1 ( point1 . x , point1 . y , 0.0 ) 	tf2 :: Vector3 x1 ( point1 . x , point1 . y , 0.0 ) 
+tf :: Vector3 p ( x , y , 0.0 ) 	tf2 :: Vector3 p ( x , y , 0.0 ) 
+tf :: Vector3 v = x1 - x0	tf2 :: Vector3 v = x1 - x0
+tf :: Vector3 xn = x0 + s * v	tf2 :: Vector3 xn = x0 + s * v
+error specifier situation	error specifier situation
+bool findLocalNearestDistanceForward ( const swri_nav_msgs :: PathSegment *  segment , const double x , const double y , const double start_distance , double & nearest_distance , double & nearest_separation ) 	bool findLocalNearestDistanceForward ( const swri_nav_msgs :: msg :: PathSegment *  segment , const double x , const double y , const double start_distance , double & nearest_distance , double & nearest_separation ) 
+swri_nav_msgs :: PathPoint this_pt	swri_nav_msgs :: msg :: PathPoint this_pt
+bool findLocalNearestDistanceBackward ( const swri_nav_msgs :: PathSegment *  segment , const double x , const double y , const double start_distance , double & nearest_distance , double & nearest_separation ) 	bool findLocalNearestDistanceBackward ( const swri_nav_msgs :: msg :: PathSegment *  segment , const double x , const double y , const double start_distance , double & nearest_distance , double & nearest_separation ) 
+swri_nav_msgs :: PathSegment segment_rev = segment	swri_nav_msgs :: msg :: PathSegment segment_rev = segment
+bool findLocalNearestDistanceBidirect ( const swri_nav_msgs :: PathSegment *  segment , const double x , const double y , const double start_distance , double & nearest_distance , double & nearest_separation ) 	bool findLocalNearestDistanceBidirect ( const swri_nav_msgs :: msg :: PathSegment *  segment , const double x , const double y , const double start_distance , double & nearest_distance , double & nearest_separation ) 
+int distanceToIndex ( const swri_nav_msgs :: PathSegment *  segment , const double distance , const int init_idx ) 	int distanceToIndex ( const swri_nav_msgs :: msg :: PathSegment *  segment , const double distance , const int init_idx ) 
+bool interpolatePathSegment ( const swri_nav_msgs :: PathSegment *  segment , const double distance , swri_nav_msgs :: PathPoint *  out_point ) 	bool interpolatePathSegment ( const swri_nav_msgs :: msg :: PathSegment *  segment , const double distance , swri_nav_msgs :: msg :: PathPoint *  out_point ) 
+void updateSpacing ( swri_nav_msgs :: PathSegment *  segment , const double spacing ) 	void updateSpacing ( swri_nav_msgs :: msg :: PathSegment *  segment , const double spacing ) 
+swri_nav_msgs :: PathSegment out = segment	swri_nav_msgs :: msg :: PathSegment out = segment
+swri_nav_msgs :: PathPoint out_point	swri_nav_msgs :: msg :: PathPoint out_point
+void transformPathPoint ( const swri_transform_util :: Transform *  transform , swri_nav_msgs :: PathPoint *  point ) 	void transformPathPoint ( const swri_transform_util :: Transform *  transform , swri_nav_msgs :: msg :: PathPoint *  point ) 
+tf :: Point p0 ( point . x , point . y , 0.0 ) 	tf2 :: Vector3 p0 ( point . x , point . y , 0.0 ) 
+tf :: Point p1 = transform * p0	tf2 :: Vector3 p1 = transform * p0
+tf :: Quaternion q1 = transform * q0	tf2 :: Quaternion q1 = transform * q0
+point . yaw = tf :: getYaw ( q1 ) 	point . yaw = tf2 :: getYaw ( q1 ) 
+void transformPathSegment ( const swri_transform_util :: Transform *  transform , swri_nav_msgs :: PathSegment *  segment ) 	void transformPathSegment ( const swri_transform_util :: Transform *  transform , swri_nav_msgs :: msg :: PathSegment *  segment ) 
+void transformPath ( const swri_transform_util :: Transform *  transform , swri_nav_msgs :: Path *  path ) 	void transformPath ( const swri_transform_util :: Transform *  transform , swri_nav_msgs :: msg :: Path *  path ) 
+void makeLinePathSegment ( const double len , const double dist_step , swri_nav_msgs :: PathSegment *  segment ) 	void makeLinePathSegment ( const double len , const double dist_step , swri_nav_msgs :: msg :: PathSegment *  segment ) 
+void makeArcPathSegment ( const double curvature , double len , const double dist_step , swri_nav_msgs :: PathSegment *  segment ) 	void makeArcPathSegment ( const double curvature , double len , const double dist_step , swri_nav_msgs :: msg :: PathSegment *  segment ) 
+error other situation ) 	error other situation ) 
+double abs_len = fabs ( len ) 	double abs_len = fabs ( len ) 
+swri_nav_msgs :: PathPoint pt	swri_nav_msgs :: msg :: PathPoint pt
+void makeArcPathSegment ( const double curvature , const double len , const double dist_step , const swri_nav_msgs :: PathPoint *  align_pt , swri_nav_msgs :: PathSegment *  segment ) 	void makeArcPathSegment ( const double curvature , const double len , const double dist_step , const swri_nav_msgs :: msg :: PathPoint *  align_pt , swri_nav_msgs :: msg :: PathSegment *  segment ) 
+error name situation ) 	error name situation ) 
+void appendArcPathSegment ( const double curvature , const double len , const double dist_step , swri_nav_msgs :: Path *  path ) 	void appendArcPathSegment ( const double curvature , const double len , const double dist_step , swri_nav_msgs :: msg :: Path *  path ) 
+swri_nav_msgs :: PathSegment new_segment	swri_nav_msgs :: msg :: PathSegment new_segment
+swri_nav_msgs :: PathPoint back_pt	swri_nav_msgs :: msg :: PathPoint back_pt
+ROS_ERROR ( "" , frame_size ) 	printf ( "" , frame_size ) 
+ROS_ERROR ( "" , numel , m ) 	printf ( "" , numel , m ) 
+ROS_ERROR ( "" , frame_size ) 	printf ( "" , frame_size ) 
+ROS_ERROR ( "" , numel , m ) 	printf ( "" , numel , m ) 
+marti_common_msgs :: Float32StampedPtr makeFloat32StampedPtr ( ros :: Time stamp , double value ) 	std :: shared_ptr < marti_common_msgs :: msg :: Float32Stamped >  makeFloat32StampedPtr ( rclcpp :: Time stamp , double value ) 
+marti_common_msgs :: Float32StampedPtr msg = boost :: make_shared < marti_common_msgs :: Float32Stamped > 	std :: shared_ptr < marti_common_msgs :: msg :: Float32Stamped >  msg = std :: make_shared < marti_common_msgs :: msg :: Float32Stamped > 
+ControlMapConfig :: ControlMapConfig : min_brake_ ( 0.0 )  , max_brake_ ( 1.0 )  , brake_stop_ ( 0.6 )  , min_throttle_ ( 0.0 )  , max_throttle_ ( 1.0 )  , min_stop_brake_ ( 0.0 ) 	ControlMapConfig :: ControlMapConfig ( rclcpp :: Logger logger )  : min_brake_ ( 0.0 )  , max_brake_ ( 1.0 )  , brake_stop_ ( 0.6 )  , min_throttle_ ( 0.0 )  , max_throttle_ ( 1.0 )  , min_stop_brake_ ( 0.0 )  , logger_ ( logger ) 
+if ( min_brake > max_brake ) 	if ( min_brake > max_brake ) 
+ROS_WARN ( "" , min_brake , max_brake , min_brake ) 	RCLCPP_WARN ( logger_ , "" , min_brake , max_brake , min_brake ) 
+if ( min_throttle > max_throttle ) 	if ( min_throttle > max_throttle ) 
+ROS_WARN ( "" , min_throttle , max_throttle , min_throttle ) 	RCLCPP_WARN ( logger_ , "" , min_throttle , max_throttle , min_throttle ) 
+void ControlMapConfig :: PrintConfig	void ControlMapConfig :: PrintConfig
+ROS_INFO ( "" "" "" "" "" "" "" , min_brake_ , max_brake_ , min_throttle_ , max_throttle_ , brake_stop_ , min_stop_brake_ ) 	RCLCPP_INFO ( logger_ , "" "" "" "" "" "" "" , min_brake_ , max_brake_ , min_throttle_ , max_throttle_ , brake_stop_ , min_stop_brake_ ) 
+PidConfig :: PidConfig : kp_ ( 0.0 )  , ki_ ( 0.0 )  , kd_ ( 0.0 )  , kp_stop_ ( 0.0 )  , ki_stop_ ( 0.0 )  , kd_stop_ ( 0.0 )  , min_i_ ( 0.0 )  , max_i_ ( 0.0 )  , min_d_ ( 0.0 )  , max_d_ ( 0.0 )  , feedforward_vs_speed_ratio_ ( 0.0 )  , measured_filter_cut_off_hz_ ( 0.0 )  , derr_filter_cut_off_hz_ ( 0.0 ) 	PidConfig :: PidConfig ( rclcpp :: Logger logger )  : kp_ ( 0.0 )  , ki_ ( 0.0 )  , kd_ ( 0.0 )  , kp_stop_ ( 0.0 )  , ki_stop_ ( 0.0 )  , kd_stop_ ( 0.0 )  , min_i_ ( 0.0 )  , max_i_ ( 0.0 )  , min_d_ ( 0.0 )  , max_d_ ( 0.0 )  , feedforward_vs_speed_ratio_ ( 0.0 )  , measured_filter_cut_off_hz_ ( 0.0 )  , derr_filter_cut_off_hz_ ( 0.0 )  , logger_ ( logger ) 
+if ( kp < 0.0 || ki < 0.0 || kd < 0.0 ) 	if ( kp < 0.0 || ki < 0.0 || kd < 0.0 ) 
+ROS_WARN ( "" , kp , ki , kd ) 	RCLCPP_WARN ( logger_ , "" , kp , ki , kd ) 
+if ( kp_stop < - kp_ || ki_stop < - ki_ || kd_stop < - kd_ ) 	if ( kp_stop < - kp_ || ki_stop < - ki_ || kd_stop < - kd_ ) 
+ROS_WARN ( "" , kp_stop , ki_stop , kd_stop ) 	RCLCPP_WARN ( logger_ , "" , kp_stop , ki_stop , kd_stop ) 
+if ( min_i > 0 || min_d > 0 ) 	if ( min_i > 0 || min_d > 0 ) 
+ROS_WARN ( "" , min_i , min_d ) 	RCLCPP_WARN ( logger_ , "" , min_i , min_d ) 
+if ( max_i < 0 || max_d < 0 ) 	if ( max_i < 0 || max_d < 0 ) 
+ROS_WARN ( "" , max_i , max_d ) 	RCLCPP_WARN ( logger_ , "" , max_i , max_d ) 
+void PidConfig :: PrintConfig	void PidConfig :: PrintConfig
+ROS_INFO ( "" "" "" "" "" "" "" "" "" "" "" "" "" "" , kp_ , ki_ , kd_ , kp_stop_ , ki_stop_ , kd_stop_ , min_i_ , max_i_ , min_d_ , max_d_ , feedforward_vs_speed_ratio_ , measured_filter_cut_off_hz_ , derr_filter_cut_off_hz_ ) 	RCLCPP_INFO ( logger_ , "" "" "" "" "" "" "" "" "" "" "" "" "" "" , kp_ , ki_ , kd_ , kp_stop_ , ki_stop_ , kd_stop_ , min_i_ , max_i_ , min_d_ , max_d_ , feedforward_vs_speed_ratio_ , measured_filter_cut_off_hz_ , derr_filter_cut_off_hz_ ) 
+SimplePid :: SimplePid : last_measured_ ( 0.0 )  , last_commanded_ ( 0.0 )  , initialized_ ( false )  , last_err_ ( 0.0 )  , last_integral_err_ ( 0.0 )  , measured_filtered_ ( 0.0 )  , derr_filtered_ ( 0.0 )  , last_update_time_ ( ros :: Time ( 0 )  ) 	error other situation
+double SimplePid :: Update ( const ros :: Time *  time ) 	double SimplePid :: Update ( const rclcpp :: Time *  time ) 
+double dt = ( time - last_update_time_ ) . toSec	double dt = ( ( time - last_update_time_ ) . nanoseconds ) * 1.0e-9
+double d = ClampD ( kd * derr_filtered_ ) 	double d = ClampD ( kd * derr_filtered_ ) 
+void SimplePid :: LoadCommanded ( double value )  = value	void SimplePid :: LoadCommanded ( double value )  = value
+void SimplePid :: SetConfig ( const PidConfig & config )  = config	void SimplePid :: SetConfig ( const PidConfig & config )  = config
+ros :: NodeHandle mnh = GetModuleNodeHandle	auto mnh = GetModuleNodeHandle
+mnh . param ( "" , timeout_s_ , timeout_s_ ) 	timeout_s_ = ( get_sub_parameter ( mnh , "" )  ) . as_double
+ROS_INFO ( "" , GetName  . c_str  , timeout_s_ ) 	RCLCPP_INFO ( mnh -> get_logger (  )  , "" , GetName  . c_str  , timeout_s_ ) 
+void SpeedCommandModule :: Initialize	void SpeedCommandModule :: Initialize
+ros :: NodeHandle nh = GetNodeHandle	auto nh = GetNodeHandle
+speed_sub_ = nh . subscribe ( "" , 2 , & SpeedCommandModule :: handleSpeedMsg , this ) 	speed_sub_ = nh -> create_subscription < marti_common_msgs :: msg :: Float32Stamped >  ( "" , 2 , std :: bind ( & SpeedCommandModule :: handleSpeedMsg , this , std :: placeholders :: _1 )  SpeedCommandModule :: handleSpeedMsg , this , std :: placeholders :: _1 ) 
+speed_sub_ = ros :: Subscriber	speed_sub_ . reset
+error other situation ) 	error other situation ) 
+error other situation ) 	error other situation ) 
+ROS_WARN_THROTTLE ( 1.0 , "" ) 	RCLCPP_WARN ( mnh -> get_logger (  )  , "" ) 
+void SpeedCommandModule :: handleSpeedMsg ( const marti_common_msgs :: Float32StampedConstPtr *  msg )  = msg	void SpeedCommandModule :: handleSpeedMsg ( const marti_common_msgs :: msg :: Float32Stamped :: SharedPtr msg )  = msg
+boost :: shared_ptr < du :: Updater >  diagnostic_updater_	std :: shared_ptr < du :: Updater >  diagnostic_updater_
+ros :: Timer diagnostic_timer_	rclcpp :: TimerBase :: SharedPtr diagnostic_timer_
+ros :: WallTimer init_timer_	rclcpp :: TimerBase :: SharedPtr init_timer_
+ros :: Subscriber steering_sense_sub_	rclcpp :: Subscription < mcm :: Float32Stamped >  :: SharedPtr steering_sense_sub_
+ros :: Subscriber curvature_setpoint_sub_	rclcpp :: Subscription < mcm :: Float32Stamped >  :: SharedPtr curvature_setpoint_sub_
+ros :: Publisher steering_setpoint_pub_	rclcpp :: Publisher < mcm :: Float32Stamped >  :: SharedPtr steering_setpoint_pub_
+void onInit	void onInit
+void initialize ( const ros :: WallTimerEvent *  ) 	void initialize
+pnh_ . param ( "" , temp , 0.5 ) 	RCLCPP_INFO ( this -> get_logger (  )  , "" ) 
+cal_ . distortion_factor = temp	cal_ . distortion_factor = ( this -> get_parameter ( "" )  ) . as_double
+steering_sense_sub_ = nh_ . subscribe ( "" , 2 , & SteeringCalibrationNodelet :: handleSteeringSense , this ) 	steering_sense_sub_ = this -> create_subscription < mcm :: Float32Stamped >  ( "" , 2 , std :: bind ( & SteeringCalibrationNodelet :: handleSteeringSense , this , std :: placeholders :: _1 )  SteeringCalibrationNodelet :: handleSteeringSense , this , std :: placeholders :: _1 ) 
+curvature_sense_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 2 ) 	curvature_sense_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 2 )  ) 
+curvature_setpoint_sub_ = nh_ . subscribe ( "" , 2 , & SteeringCalibrationNodelet :: handleCurvatureSetpoint , this ) 	curvature_setpoint_sub_ = this -> create_subscription < mcm :: Float32Stamped >  ( "" , 2 , std :: bind ( & SteeringCalibrationNodelet :: handleCurvatureSetpoint , this , std :: placeholders :: _1 )  SteeringCalibrationNodelet :: handleCurvatureSetpoint , this , std :: placeholders :: _1 ) 
+steering_setpoint_pub_ = nh_ . advertise < mcm :: Float32Stamped >  ( "" , 2 ) 	steering_setpoint_pub_ = this -> create_publisher < mcm :: Float32Stamped >  ( "" , rclcpp :: QoS ( 2 )  ) 
+diagnostic_timer_ = nh_ . createTimer ( ros :: Duration ( 1.0 )  , & SteeringCalibrationNodelet :: handleDiagnosticTimer , this ) 	diagnostic_timer_ = this -> create_wall_timer ( std :: chrono :: duration < int , std :: milli >  , std :: milli ( 1000 )  , std :: bind ( & SteeringCalibrationNodelet :: handleDiagnosticTimer , this )  SteeringCalibrationNodelet :: handleDiagnosticTimer , this ) 
+diagnostic_updater_ = boost :: make_shared < du :: Updater >  ( nh_ , pnh_ , getName  ) 	diagnostic_updater_ = std :: make_shared < du :: Updater >  ( this -> create_sub_node ( "" )  ) 
+void handleDiagnosticTimer ( const ros :: TimerEvent *  ) 	void handleDiagnosticTimer
+void handleSteeringSense ( const mcm :: Float32StampedConstPtr *  in_msg ) 	void handleSteeringSense ( const mcm :: Float32Stamped :: SharedPtr in_msg ) 
+mcm :: Float32StampedPtr out_msg = boost :: make_shared < mcm :: Float32Stamped > 	auto out_msg = mcm :: Float32Stamped
+out_msg -> header . stamp = in_msg -> header . stamp	out_msg . header . stamp = in_msg -> header . stamp
+curvaturesFromSteerings ( & out_msg -> value , & cal_ , & in_msg -> value , 1 ) 	curvaturesFromSteerings ( & out_msg . value , & cal_ , & in_msg -> value , 1 ) 
+curvature_sense_pub_ . publish ( out_msg ) 	curvature_sense_pub_ -> publish ( out_msg ) 
+void handleCurvatureSetpoint ( const mcm :: Float32StampedConstPtr *  in_msg ) 	void handleCurvatureSetpoint ( const mcm :: Float32Stamped :: SharedPtr in_msg ) 
+mcm :: Float32StampedPtr out_msg = boost :: make_shared < mcm :: Float32Stamped > 	auto out_msg = mcm :: Float32Stamped
+out_msg -> header . stamp = in_msg -> header . stamp	out_msg . header . stamp = in_msg -> header . stamp
+steeringsFromCurvatures ( & out_msg -> value , & cal_ , & in_msg -> value , 1 ) 	steeringsFromCurvatures ( & out_msg . value , & cal_ , & in_msg -> value , 1 ) 
+steering_setpoint_pub_ . publish ( out_msg ) 	steering_setpoint_pub_ -> publish ( out_msg ) 

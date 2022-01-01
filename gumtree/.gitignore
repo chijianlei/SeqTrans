@@ -1,0 +1,15 @@
+/graph/
+/input.cpp
+/migrations/
+/migrations_test/
+/report/
+/result.txt
+/talker.cpp
+/talker.txt
+/talker2.cpp
+/testGraph.txt
+/testGraph2.txt
+/testMapping.txt
+/tmp/
+/target/
+/.gradle/

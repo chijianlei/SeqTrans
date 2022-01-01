@@ -1,0 +1,15 @@
+int main ( int var , char * * var )
+ros :: init ( var , var , "" )
+ros :: NodeHandle var
+ros :: Publisher var = var . advertise < std_msgs :: String > ( "" , 1000 )
+ros :: Rate var ( 10 )
+int var = 0
+std_msgs :: String var
+while ( ros :: ok ( ) )
+std :: stringstream var
+var << "" << var ++
+var . data = var . str ( )
+ROS_INFO ( "" , var . data . c_str ( ) )
+var . publish ( var )
+ros :: spinOnce ( )
+var . sleep ( )

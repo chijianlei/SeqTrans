@@ -1,0 +1,185 @@
+{
+	"root": {
+		"type": "425139773",
+		"typeLabel": "decl_stmt",
+		"pos": "265",
+		"length": "53",
+		"children": [
+			{
+				"type": "3079338",
+				"typeLabel": "decl",
+				"pos": "265",
+				"length": "53",
+				"children": [
+					{
+						"type": "3575610",
+						"typeLabel": "type",
+						"pos": "265",
+						"length": "5",
+						"children": [
+							{
+								"type": "3373707",
+								"label": "auto",
+								"typeLabel": "name",
+								"pos": "265",
+								"length": "5",
+								"children": []
+							}
+						]
+					},
+					{
+						"type": "3373707",
+						"label": "var",
+						"typeLabel": "name",
+						"pos": "270",
+						"length": "4",
+						"children": []
+					},
+					{
+						"type": "3237136",
+						"typeLabel": "init",
+						"pos": "276",
+						"length": "42",
+						"children": [
+							{
+								"type": "3127797",
+								"typeLabel": "expr",
+								"pos": "276",
+								"length": "42",
+								"children": [
+									{
+										"type": "3045982",
+										"typeLabel": "call",
+										"pos": "276",
+										"length": "42",
+										"children": [
+											{
+												"type": "3373707",
+												"typeLabel": "name",
+												"pos": "276",
+												"length": "43",
+												"children": [
+													{
+														"type": "3373707",
+														"label": "std",
+														"typeLabel": "name",
+														"pos": "276",
+														"length": "4",
+														"children": []
+													},
+													{
+														"type": "-500553564",
+														"label": "::",
+														"typeLabel": "operator",
+														"pos": "279",
+														"length": "3",
+														"children": []
+													},
+													{
+														"type": "3373707",
+														"typeLabel": "name",
+														"pos": "281",
+														"length": "38",
+														"children": [
+															{
+																"type": "3373707",
+																"label": "make_shared",
+																"typeLabel": "name",
+																"pos": "281",
+																"length": "12",
+																"children": []
+															},
+															{
+																"type": "-40060704",
+																"typeLabel": "argument_list",
+																"pos": "292",
+																"length": "27",
+																"children": [
+																	{
+																		"type": "-1589682499",
+																		"typeLabel": "argument",
+																		"pos": "293",
+																		"length": "22",
+																		"children": [
+																			{
+																				"type": "3127797",
+																				"typeLabel": "expr",
+																				"pos": "293",
+																				"length": "22",
+																				"children": [
+																					{
+																						"type": "3373707",
+																						"typeLabel": "name",
+																						"pos": "293",
+																						"length": "22",
+																						"children": [
+																							{
+																								"type": "3373707",
+																								"label": "std_msgs",
+																								"typeLabel": "name",
+																								"pos": "293",
+																								"length": "9",
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": "::",
+																								"typeLabel": "operator",
+																								"pos": "301",
+																								"length": "3",
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "var",
+																								"typeLabel": "name",
+																								"pos": "303",
+																								"length": "4",
+																								"children": []
+																							},
+																							{
+																								"type": "-500553564",
+																								"label": "::",
+																								"typeLabel": "operator",
+																								"pos": "306",
+																								"length": "3",
+																								"children": []
+																							},
+																							{
+																								"type": "3373707",
+																								"label": "String",
+																								"typeLabel": "name",
+																								"pos": "308",
+																								"length": "7",
+																								"children": []
+																							}
+																						]
+																					}
+																				]
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											},
+											{
+												"type": "-40060704",
+												"typeLabel": "argument_list",
+												"pos": "315",
+												"length": "3",
+												"children": []
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
