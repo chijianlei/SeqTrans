@@ -13,9 +13,9 @@ SeqTrans is a tool that automatically learns the fix model for vulnerability fix
 ## Prerequisite
 
 SeqTrans works fine with Java 1.8 and Pyhon 3.7.  
-Gumtree and Understand (Version build 996 or below) are needed to extract fine-grained code diffs from history fixing records.   
+Gumtree and Understand (Version build 996 or below) are needed to extract fine-grained code diffs.   
 We have made extensive changes to Gumtree's code, please use our modified version.  
-To parse the source code and generate the abstract syntax tree, SrcML (Version 1.0.0) is used as the syntax parser.  
+SrcML (Version 1.0.0) is used as the syntax parser to generate the abstract syntax tree.  
 OpenNMT (Version 2.0.0 or above) is required to train the NMT model.  
 Other third-party dependencies can be found in requirements.txt and pom.xml. 
 
