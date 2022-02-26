@@ -37,6 +37,8 @@ Use FilterDefuse.java and token_extraction.py to extract tokenized diff records 
 As for new input files, use CollectSingleFile.java and token_extraction_single.py to extract tokenized diff records.  
 patch_generation.py is used to perform abstract backfill and generate repair patches.  
 
+Fully automated command line mode and docker model are under development.
+
 ## Documentation
 
 Documentation will be released soon.
