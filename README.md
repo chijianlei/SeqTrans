@@ -30,6 +30,13 @@ The dataset can be found in here: https://github.com/ZeoVan/vulnerability-assess
 Experimental results and the trained model are too large, we have shared them in Google Driver:  
 https://drive.google.com/drive/folders/1gzUVyKoEFtK55hZcBlNL004oB9El6RzI?usp=sharing  
 
+## Usage
+
+You can use CollectCommitDiff.java to collect the corresponding git commit records from the database.  
+Use FilterDefuse.java and token_extraction.py to extract tokenized diff records containing dataflow dependencies from commit records.  
+As for new input files, use CollectSingleFile.java and token_extraction_single.py to extract tokenized diff records.  
+patch_generation.py is used to perform abstract backfill and generate repair patches.  
+
 ## Documentation
 
 Documentation will be released soon.
