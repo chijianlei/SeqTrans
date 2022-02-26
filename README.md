@@ -47,7 +47,7 @@ Documentation will be released soon.
 
 Currently only Java language is supported, more languages are coming soon.
 
-## Citing GumTree
+## Citation
 
 If you use SeqTrans in an academic work we would be really happy. 
 This work is currently being submitted to TSE. If you cite our seminal paper, please using the following bibtex:
