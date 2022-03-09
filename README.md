@@ -29,7 +29,7 @@ The dataset can be found in here: https://github.com/ZeoVan/vulnerability-assess
 ## Experimental Results
 Experimental results and the trained model are too large, we have shared them in Google Driver:  
 https://drive.google.com/drive/folders/1gzUVyKoEFtK55hZcBlNL004oB9El6RzI?usp=sharing  
-Please read the Readme to learn more ditails. 
+Please read the Readme to learn more details. 
 
 ## Usage
 
